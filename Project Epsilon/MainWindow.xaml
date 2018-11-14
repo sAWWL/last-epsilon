@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_Epsilon"
         mc:Ignorable="d"
-        Title="Project Epsilon" Height="320" Width="480" Background="#FF216299">
+        Title="Project Epsilon" Height="285" Width="450"  MaxHeight="285" MaxWidth="450" Background="#FF216299">
 
     <Window.Resources>
         <Style TargetType="Window">
@@ -70,11 +70,6 @@
             <Button x:Name="RecipeEditorBtn" Grid.Column="1" Grid.Row="3" Width="225" Height="50" Click="RecipeEditorBtn_Click">
                 <TextBlock TextAlignment="Center" FontSize="16" FontWeight="DemiBold">Recipe Editor</TextBlock>
             </Button>
-
-            <Button x:Name="LogsBtn" Grid.Column="1" Grid.Row="4" Width="225" Height="50">
-                <TextBlock TextAlignment="Center" FontSize="16" FontWeight="DemiBold">Logs</TextBlock>
-            </Button>
-
         </Grid>
     </Grid>
 </Window>
