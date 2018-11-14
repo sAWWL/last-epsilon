@@ -435,5 +435,28 @@ namespace Project_Epsilon
                 }
             }
         }
+
+        private void clearBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure you wish to clear all fields?", "Clear Fields Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                highTempTxt.Text = "";
+                tempSetTxt.Text = "";
+                lowTempTxt.Text = "";
+                sealTimeTxt.Text = "";
+                highPressTxt.Text = "";
+                pressSetTxt.Text = "";
+                lowPressureTxt.Text = "";
+                recipeTxt.Text = "";
+                productTxt.Text = "";
+                lotTxt.Text = "";
+                recipeUDITxt.Text = "";
+                toolConfirmTxt.Text = "";
+                cavMgtOptTxt.Text = "";
+                usingUDITxt.Text = "";
+                rfidTxt.Text = "";
+            }
+        }
     }
 }
