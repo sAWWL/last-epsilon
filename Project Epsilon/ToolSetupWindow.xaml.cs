@@ -22,6 +22,7 @@ public partial class ToolSetupWindow : Window
         public ToolSetupWindow()
         {
             InitializeComponent();
+            ToolUDITextbox.Text = Convert.ToString(LoadedRecipe._UDIRecipe);
         }
    
         //Back button click event

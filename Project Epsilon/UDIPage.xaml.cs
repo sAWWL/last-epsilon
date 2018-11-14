@@ -240,6 +240,10 @@ namespace Project_Epsilon
             {
                 lblCavUDIEntireOrPartial.Visibility = Visibility.Hidden;
                 txtCavUDIEntireOrPartial.Visibility = Visibility.Hidden;
+                lblCavUDIFirstPosition.Visibility = Visibility.Hidden;
+                txtCavUDIFirstPosition.Visibility = Visibility.Hidden;
+                lblCavUDIEndingPosition.Visibility = Visibility.Hidden;
+                txtCavUDIEndingPosition.Visibility = Visibility.Hidden;
             }
 
         }
