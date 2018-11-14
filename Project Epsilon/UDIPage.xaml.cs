@@ -194,7 +194,7 @@ namespace Project_Epsilon
 
         public bool IsValid(TextBox textbox, TextCompositionEventArgs e)
         {
-            if (textbox.Name == "txtUDIFirstPosition")
+            if (textbox.Name == "txtUDIFirstPosition" || textbox.Name == "txtCavUDIFirstPosition")
             {
                 if (int.TryParse((textbox.Text + e.Text), out int i) && i >= 0 && (i + EndPosition <= 39))
                 {
@@ -204,7 +204,7 @@ namespace Project_Epsilon
                 return false;
             }
 
-            if (textbox.Name == "txtUDIEndingPosition")
+            if (textbox.Name == "txtUDIEndingPosition" || textbox.Name == "txtCavUDIEndingPosition")
             {
                 if (int.TryParse((textbox.Text + e.Text), out int i) && i >= 0 && (i + FirstPosition) <= 40)
                 {
