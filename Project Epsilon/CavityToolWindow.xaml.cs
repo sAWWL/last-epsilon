@@ -32,7 +32,7 @@ namespace Project_Epsilon
             {
                 methodTwoCheckbox.IsChecked = true;
             }
-            numCavitiesTxtBox.Text = Convert.ToString(LoadedRecipe._cavMgtUsed);
+            numCavitiesTxtBox.Text = Convert.ToString(LoadedRecipe.numCavUsed);
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -54,7 +54,7 @@ namespace Project_Epsilon
             {
                 LoadedRecipe._cavMethodTwoSelected = 0;
             }
-            LoadedRecipe._cavMgtUsed = Convert.ToInt32(numCavitiesTxtBox.Text);
+            LoadedRecipe.numCavUsed = Convert.ToInt32(numCavitiesTxtBox.Text);
 
             if( methodOneCheckbox.IsChecked == true || methodTwoCheckbox.IsChecked == true)
             {

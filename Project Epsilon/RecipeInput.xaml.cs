@@ -39,6 +39,12 @@ namespace Project_Epsilon
                 saveRecipe.IsEnabled = false;
                 errorTxt.Content = "Below fields must be numeric input only";
             }
+            else if (recipeUDITxt.Text.Length != 40)
+            {
+                errorTxt.Visibility = Visibility.Visible;
+                saveRecipe.IsEnabled = false;
+                errorTxt.Content = "Recipe UDI must be 40 characters";
+            }
             else
             {
                 highTempAlarm = Convert.ToDouble(highTempTxt.Text);
@@ -216,6 +222,12 @@ namespace Project_Epsilon
                     errorTxt.Visibility = Visibility.Visible;
                     saveRecipe.IsEnabled = false;
                     errorTxt.Content = "Below fields must be numeric input only";
+                }
+                else if (recipeUDITxt.Text.Length != 40)
+                {
+                    errorTxt.Visibility = Visibility.Visible;
+                    saveRecipe.IsEnabled = false;
+                    errorTxt.Content = "Recipe UDI must be 40 characters";
                 }
                 else
                 {
@@ -401,6 +413,12 @@ namespace Project_Epsilon
                 errorTxt.Visibility = Visibility.Visible;
                 saveRecipe.IsEnabled = false;
                 errorTxt.Content = "Below fields must be numeric input only";
+            }
+            else if (recipeUDITxt.Text.Length != 40)
+            {
+                errorTxt.Visibility = Visibility.Visible;
+                saveRecipe.IsEnabled = false;
+                errorTxt.Content = "Recipe UDI must be 40 characters";
             }
             else
             {

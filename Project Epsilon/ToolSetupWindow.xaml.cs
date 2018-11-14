@@ -22,13 +22,15 @@ public partial class ToolSetupWindow : Window
         public ToolSetupWindow()
         {
             InitializeComponent();
-            ToolUDITextbox.Text = Convert.ToString(LoadedRecipe._UDIRecipe);
+            ToolUDITextbox.Text = LoadedRecipe._UDIRecipe;
+            
         }
    
         //Back button click event
         private void BackButton(object sender, RoutedEventArgs e)
         {
             this.Close();
+            LoadedRecipe.numCavUsed = Convert.ToInt32(NumCavsTextbox.Text);
         }
 
         //Tool Confirmation checkbox event

@@ -94,7 +94,7 @@
 
                     <!--row 4-->
                     <TextBlock Text="Recipe UDI" Margin ="0,84,45,-9" Grid.Column="0" FontSize="13" FontWeight="DemiBold"/>
-                    <TextBox Name="recipeUDITxt" MaxWidth="475" MaxHeight="20" Margin="74,81,119,-6" Grid.Column="0" Grid.ColumnSpan="3" RenderTransformOrigin="0.501,0.5"/>
+                    <TextBox Name="recipeUDITxt" MaxWidth="475" MaxHeight="20" MaxLength="40" Margin="74,81,119,-6" Grid.Column="0" Grid.ColumnSpan="3" RenderTransformOrigin="0.501,0.5" TextChanged="UDI_Validation"/>
                 </Grid>
 
                 <!--error textbox. blank until populated-->
