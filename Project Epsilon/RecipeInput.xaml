@@ -27,8 +27,7 @@
                         <TextBlock Width="25" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20">File</TextBlock>
                     </MenuItem.Header>
 
-                    <MenuItem Header="_Connection Manager" />
-                    <MenuItem Header="_View Log" />
+                    <MenuItem Header="_Connection Manager"/>
                     <MenuItem Header="_Exit"/>
                 </MenuItem>
 
@@ -69,7 +68,7 @@
                     <TextBlock Text="Recipe Name" Grid.Column="0" Margin="0,0,45,0" FontSize="13" FontWeight="DemiBold"/>
                     <TextBox Name="recipeTxt" IsReadOnly="True" MaxWidth="75" MaxHeight="20" Margin="74,0,45,75" Grid.Column="0"/>
                     <TextBlock Text="Tool Confirmation" Grid.Column="1" Margin="0,0,0,0" FontSize="13" FontWeight="DemiBold"/>
-                    <ComboBox Name="toolConfirmTxt" MaxWidth="50" Margin="80,-2,45,78" Grid.Column="1">
+                    <ComboBox Name="toolConfirmTxt" MaxWidth="50" Margin="100,-2,45,78" Grid.Column="1">
                         <ComboBoxItem Content="Yes"/>
                         <ComboBoxItem Content="No"/>
                     </ComboBox>
@@ -78,7 +77,7 @@
                     <TextBlock Text="Product" Grid.Column="0" Margin="0,25,45,0" FontSize="13" FontWeight="DemiBold"/>
                     <TextBox Name="productTxt" MaxWidth="75" MaxHeight="20" Margin="74,25,45,50" Grid.Column="0"/>
                     <TextBlock Text="Cav Mgt Option" Margin ="0,25,45,0" Grid.Column="1" FontSize="13" FontWeight="DemiBold"/>
-                    <ComboBox Name="cavMgtOptTxt" MaxWidth="50" Margin="80,25,45,51" Grid.Column="1">
+                    <ComboBox Name="cavMgtOptTxt" MaxWidth="50" Margin="100,25,45,51" Grid.Column="1">
                         <ComboBoxItem Content="Yes"/>
                         <ComboBoxItem Content="No"/>
                     </ComboBox>
@@ -87,7 +86,7 @@
                     <TextBlock Text="Lot" Grid.Column="0" Margin="0,50,45,0" FontSize="13" FontWeight="DemiBold"/>
                     <TextBox Name="lotTxt" MaxWidth="75" MaxHeight="20" Margin="74,50,45,25" Grid.Column="0"/>
                     <TextBlock Text="Using UDI" Margin ="0,50,45,0" Grid.Column="1" FontSize="13" FontWeight="DemiBold"/>
-                    <ComboBox Name="usingUDITxt" MaxWidth="50" Margin="80,52,45,23" Grid.Column="1" IsReadOnly="True">
+                    <ComboBox Name="usingUDITxt" MaxWidth="50" Margin="100,52,45,23" Grid.Column="1" IsReadOnly="True">
                         <ComboBoxItem Content="Yes"/>
                         <ComboBoxItem Content="No"/>
                     </ComboBox>
