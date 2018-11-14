@@ -32,7 +32,7 @@
                 <CheckBox Name="methodOneCheckbox" Foreground="Black" FontWeight="Bold">Method One (Count All Cavities used)</CheckBox>
                 <CheckBox Name="methodTwoCheckbox" Foreground="Black" FontWeight="Bold">Method Two (Count using Required Cavities)</CheckBox>
                 <TextBlock x:Name="numCavitiesLbl" Foreground="Black" FontWeight="Bold">Number of Cavities in the Tool?<InlineUIContainer>
-                        <TextBox Name="numCavitiesTxtBox" Width="15" Height="15" Margin="5,5,0,0"/>
+                        <TextBox Name="numCavitiesTxtBox" Width="15" Height="15" Margin="5,5,0,0" PreviewTextInput="TextBox_PreviewTextInput"/>
                     </InlineUIContainer></TextBlock>
                 <Separator/>
                 <TextBlock x:Name="useLbl">Cavity Management Used<InlineUIContainer>
