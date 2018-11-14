@@ -1,0 +1,149 @@
+﻿<Window x:Class="Project_Epsilon.RecipeInput"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Recipe Input" Height="475" Width="720" >
+    <Border>
+        <Border.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FFBFCEDA" Offset="0.734"/>
+                <GradientStop Color="AliceBlue" Offset="0.228"/>
+                <GradientStop Color="#FF030C13" Offset="1"/>
+                <GradientStop Color="#FF4892C9" Offset="1"/>
+                <GradientStop Color="#FF2F73AD" Offset="0.99"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
+
+
+        <StackPanel>
+            <Menu DockPanel.Dock="Top" Grid.Row="0" Height="20" VerticalAlignment="Top" >
+
+                <MenuItem>
+                    <MenuItem.Header>
+                        <TextBlock Width="25" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20">File</TextBlock>
+                    </MenuItem.Header>
+
+                    <MenuItem Header="_Connection Manager" />
+                    <MenuItem Header="_View Log" />
+                    <MenuItem Header="_Exit"/>
+                </MenuItem>
+
+                <MenuItem>
+                    <MenuItem.Header>
+                        <TextBlock Width="25" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20">Edit</TextBlock>
+                    </MenuItem.Header>
+                    <MenuItem Header="_Load Recipes" HorizontalAlignment="Left"/>
+                    <MenuItem Header="_Delete Recipe" HorizontalAlignment="Left"/>
+                </MenuItem>
+            </Menu>
+
+            <StackPanel Margin="0, 10, 0, 0">
+                <Image Source="logo.png" Height="55" Width="245" Margin="-10, 5, 485, 15"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="125"/>
+                        <ColumnDefinition Width="246*"/>
+                        <ColumnDefinition Width="188*"/>
+                        <ColumnDefinition Width="59*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="50, 0, 0, 0" Text="#" Grid.Column="0"/>
+                    <TextBlock Margin="50, 0, 0, 0" Text="#####" Name="userLbl" Grid.Column="1"/>
+                    <TextBlock Margin="50, 0, 0, 0" Text="currently Logged in" Grid.Column="2"/>
+                    <TextBlock Margin="20, -55, 0, 0" Text="Create Recipes" FontSize="20" FontWeight="Bold" Grid.Column="3" Grid.ColumnSpan="2"/>
+                </Grid>
+                <!--fix the widths now. its going to be 3x4-->
+                <Grid Margin="25,20,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--row 1-->
+                    <TextBlock Text="Recipe Name" Grid.Column="0" Margin="0,0,45,0" FontSize="13" FontWeight="DemiBold"/>
+                    <TextBox Name="recipeTxt" IsReadOnly="True" MaxWidth="75" MaxHeight="20" Margin="74,0,45,75" Grid.Column="0"/>
+                    <TextBlock Text="Tool Confirmation" Grid.Column="1" Margin="0,0,0,0" FontSize="13" FontWeight="DemiBold"/>
+                    <TextBox Name="toolConfirmTxt" MaxWidth="40" Height="15" Margin="80,0,45,75" Grid.Column="1"/>
+
+                    <!--row 2-->
+                    <TextBlock Text="Product" Grid.Column="0" Margin="0,25,45,0" FontSize="13" FontWeight="DemiBold"/>
+                    <TextBox Name="productTxt" MaxWidth="75" MaxHeight="20" Margin="74,25,45,50" Grid.Column="0"/>
+                    <TextBlock Text="Cav Mgt Option" Margin ="0,25,45,0" Grid.Column="1" FontSize="13" FontWeight="DemiBold"/>
+                    <TextBox Name="cavMgtOptTxt" MaxWidth="40" Height="15" Margin="80,25,45,50" Grid.Column="1"/>
+
+                    <!--row 3-->
+                    <TextBlock Text="Lot" Grid.Column="0" Margin="0,50,45,0" FontSize="13" FontWeight="DemiBold"/>
+                    <TextBox Name="lotTxt" MaxWidth="75" MaxHeight="20" Margin="74,50,45,25" Grid.Column="0"/>
+                    <TextBlock Text="Using UDI" Margin ="0,50,45,0" Grid.Column="1" FontSize="13" FontWeight="DemiBold"/>
+                    <TextBox Name="usingUDITxt" MaxWidth="40" Height="15" Margin="80,25,45,0" Grid.Column="1"/>
+                    <TextBlock Text="RFID #" Margin ="0,50,45,0" Grid.Column="2" FontSize="13" FontWeight="DemiBold"/>
+                    <TextBox Name="rfidTxt" MaxWidth="35" Height="15" Margin="40,50,118,25" Grid.Column="2"/>
+
+                    <!--row 4-->
+                    <TextBlock Text="Recipe UDI" Margin ="0,75,45,0" Grid.Column="0" FontSize="13" FontWeight="DemiBold"/>
+                    <TextBox Name="recipeUDITxt" MaxWidth="75" MaxHeight="20" Margin="74,76,45,0" Grid.Column="0"/>
+                </Grid>
+
+                <!--error textbox. blank until populated-->
+                <StackPanel>
+                    <TextBox x:Name="errorTxt" IsReadOnly="True" MaxWidth="500" MaxHeight="30" Margin="35,5"/>
+                </StackPanel>
+
+                <!--second section-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--row 1-->
+                    <TextBlock Text="High Temp Alarm (F)" Margin="25,10,0,0" Grid.Column="0" FontSize="13" FontWeight="DemiBold"/>
+                    <TextBox Name="highTempTxt" MaxWidth="70" Margin="140,10,96,101" Grid.Column="0"/>
+                    <TextBlock Text="High Pressure Alarm (PSI)" Margin="0,10,0,0" Grid.Column="1" FontSize="13" FontWeight="DemiBold"/>
+                    <TextBox Name="highPressTxt" MaxWidth="70" Margin="140,12,96,99" Grid.Column="1"/>
+                    <!--row 2-->
+                    <TextBlock Text="Temp Setpoint (F)" Margin="25,35,0,0" Grid.Column="0" FontSize="13" FontWeight="DemiBold"/>
+                    <TextBox Name="tempSetTxt" MaxWidth="70" Margin="140,35,96,75" Grid.Column="0"/>
+                    <TextBlock Text="Pressure Setpoint (PSI)" Margin="0,35,0,0" Grid.Column="1" FontSize="13" FontWeight="DemiBold"/>
+                    <TextBox Name="pressSetTxt" MaxWidth="70" Margin="140,35,96,75" Grid.Column="1"/>
+                    <!--row 3-->
+                    <TextBlock Text="Low Temp Alarm (F)" Margin="25,60,0,0" Grid.Column="0" FontSize="13" FontWeight="DemiBold"/>
+                    <TextBox Name="lowTempTxt" MaxWidth="70" Margin="140,62,96,48" Grid.Column="0"/>
+                    <TextBlock Text="Low Pressure Alarm (PSI)" Margin="0,60,0,0" Grid.Column="1" FontSize="13" FontWeight="DemiBold"/>
+                    <TextBox Name="lowPressureTxt" MaxWidth="70" Margin="140,59,96,51" Grid.Column="1"/>
+                    <!--row 4-->
+                    <TextBlock Text="Seal Time (secs)" Margin="25,86,0,9" FontSize="13" FontWeight="DemiBold"/>
+                    <TextBox Name="sealTimeTxt" MaxWidth="70" Margin="140,86,96,25" Grid.Column="0"/>
+                </Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="optionsBtn"  Grid.Column="0" Click="optionsBtn_Click" Grid.RowSpan="2" Content="Options" Margin="5,0"/>
+                    <Button x:Name="loadBtn" Grid.Column="1" Grid.RowSpan="2" Content="Load" Margin="5,0" Click="loadBtn_Click"/>
+                    <Button x:Name="clearBtn" Grid.Column="2" Grid.RowSpan="2" Content="Clear" Margin="5,0"/>
+                    <Button x:Name="deleteBtn" Grid.Column="3" Grid.RowSpan="2" Content="Delete" Margin="5,0"/>
+                    <Button x:Name="saveRecipe" Height="24" Grid.Column="4" Margin="5,0" Click="saveRecipe_Click">Save</Button>
+                    <Button x:Name="homeBtn"  Grid.Column="5" Grid.RowSpan="2" Content="Home" Click="homeBtn_Click" Margin="5,0"/>
+
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>
