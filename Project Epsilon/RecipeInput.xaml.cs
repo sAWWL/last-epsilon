@@ -341,50 +341,52 @@ namespace Project_Epsilon
             {
                 LoadedRecipe._recUDI1 = "0";
             }
-
-            Microsoft.Win32.SaveFileDialog saveRecipe = new Microsoft.Win32.SaveFileDialog
+            LoadedRecipe._recipeName = recipeTxt.Text;
+            LoadedRecipe._product = productTxt.Text;
+            LoadedRecipe._lotNumber = Convert.ToInt32(lotTxt.Text);
+            LoadedRecipe._RFIDNumber = Convert.ToInt32(rfidTxt.Text);
+            LoadedRecipe._UDIRecipe = recipeUDITxt.Text;
+            LoadedRecipe._tempHigherAlarmValue = Convert.ToInt32(highTempTxt.Text);
+            LoadedRecipe._tempSetpoint = Convert.ToInt32(tempSetTxt.Text);
+            LoadedRecipe._tempLowerAlarmValue = Convert.ToInt32(lowTempTxt.Text);
+            LoadedRecipe._sealTime = Convert.ToDouble(sealTimeTxt.Text);
+            LoadedRecipe._pressureUpperAlarmValue = Convert.ToInt32(highPressTxt.Text);
+            LoadedRecipe._pressureSetpointFromOIT = Convert.ToInt32(pressSetTxt.Text);
+            LoadedRecipe._pressureLowerAlarmValue = Convert.ToInt32(lowPressureTxt.Text);
+            LoadedRecipe.filerows[LoadedRecipe.recipeID] = LoadedRecipe._recipeName + "," + LoadedRecipe._product + "," + LoadedRecipe._lotNumber + "," + LoadedRecipe._recipeNumber + "," + LoadedRecipe._pressureUpperAlarmValue + "," + LoadedRecipe._pressureLowerAlarmValue + "," + LoadedRecipe._pressureSetpointFromOIT + "," + LoadedRecipe._tempHigherAlarmValue + "," + LoadedRecipe._tempLowerAlarmValue + "," + LoadedRecipe._tempSetpoint + "," + LoadedRecipe._sealTime + "," + "0" + "," + LoadedRecipe._projectName + "," + LoadedRecipe._RFIDNumber + "," + LoadedRecipe._UDIRecipe + "," + LoadedRecipe._avTagRecipeLotSealed + "," + LoadedRecipe._avTagRecipeLotToSeal + "," + LoadedRecipe._recipeName + "," + LoadedRecipe._recipeGeneratedBy + "," + LoadedRecipe._recipeGeneratedOn + "," + LoadedRecipe._recToolRequired + "," + LoadedRecipe._cavMethod2Required + "," + LoadedRecipe._UDIRecipeTool + "," + LoadedRecipe._cavMethodOneSelected + "," + LoadedRecipe._cavMethodTwoSelected + "," + LoadedRecipe._cavMgtUsed + "," + LoadedRecipe._recUDI1 + "," + LoadedRecipe._recUDI3 + "," + LoadedRecipe._recUDI4 + "," + LoadedRecipe._recUDI5 + "," + LoadedRecipe._recUDI6 + "," + LoadedRecipe._recUDI7 + "," + LoadedRecipe._recUDI8 + "," + LoadedRecipe._recUDI9;
+            FtpWebRequest deletereq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
+            deletereq.Method = WebRequestMethods.Ftp.DeleteFile;
+            PasswordInput passwordInput = new PasswordInput();
+            if (passwordInput.ShowDialog() == false)
             {
-                DefaultExt = ".txt",
-                Filter = "Comma Seperated Value Files (.csv)|*.csv",
-                FileName = LoadedRecipe.fileName,
-                InitialDirectory = "ftp://" + LoadedRecipe.username + "@" + LoadedRecipe.host + ":" + LoadedRecipe.port
-            };
-            string output = "";
+                deletereq.Credentials = new NetworkCredential(LoadedRecipe.username, LoadedRecipe.password);
+                FtpWebResponse response = (FtpWebResponse)deletereq.GetResponse();
+            }
+            FtpWebRequest uploadreq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
+            uploadreq.Credentials = new NetworkCredential(LoadedRecipe.username, LoadedRecipe.password);       
+            uploadreq.Method = WebRequestMethods.Ftp.UploadFile;
+            string outputstring = "";
+            foreach (string row in LoadedRecipe.filerows)
 
-            if(LoadedRecipe.recipeID > LoadedRecipe.file.Split('\n').Length - 1)
             {
-                
-            }else
-            {
-                for(int i = 0; i < LoadedRecipe.file.Split('\n').Length; i++)
-                {
-                    if(i == LoadedRecipe.recipeID)
-                    {
-
-                    }
-                    else
-                    {
-                        output += LoadedRecipe.file.Split('\n')[i] + "\n";
-                    }
-                    
-                }
-     
+                outputstring += row + "\n";
             }
 
+            byte[] bytes = Encoding.UTF8.GetBytes(outputstring);
 
-            byte[] buffer = Encoding.Default.GetBytes("dsadasdasdasd");
-            WebRequest request = WebRequest.Create("ftp://" + LoadedRecipe.username + "@" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/" + LoadedRecipe.fileName);
-            request.Method = WebRequestMethods.Ftp.UploadFile;
-            Stream reqStream = request.GetRequestStream();
-            reqStream.Write(buffer, 0, buffer.Length);
-            reqStream.Close();
+            try
+            {
+                Stream requestStream = uploadreq.GetRequestStream();
+                requestStream.Write(bytes, 0, bytes.Length);
+                requestStream.Close();
+            }
 
-            var result = saveRecipe.ShowDialog();
-            MessageBox.Show(saveRecipe.FileName);
-
-            
+            catch
+            {
+                MessageBox.Show("There was an error while uploading Recipe File. Please Try again!");
+            }
         }
-        
+
         //Validation
         private void UDI_Validation(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {

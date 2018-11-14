@@ -56,9 +56,6 @@ namespace Project_Epsilon
                 LoadedRecipe.username = serverdata.Split('-')[0].Split('@')[0];
                 LoadedRecipe.host = serverdata.Split('-')[0].Split('@')[1].Split(':')[0];
                 LoadedRecipe.port = serverdata.Split('-')[0].Split('@')[1].Split(':')[1];
-
-
-
                     //Connect to Server selected
                     OpenFileDialog openFileDialog1 = new OpenFileDialog
                     {
@@ -67,13 +64,12 @@ namespace Project_Epsilon
                         FilterIndex = 2,
                         RestoreDirectory = false
                     };
-
-
                 if (openFileDialog1.ShowDialog() == true)
                 {
                     filedata = File.ReadAllText(openFileDialog1.FileName);
                     if (filedata.Contains("\n"))
                     {
+                        LoadedRecipe.headerrow = filedata.Split('\n')[0];
                         for (int x = 1; x < filedata.Split('\n').Count(); x++)
                         {
                             if (filedata.Split('\n')[x].Split(',').Count() == 34)
@@ -82,23 +78,18 @@ namespace Project_Epsilon
                             }
                         }
                         ChooseRecipe chooseRecipe = new ChooseRecipe();
+                        MessageBox.Show(openFileDialog1.FileName);
                         if (chooseRecipe.ShowDialog() != true)
                         {
                             this.Close();
                         }
-
-
-
                     }
                 }
 
             }
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-                
-
                 this.Close();
         }
 

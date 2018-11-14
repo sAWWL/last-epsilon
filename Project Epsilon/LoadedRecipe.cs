@@ -24,7 +24,7 @@ namespace Project_Epsilon
                     _cavMethodTwoSelected, _cavMgtUsed, recipeID, numCavUsed;
 
         public static string _tmpUDIRecipe, _recUDI2, _recUDI89, _recUDI1, _recUDI3, _recUDI4, _recUDI5,
-                        _recUDI6, _recUDI7, _recUDI8, _recUDI9, _recipeGeneratedOn, fileName, host, port, username;
+                        _recUDI6, _recUDI7, _recUDI8, _recUDI9, _recipeGeneratedOn, fileName, host, port, username, password, headerrow;
 
         /*public static string Product
         {

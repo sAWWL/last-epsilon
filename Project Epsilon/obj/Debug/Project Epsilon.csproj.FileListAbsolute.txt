@@ -262,3 +262,5 @@ C:\Users\sap334\Desktop\project-epsilon\Project Epsilon\obj\Debug\AddServer.g.cs
 C:\Users\sap334\Desktop\project-epsilon\Project Epsilon\obj\Debug\AddServer.baml
 C:\Users\sap334\Desktop\project-epsilon\Project Epsilon\obj\Debug\ChooseRecipe.g.cs
 C:\Users\sap334\Desktop\project-epsilon\Project Epsilon\obj\Debug\ChooseRecipe.baml
+C:\Users\sap334\Desktop\project-epsilon\Project Epsilon\obj\Debug\PasswordInput.g.cs
+C:\Users\sap334\Desktop\project-epsilon\Project Epsilon\obj\Debug\PasswordInput.baml
