@@ -28,14 +28,14 @@
                     </MenuItem.Header>
 
                     <MenuItem Header="_Connection Manager"/>
-                    <MenuItem Header="_Exit"/>
+                    <MenuItem Header="_Exit" Click="MenuItem_Click"/>
                 </MenuItem>
 
                 <MenuItem>
                     <MenuItem.Header>
                         <TextBlock Width="25" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20">Edit</TextBlock>
                     </MenuItem.Header>
-                    <MenuItem Header="_Load Recipes" HorizontalAlignment="Left"/>
+                    <MenuItem Header="_Load Recipes" HorizontalAlignment="Left" Click="MenuItem_Click_1"/>
                     <MenuItem Header="_Delete Recipe" HorizontalAlignment="Left"/>
                 </MenuItem>
             </Menu>
@@ -91,7 +91,7 @@
                         <ComboBoxItem Content="No"/>
                     </ComboBox>
                     <TextBlock Text="RFID #" Margin ="0,50,45,0" Grid.Column="2" FontSize="13" FontWeight="DemiBold"/>
-                    <TextBox Name="rfidTxt" MaxWidth="35" Height="15" Margin="40,50,118,25" Grid.Column="2"/>
+                    <TextBox Name="rfidTxt" MaxWidth="35" Height="15" Margin="40,50,118,25" Grid.Column="2" PreviewTextInput="TextBox_PreviewTextInput"/>
 
                     <!--row 4-->
                     <TextBlock Text="Recipe UDI" Margin ="0,84,45,-9" Grid.Column="0" FontSize="13" FontWeight="DemiBold"/>
