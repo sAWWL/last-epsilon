@@ -290,6 +290,37 @@ namespace Project_Epsilon
 
         private void saveRecipe_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (toolConfirmTxt.SelectedIndex == 0)
+            {
+                LoadedRecipe._recToolRequired = 1;
+            }
+            else if (toolConfirmTxt.SelectedIndex == 1)
+            {
+                LoadedRecipe._recToolRequired = 0;
+            }
+
+
+            //cavMgtOptTxt combobox to csv
+            if (cavMgtOptTxt.SelectedIndex == 0)
+            {
+                LoadedRecipe._cavMgtUsed = 1;
+            }
+            else if (cavMgtOptTxt.SelectedIndex == 1)
+            {
+                LoadedRecipe._cavMgtUsed = 0;
+            }
+
+
+            //usingUDITxt combobox to csv
+            if (usingUDITxt.SelectedIndex == 0)
+            {
+                LoadedRecipe._recUDI1 = "1";
+            }
+            else if (usingUDITxt.SelectedIndex == 1)
+            {
+                LoadedRecipe._recUDI1 = "0";
+            }
+
             Microsoft.Win32.SaveFileDialog saveRecipe = new Microsoft.Win32.SaveFileDialog
             {
                 DefaultExt = ".txt",
