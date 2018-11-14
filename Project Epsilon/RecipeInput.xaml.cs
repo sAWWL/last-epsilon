@@ -120,6 +120,7 @@ namespace Project_Epsilon
         {
             OptionsMenu winOptionsMenu = new OptionsMenu();
             winOptionsMenu.Show();
+            LoadedRecipe._UDIRecipe = recipeUDITxt.Text;
         }
         private void homeBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
