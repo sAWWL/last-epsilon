@@ -63,6 +63,7 @@
     <Compile Include="CavityToolWindow.xaml.cs">
       <DependentUpon>CavityToolWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ChooseRecipe.xaml.cs" />
     <Compile Include="ConnectionManagerWindow.xaml.cs">
       <DependentUpon>ConnectionManagerWindow.xaml</DependentUpon>
     </Compile>
@@ -117,6 +118,10 @@
     <Page Include="CavityToolWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChooseRecipe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ConnectionManagerWindow.xaml">
       <SubType>Designer</SubType>

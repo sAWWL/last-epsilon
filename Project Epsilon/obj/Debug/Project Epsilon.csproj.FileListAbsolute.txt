@@ -260,3 +260,5 @@ C:\Users\cvsch\Source\Repos\LASTEPSILON\Project Epsilon\obj\Debug\Project Epsilo
 C:\Users\cvsch\Source\Repos\LASTEPSILON\Project Epsilon\obj\Debug\Project Epsilon.csproj.CoreCompileInputs.cache
 C:\Users\sap334\Desktop\project-epsilon\Project Epsilon\obj\Debug\AddServer.g.cs
 C:\Users\sap334\Desktop\project-epsilon\Project Epsilon\obj\Debug\AddServer.baml
+C:\Users\sap334\Desktop\project-epsilon\Project Epsilon\obj\Debug\ChooseRecipe.g.cs
+C:\Users\sap334\Desktop\project-epsilon\Project Epsilon\obj\Debug\ChooseRecipe.baml

@@ -9,6 +9,7 @@ namespace Project_Epsilon
     public static class LoadedRecipe
     {
         public static string file;
+        public static List<string> filerows = new List<string>();
         public static bool cavUsed;
         public static string _product, _recipeName, _UDIRecipe,
                          _UDITrayValue, _fieldName, _projectName,

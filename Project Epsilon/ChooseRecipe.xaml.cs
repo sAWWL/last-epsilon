@@ -79,7 +79,6 @@ namespace Project_Epsilon
         private void newRecipeBtn_Click(object sender, RoutedEventArgs e)
         {
             LoadedRecipe.recipeID = LoadedRecipe.filerows.Count();
-            string[] tempServerData = LoadedRecipe.filerows[selectRecipe.SelectedIndex].Split(',');
             LoadedRecipe._product = "";
             LoadedRecipe._lotNumber = 0;
             LoadedRecipe._recipeNumber = 0;
