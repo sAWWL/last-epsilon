@@ -5,13 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_Epsilon"
         mc:Ignorable="d"
-        Title="CavityToolWindow" MinHeight="400" Height="400" Width="600" MinWidth="600" Foreground="White">
+        Title="CavityToolWindow" MinHeight="400" Height="400" Width="600" MinWidth="600" Foreground="Black">
     <Grid>
         <Grid>
             <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="#FFC5C5EA" Offset="1"/>
+                  <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FFBFCEDA" Offset="0.734"/>
+                    <GradientStop Color="AliceBlue" Offset="0.228"/>
+                    <GradientStop Color="#FF030C13" Offset="1"/>
+                    <GradientStop Color="#FF4892C9" Offset="1"/>
+                    <GradientStop Color="#FF2F73AD" Offset="0.99"/>
                 </LinearGradientBrush>
             </Grid.Background>
             <Grid>
@@ -25,9 +29,9 @@
                 <TextBlock Name="titleLbl" Text="Recipe Options Cavity Management" Grid.Column="2"/>
             </Grid>
             <StackPanel Margin="100">
-                <CheckBox Name="methodOneCheckbox" Foreground="White">Method One (Count All Cavities used)</CheckBox>
-                <CheckBox Name="methodTwoCheckbox" Foreground="White">Method Two (Count using Required Cavities)</CheckBox>
-                <TextBlock x:Name="numCavitiesLbl" Foreground="White">Number of Cavities in the Tool?<InlineUIContainer>
+                <CheckBox Name="methodOneCheckbox" Foreground="Black" FontWeight="Bold">Method One (Count All Cavities used)</CheckBox>
+                <CheckBox Name="methodTwoCheckbox" Foreground="Black" FontWeight="Bold">Method Two (Count using Required Cavities)</CheckBox>
+                <TextBlock x:Name="numCavitiesLbl" Foreground="Black" FontWeight="Bold">Number of Cavities in the Tool?<InlineUIContainer>
                         <TextBox Name="numCavitiesTxtBox" Width="15" Height="15" Margin="5,5,0,0"/>
                     </InlineUIContainer></TextBlock>
                 <Separator/>
@@ -37,14 +41,17 @@
                                 <Style TargetType="TextBlock">
                                     <Setter Property="Text" Value="No" />
                                     <Setter Property="Foreground" Value="Red"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding ElementName=methodOneCheckbox, Path=IsChecked}" Value="True">
                                             <Setter Property="Text" Value="Yes"/>
-                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="Foreground" Value="Green"/>
+                                            <Setter Property="FontWeight" Value="Bold"/>
                                         </DataTrigger>
                                         <DataTrigger Binding="{Binding ElementName=methodTwoCheckbox, Path=IsChecked}" Value="True">
                                             <Setter Property="Text" Value="Yes"/>
-                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="Foreground" Value="Green"/>
+                                            <Setter Property="FontWeight" Value="Bold"/>
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
