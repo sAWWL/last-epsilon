@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_Epsilon"
         mc:Ignorable="d"
-        Title="Add Server" Height="298.607" Width="561.949">
+        Title="Add Server" Height="298.607" Width="561.949"
+        ResizeMode="NoResize">
     <Grid Margin="0,0,4,2.2">
         <TextBox x:Name="serverName" HorizontalAlignment="Left" Height="23" Margin="167,17,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="344"/>
         <TextBox x:Name="serverAddress" HorizontalAlignment="Left" Height="23" Margin="167,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="344"/>

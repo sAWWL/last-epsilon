@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Tool Setup"  Height="400" Width="650" MinHeight="400" MinWidth="650">
+        Title="Tool Setup"  Height="400" Width="650" MinHeight="400" MinWidth="650"
+        ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

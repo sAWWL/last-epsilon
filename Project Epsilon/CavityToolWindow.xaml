@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_Epsilon"
         mc:Ignorable="d"
-        Title="CavityToolWindow" MinHeight="400" Height="400" Width="600" MinWidth="600" Foreground="Black">
+        Title="CavityToolWindow" MinHeight="400" Height="400" Width="600" MinWidth="600" Foreground="Black"
+        ResizeMode="NoResize">
     <Grid>
         <Grid>
             <Grid.Background>

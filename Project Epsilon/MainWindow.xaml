@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_Epsilon"
         mc:Ignorable="d"
-        Title="Project Epsilon" Height="285" Width="450"  MaxHeight="285" MaxWidth="450" Background="#FF216299">
+        Title="Project Epsilon" Height="285" Width="450"  MaxHeight="285" MaxWidth="450" Background="#FF216299"
+        ResizeMode="NoResize">
 
     <Window.Resources>
         <Style TargetType="Window">
