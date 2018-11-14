@@ -13,6 +13,104 @@ namespace Project_Epsilon
         public RecipeInput()
         {
             InitializeComponent();
+            double highTempAlarm;
+            double tempSetPoint;
+            double lowTemp;
+            double sealTime;
+            double highPress;
+            double pressSet;
+            double lowPressure;
+
+            if (String.IsNullOrWhiteSpace(highTempTxt.Text) || String.IsNullOrWhiteSpace(tempSetTxt.Text) || String.IsNullOrWhiteSpace(lowTempTxt.Text) || String.IsNullOrWhiteSpace(sealTimeTxt.Text) || String.IsNullOrWhiteSpace(highPressTxt.Text) || String.IsNullOrWhiteSpace(pressSetTxt.Text) || String.IsNullOrWhiteSpace(lowPressureTxt.Text))
+            {
+                errorTxt.Visibility = Visibility.Visible;
+                saveRecipe.IsEnabled = false;
+                errorTxt.Content = "All Fields are Required";
+            }
+            else if (!Double.TryParse(highTempTxt.Text, out highTempAlarm) || !Double.TryParse(tempSetTxt.Text, out tempSetPoint) || !Double.TryParse(lowTempTxt.Text, out tempSetPoint)
+                || !Double.TryParse(sealTimeTxt.Text, out sealTime) || !Double.TryParse(highPressTxt.Text, out highPress)
+                || !Double.TryParse(pressSetTxt.Text, out pressSet) || !Double.TryParse(lowPressureTxt.Text, out lowPressure))
+            {
+                errorTxt.Visibility = Visibility.Visible;
+                saveRecipe.IsEnabled = false;
+                errorTxt.Content = "All fields must be numeric input only";
+            }
+            else
+            {
+                highTempAlarm = Convert.ToDouble(highTempTxt.Text);
+                tempSetPoint = Convert.ToDouble(tempSetTxt.Text);
+                lowTemp = Convert.ToDouble(lowTempTxt.Text);
+                sealTime = Convert.ToDouble(sealTimeTxt.Text);
+                highPress = Convert.ToDouble(highPressTxt.Text);
+                pressSet = Convert.ToDouble(pressSetTxt.Text);
+                lowPressure = Convert.ToDouble(lowPressureTxt.Text);
+
+                if (highTempAlarm <= tempSetPoint)
+                {
+                    errorTxt.Visibility = Visibility.Visible;
+                    saveRecipe.IsEnabled = false;
+                    errorTxt.Content = "Fix High Temperature. It is Lower than Temp Setpoint";
+                }
+                else if (highTempAlarm >= 250)
+                {
+                    errorTxt.Visibility = Visibility.Visible;
+                    saveRecipe.IsEnabled = false;
+                    errorTxt.Content = "High Temp Alarm must be less than 250 degrees";
+                }
+                else if (lowTemp >= tempSetPoint)
+                {
+                    errorTxt.Visibility = Visibility.Visible;
+                    saveRecipe.IsEnabled = false;
+                    errorTxt.Content = "Fix Low Temperature. It is Greater than Temp Setpoint";
+                }
+                else if (lowTemp <= 50)
+                {
+                    errorTxt.Visibility = Visibility.Visible;
+                    saveRecipe.IsEnabled = false;
+                    errorTxt.Content = "Low Temp Alarm must be greater than 50 degrees";
+                }
+                else if (sealTime <= 0)
+                {
+                    errorTxt.Visibility = Visibility.Visible;
+                    saveRecipe.IsEnabled = false;
+                    errorTxt.Content = "Fix Seal Time. Seal Time must be greater than 0 seconds";
+                }
+                else if (sealTime >= 10)
+                {
+                    errorTxt.Visibility = Visibility.Visible;
+                    saveRecipe.IsEnabled = false;
+                    errorTxt.Content = "Fix Seal Time. Seal Time must be less than 10 seconds";
+                }
+                else if (highPress <= pressSet)
+                {
+                    errorTxt.Visibility = Visibility.Visible;
+                    saveRecipe.IsEnabled = false;
+                    errorTxt.Content = "Fix High Pressure. It is Lower than Pressure Setpoint";
+                }
+                else if (highPress >= 125)
+                {
+                    errorTxt.Visibility = Visibility.Visible;
+                    saveRecipe.IsEnabled = false;
+                    errorTxt.Content = "High Pressure Alarm must be less than 125 PSI";
+                }
+                else if (lowPressure >= pressSet)
+                {
+                    errorTxt.Visibility = Visibility.Visible;
+                    saveRecipe.IsEnabled = false;
+                    errorTxt.Content = "Fix Low Pressure. It is Greater than Pressure Setpoint";
+                }
+                else if (lowPressure <= 0)
+                {
+                    errorTxt.Visibility = Visibility.Visible;
+                    saveRecipe.IsEnabled = false;
+                    errorTxt.Content = "Low Pressure Alarm must be greater than 0 PSI";
+                }
+                else
+                {
+                    errorTxt.Visibility = Visibility.Hidden;
+                    saveRecipe.IsEnabled = true;
+                }
+            }
         }
         private void optionsBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -31,9 +129,9 @@ namespace Project_Epsilon
         private void loadBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             FileBrowser fileBrowser = new FileBrowser();
-            if(fileBrowser.ShowDialog() == true)
+            if (fileBrowser.ShowDialog() == true)
             {
-                
+
             }
             else
             {
@@ -88,6 +186,104 @@ namespace Project_Epsilon
                 pressSetTxt.Text = Convert.ToString(LoadedRecipe._pressureSetpointFromOIT);
                 highPressTxt.Text = Convert.ToString(LoadedRecipe._pressureUpperAlarmValue);
                 lowPressureTxt.Text = Convert.ToString(LoadedRecipe._pressureLowerAlarmValue);
+                double highTempAlarm;
+                double tempSetPoint;
+                double lowTemp;
+                double sealTime;
+                double highPress;
+                double pressSet;
+                double lowPressure;
+
+                if (String.IsNullOrWhiteSpace(highTempTxt.Text) || String.IsNullOrWhiteSpace(tempSetTxt.Text) || String.IsNullOrWhiteSpace(lowTempTxt.Text) || String.IsNullOrWhiteSpace(sealTimeTxt.Text) || String.IsNullOrWhiteSpace(highPressTxt.Text) || String.IsNullOrWhiteSpace(pressSetTxt.Text) || String.IsNullOrWhiteSpace(lowPressureTxt.Text))
+                {
+                    errorTxt.Visibility = Visibility.Visible;
+                    saveRecipe.IsEnabled = false;
+                    errorTxt.Content = "All Fields are Required";
+                }
+                else if (!Double.TryParse(highTempTxt.Text, out highTempAlarm) || !Double.TryParse(tempSetTxt.Text, out tempSetPoint) || !Double.TryParse(lowTempTxt.Text, out tempSetPoint)
+                    || !Double.TryParse(sealTimeTxt.Text, out sealTime) || !Double.TryParse(highPressTxt.Text, out highPress)
+                    || !Double.TryParse(pressSetTxt.Text, out pressSet) || !Double.TryParse(lowPressureTxt.Text, out lowPressure))
+                {
+                    errorTxt.Visibility = Visibility.Visible;
+                    saveRecipe.IsEnabled = false;
+                    errorTxt.Content = "All fields must be numeric input only";
+                }
+                else
+                {
+                    highTempAlarm = Convert.ToDouble(highTempTxt.Text);
+                    tempSetPoint = Convert.ToDouble(tempSetTxt.Text);
+                    lowTemp = Convert.ToDouble(lowTempTxt.Text);
+                    sealTime = Convert.ToDouble(sealTimeTxt.Text);
+                    highPress = Convert.ToDouble(highPressTxt.Text);
+                    pressSet = Convert.ToDouble(pressSetTxt.Text);
+                    lowPressure = Convert.ToDouble(lowPressureTxt.Text);
+
+                    if (highTempAlarm <= tempSetPoint)
+                    {
+                        errorTxt.Visibility = Visibility.Visible;
+                        saveRecipe.IsEnabled = false;
+                        errorTxt.Content = "Fix High Temperature. It is Lower than Temp Setpoint";
+                    }
+                    else if (highTempAlarm >= 250)
+                    {
+                        errorTxt.Visibility = Visibility.Visible;
+                        saveRecipe.IsEnabled = false;
+                        errorTxt.Content = "High Temp Alarm must be less than 250 degrees";
+                    }
+                    else if (lowTemp >= tempSetPoint)
+                    {
+                        errorTxt.Visibility = Visibility.Visible;
+                        saveRecipe.IsEnabled = false;
+                        errorTxt.Content = "Fix Low Temperature. It is Greater than Temp Setpoint";
+                    }
+                    else if (lowTemp <= 50)
+                    {
+                        errorTxt.Visibility = Visibility.Visible;
+                        saveRecipe.IsEnabled = false;
+                        errorTxt.Content = "Low Temp Alarm must be greater than 50 degrees";
+                    }
+                    else if (sealTime <= 0)
+                    {
+                        errorTxt.Visibility = Visibility.Visible;
+                        saveRecipe.IsEnabled = false;
+                        errorTxt.Content = "Fix Seal Time. Seal Time must be greater than 0 seconds";
+                    }
+                    else if (sealTime >= 10)
+                    {
+                        errorTxt.Visibility = Visibility.Visible;
+                        saveRecipe.IsEnabled = false;
+                        errorTxt.Content = "Fix Seal Time. Seal Time must be less than 10 seconds";
+                    }
+                    else if (highPress <= pressSet)
+                    {
+                        errorTxt.Visibility = Visibility.Visible;
+                        saveRecipe.IsEnabled = false;
+                        errorTxt.Content = "Fix High Pressure. It is Lower than Pressure Setpoint";
+                    }
+                    else if (highPress >= 125)
+                    {
+                        errorTxt.Visibility = Visibility.Visible;
+                        saveRecipe.IsEnabled = false;
+                        errorTxt.Content = "High Pressure Alarm must be less than 125 PSI";
+                    }
+                    else if (lowPressure >= pressSet)
+                    {
+                        errorTxt.Visibility = Visibility.Visible;
+                        saveRecipe.IsEnabled = false;
+                        errorTxt.Content = "Fix Low Pressure. It is Greater than Pressure Setpoint";
+                    }
+                    else if (lowPressure <= 0)
+                    {
+                        errorTxt.Visibility = Visibility.Visible;
+                        saveRecipe.IsEnabled = false;
+                        errorTxt.Content = "Low Pressure Alarm must be greater than 0 PSI";
+                    }
+                    else
+                    {
+                        errorTxt.Visibility = Visibility.Hidden;
+                        saveRecipe.IsEnabled = true;
+                    }
+                }
             }
         }
         

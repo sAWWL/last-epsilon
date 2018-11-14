@@ -76,6 +76,7 @@ namespace Project_Epsilon
                     {
                         try
                         {
+                         
                             reciperows = recipedata.Split('\n');
                             for (int i = 0; i < recipedata.Length; i++)
                             {
@@ -137,7 +138,6 @@ namespace Project_Epsilon
                 LoadedRecipe._recUDI8 = tempServerData[32];
                 LoadedRecipe._recUDI9 = tempServerData[33];
                 LoadedRecipe.recipeID = selectRecipe.SelectedIndex;
-
 
                 this.Close();
         }
