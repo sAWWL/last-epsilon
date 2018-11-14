@@ -58,88 +58,53 @@ namespace Project_Epsilon
                 LoadedRecipe.port = serverdata.Split('-')[0].Split('@')[1].Split(':')[1];
 
 
-                //Connect to Server selected
-                OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
-                try
+                    //Connect to Server selected
+                    OpenFileDialog openFileDialog1 = new OpenFileDialog
+                    {
+                        InitialDirectory = "ftp://" + LoadedRecipe.username + "@" + LoadedRecipe.host + ":" + LoadedRecipe.port,
+                        Filter = "All files (*.*)|*.*",
+                        FilterIndex = 2,
+                        RestoreDirectory = false
+                    };
+
+
+                if (openFileDialog1.ShowDialog() == true)
                 {
-                    openFileDialog1.InitialDirectory = "ftp://" + LoadedRecipe.username + "@" + LoadedRecipe.host + ":" + LoadedRecipe.port;
-                    openFileDialog1.Filter = "All files (*.*)|*.*";
-                    openFileDialog1.FilterIndex = 2;
-                    openFileDialog1.RestoreDirectory = false;
-                    var result = openFileDialog1.ShowDialog();
-
-                    //Get Data from file
-                    recipedata = File.ReadAllText(openFileDialog1.FileName);
-                    LoadedRecipe.file = recipedata;
-                    if(recipedata.Split('\n').Count() > 0)
+                    filedata = File.ReadAllText(openFileDialog1.FileName);
+                    if (filedata.Contains("\n"))
                     {
-                        try
+                        for (int x = 1; x < filedata.Split('\n').Count(); x++)
                         {
-                         
-                            reciperows = recipedata.Split('\n');
-                            for (int i = 0; i < recipedata.Length; i++)
+                            if (filedata.Split('\n')[x].Split(',').Count() == 34)
                             {
-                                selectRecipe.Items.Add(Convert.ToString(i + 1) + ": " + reciperows[i].Split(',')[0]);
+                                LoadedRecipe.filerows.Add(filedata.Split('\n')[x]);
                             }
-                            selectRecipe.IsEnabled = true;
-                            LoadFile.IsEnabled = true;
                         }
-                        catch
+                        ChooseRecipe chooseRecipe = new ChooseRecipe();
+                        if (chooseRecipe.ShowDialog() != true)
                         {
-
+                            this.Close();
                         }
-                    }else
-                    {
+
+
 
                     }
                 }
-                catch
-                {
 
-                } 
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-                string[] tempServerData = reciperows[selectRecipe.SelectedIndex].Split(',');
-                LoadedRecipe._product = tempServerData[1];
-                LoadedRecipe._lotNumber = Convert.ToInt32(tempServerData[2]);
-                LoadedRecipe._recipeNumber = Convert.ToInt32(tempServerData[3]);
-                LoadedRecipe._pressureUpperAlarmValue = Convert.ToInt32(tempServerData[4]);
-                LoadedRecipe._pressureLowerAlarmValue = Convert.ToInt32(tempServerData[5]);
-                LoadedRecipe._pressureSetpointFromOIT = Convert.ToInt32(tempServerData[6]);
-                LoadedRecipe._tempHigherAlarmValue = Convert.ToInt32(tempServerData[7]);
-                LoadedRecipe._tempLowerAlarmValue = Convert.ToInt32(tempServerData[8]);
-                LoadedRecipe._tempSetpoint = Convert.ToInt32(tempServerData[9]);
-                LoadedRecipe._sealTime = Convert.ToDouble(tempServerData[10]);
-                LoadedRecipe._recipeName = tempServerData[11];
-                LoadedRecipe._projectName = tempServerData[12];
-                LoadedRecipe._RFIDNumber = Convert.ToInt32(tempServerData[13]);
-                LoadedRecipe._UDIRecipe = tempServerData[14];
-                LoadedRecipe._avTagRecipeLotSealed = Convert.ToInt32(tempServerData[15]);
-                LoadedRecipe._avTagRecipeLotToSeal = Convert.ToInt32(tempServerData[16]);
-                LoadedRecipe._recipeName = tempServerData[17];
-                LoadedRecipe._recipeGeneratedBy = tempServerData[18];
-                LoadedRecipe._recipeGeneratedOn = tempServerData[19];
-                LoadedRecipe._recToolRequired = Convert.ToInt32(tempServerData[20]);
-                LoadedRecipe._cavMethod2Required = Convert.ToInt32(tempServerData[21]);
-                LoadedRecipe._UDIRecipeTool = Convert.ToDouble(tempServerData[22]);
-                LoadedRecipe._cavMethodOneSelected = Convert.ToInt32(tempServerData[23]);
-                LoadedRecipe._cavMethodTwoSelected = Convert.ToInt32(tempServerData[24]);
-                LoadedRecipe._cavMgtUsed = Convert.ToInt32(tempServerData[25]);
-                LoadedRecipe._recUDI1 = tempServerData[26];
-                LoadedRecipe._recUDI3 = tempServerData[27];
-                LoadedRecipe._recUDI4 = tempServerData[28];
-                LoadedRecipe._recUDI5 = tempServerData[29];
-                LoadedRecipe._recUDI6 = tempServerData[30];
-                LoadedRecipe._recUDI7 = tempServerData[31];
-                LoadedRecipe._recUDI8 = tempServerData[32];
-                LoadedRecipe._recUDI9 = tempServerData[33];
-                LoadedRecipe.recipeID = selectRecipe.SelectedIndex;
+                
 
                 this.Close();
+        }
+
+        private void CancelLoad_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

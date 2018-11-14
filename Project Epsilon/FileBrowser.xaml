@@ -17,13 +17,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Name="LoadFile" IsEnabled="True" Content="Load File" HorizontalAlignment="Left" Margin="176,205,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <ListView IsEnabled="True" Name="selectRecipe" HorizontalAlignment="Left" Height="109" Margin="10,164,0,0" VerticalAlignment="Top" Width="142">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <Button Name="CancelLoad" Content="Cancel" HorizontalAlignment="Left" Margin="93,204,0,0" VerticalAlignment="Top" Width="75" Click="CancelLoad_Click"/>
     </Grid>
 </Window>

@@ -309,14 +309,14 @@ namespace Project_Epsilon
                     if(i == LoadedRecipe.recipeID)
                     {
 
-                    }else
+                    }
+                    else
                     {
                         output += LoadedRecipe.file.Split('\n')[i] + "\n";
                     }
                     
                 }
-
-                
+     
             }
 
 
