@@ -69,30 +69,39 @@
                     <TextBlock Text="Recipe Name" Grid.Column="0" Margin="0,0,45,0" FontSize="13" FontWeight="DemiBold"/>
                     <TextBox Name="recipeTxt" IsReadOnly="True" MaxWidth="75" MaxHeight="20" Margin="74,0,45,75" Grid.Column="0"/>
                     <TextBlock Text="Tool Confirmation" Grid.Column="1" Margin="0,0,0,0" FontSize="13" FontWeight="DemiBold"/>
-                    <TextBox Name="toolConfirmTxt" MaxWidth="40" Height="15" Margin="80,0,45,75" Grid.Column="1"/>
+                    <ComboBox Name="toolConfirmTxt" MaxWidth="50" Margin="80,-2,45,78" Grid.Column="1">
+                        <ComboBoxItem Content="Yes"/>
+                        <ComboBoxItem Content="No"/>
+                    </ComboBox>
 
                     <!--row 2-->
                     <TextBlock Text="Product" Grid.Column="0" Margin="0,25,45,0" FontSize="13" FontWeight="DemiBold"/>
                     <TextBox Name="productTxt" MaxWidth="75" MaxHeight="20" Margin="74,25,45,50" Grid.Column="0"/>
                     <TextBlock Text="Cav Mgt Option" Margin ="0,25,45,0" Grid.Column="1" FontSize="13" FontWeight="DemiBold"/>
-                    <TextBox Name="cavMgtOptTxt" MaxWidth="40" Height="15" Margin="80,25,45,50" Grid.Column="1"/>
+                    <ComboBox Name="cavMgtOptTxt" MaxWidth="50" Margin="80,25,45,51" Grid.Column="1">
+                        <ComboBoxItem Content="Yes"/>
+                        <ComboBoxItem Content="No"/>
+                    </ComboBox>
 
                     <!--row 3-->
                     <TextBlock Text="Lot" Grid.Column="0" Margin="0,50,45,0" FontSize="13" FontWeight="DemiBold"/>
                     <TextBox Name="lotTxt" MaxWidth="75" MaxHeight="20" Margin="74,50,45,25" Grid.Column="0"/>
                     <TextBlock Text="Using UDI" Margin ="0,50,45,0" Grid.Column="1" FontSize="13" FontWeight="DemiBold"/>
-                    <TextBox Name="usingUDITxt" MaxWidth="40" Height="15" Margin="80,25,45,0" Grid.Column="1"/>
+                    <ComboBox Name="usingUDITxt" MaxWidth="50" Margin="80,52,45,23" Grid.Column="1" IsReadOnly="True">
+                        <ComboBoxItem Content="Yes"/>
+                        <ComboBoxItem Content="No"/>
+                    </ComboBox>
                     <TextBlock Text="RFID #" Margin ="0,50,45,0" Grid.Column="2" FontSize="13" FontWeight="DemiBold"/>
                     <TextBox Name="rfidTxt" MaxWidth="35" Height="15" Margin="40,50,118,25" Grid.Column="2"/>
 
                     <!--row 4-->
-                    <TextBlock Text="Recipe UDI" Margin ="0,75,45,0" Grid.Column="0" FontSize="13" FontWeight="DemiBold"/>
-                    <TextBox Name="recipeUDITxt" MaxWidth="75" MaxHeight="20" Margin="74,76,45,0" Grid.Column="0"/>
+                    <TextBlock Text="Recipe UDI" Margin ="0,84,45,-9" Grid.Column="0" FontSize="13" FontWeight="DemiBold"/>
+                    <TextBox Name="recipeUDITxt" MaxWidth="475" MaxHeight="20" Margin="74,81,119,-6" Grid.Column="0" Grid.ColumnSpan="3" RenderTransformOrigin="0.501,0.5"/>
                 </Grid>
 
                 <!--error textbox. blank until populated-->
                 <StackPanel>
-                    <TextBox x:Name="errorTxt" IsReadOnly="True" MaxWidth="500" MaxHeight="30" Margin="35,5"/>
+                    <Label x:Name="errorTxt" MaxWidth="500" MaxHeight="30" Margin="35,5" Visibility="hidden" FontWeight="Bold" Background="Red" />
                 </StackPanel>
 
                 <!--second section-->
@@ -103,22 +112,22 @@
                     </Grid.ColumnDefinitions>
                     <!--row 1-->
                     <TextBlock Text="High Temp Alarm (F)" Margin="25,10,0,0" Grid.Column="0" FontSize="13" FontWeight="DemiBold"/>
-                    <TextBox Name="highTempTxt" MaxWidth="70" Margin="140,10,96,101" Grid.Column="0"/>
+                    <TextBox Name="highTempTxt" MaxWidth="70" Margin="140,10,96,101" Grid.Column="0" TextChanged="UDI_Validation"/>
                     <TextBlock Text="High Pressure Alarm (PSI)" Margin="0,10,0,0" Grid.Column="1" FontSize="13" FontWeight="DemiBold"/>
-                    <TextBox Name="highPressTxt" MaxWidth="70" Margin="140,12,96,99" Grid.Column="1"/>
+                    <TextBox Name="highPressTxt" MaxWidth="70" Margin="140,12,96,99" Grid.Column="1" TextChanged="UDI_Validation"/>
                     <!--row 2-->
                     <TextBlock Text="Temp Setpoint (F)" Margin="25,35,0,0" Grid.Column="0" FontSize="13" FontWeight="DemiBold"/>
-                    <TextBox Name="tempSetTxt" MaxWidth="70" Margin="140,35,96,75" Grid.Column="0"/>
+                    <TextBox Name="tempSetTxt" MaxWidth="70" Margin="140,35,96,75" Grid.Column="0" TextChanged="UDI_Validation"/>
                     <TextBlock Text="Pressure Setpoint (PSI)" Margin="0,35,0,0" Grid.Column="1" FontSize="13" FontWeight="DemiBold"/>
-                    <TextBox Name="pressSetTxt" MaxWidth="70" Margin="140,35,96,75" Grid.Column="1"/>
+                    <TextBox Name="pressSetTxt" MaxWidth="70" Margin="140,35,96,75" Grid.Column="1" TextChanged="UDI_Validation"/>
                     <!--row 3-->
                     <TextBlock Text="Low Temp Alarm (F)" Margin="25,60,0,0" Grid.Column="0" FontSize="13" FontWeight="DemiBold"/>
-                    <TextBox Name="lowTempTxt" MaxWidth="70" Margin="140,62,96,48" Grid.Column="0"/>
+                    <TextBox Name="lowTempTxt" MaxWidth="70" Margin="140,62,96,48" Grid.Column="0" TextChanged="UDI_Validation"/>
                     <TextBlock Text="Low Pressure Alarm (PSI)" Margin="0,60,0,0" Grid.Column="1" FontSize="13" FontWeight="DemiBold"/>
-                    <TextBox Name="lowPressureTxt" MaxWidth="70" Margin="140,59,96,51" Grid.Column="1"/>
+                    <TextBox Name="lowPressureTxt" MaxWidth="70" Margin="140,59,96,51" Grid.Column="1" TextChanged="UDI_Validation"/>
                     <!--row 4-->
                     <TextBlock Text="Seal Time (secs)" Margin="25,86,0,9" FontSize="13" FontWeight="DemiBold"/>
-                    <TextBox Name="sealTimeTxt" MaxWidth="70" Margin="140,86,96,25" Grid.Column="0"/>
+                    <TextBox Name="sealTimeTxt" MaxWidth="70" Margin="140,86,96,25" Grid.Column="0" TextChanged="UDI_Validation"/>
                 </Grid>
                 <Grid>
                     <Grid.RowDefinitions>
