@@ -21,7 +21,11 @@ namespace Project_Epsilon
             double pressSet;
             double lowPressure;
 
-            if (String.IsNullOrWhiteSpace(highTempTxt.Text) || String.IsNullOrWhiteSpace(tempSetTxt.Text) || String.IsNullOrWhiteSpace(lowTempTxt.Text) || String.IsNullOrWhiteSpace(sealTimeTxt.Text) || String.IsNullOrWhiteSpace(highPressTxt.Text) || String.IsNullOrWhiteSpace(pressSetTxt.Text) || String.IsNullOrWhiteSpace(lowPressureTxt.Text))
+            if (String.IsNullOrWhiteSpace(recipeTxt.Text) || String.IsNullOrWhiteSpace(productTxt.Text) || String.IsNullOrWhiteSpace(lotTxt.Text) || String.IsNullOrWhiteSpace(rfidTxt.Text) ||
+                String.IsNullOrWhiteSpace(recipeUDITxt.Text) || String.IsNullOrWhiteSpace(highTempTxt.Text) || String.IsNullOrWhiteSpace(tempSetTxt.Text) ||
+                String.IsNullOrWhiteSpace(lowTempTxt.Text) || String.IsNullOrWhiteSpace(sealTimeTxt.Text) || String.IsNullOrWhiteSpace(highPressTxt.Text) ||
+                String.IsNullOrWhiteSpace(pressSetTxt.Text) || String.IsNullOrWhiteSpace(lowPressureTxt.Text) || cavMgtOptTxt.SelectedIndex == -1 ||
+                toolConfirmTxt.SelectedIndex == -1 || usingUDITxt.SelectedIndex == -1)
             {
                 errorTxt.Visibility = Visibility.Visible;
                 saveRecipe.IsEnabled = false;
@@ -33,7 +37,7 @@ namespace Project_Epsilon
             {
                 errorTxt.Visibility = Visibility.Visible;
                 saveRecipe.IsEnabled = false;
-                errorTxt.Content = "All fields must be numeric input only";
+                errorTxt.Content = "Below fields must be numeric input only";
             }
             else
             {
@@ -194,7 +198,11 @@ namespace Project_Epsilon
                 double pressSet;
                 double lowPressure;
 
-                if (String.IsNullOrWhiteSpace(highTempTxt.Text) || String.IsNullOrWhiteSpace(tempSetTxt.Text) || String.IsNullOrWhiteSpace(lowTempTxt.Text) || String.IsNullOrWhiteSpace(sealTimeTxt.Text) || String.IsNullOrWhiteSpace(highPressTxt.Text) || String.IsNullOrWhiteSpace(pressSetTxt.Text) || String.IsNullOrWhiteSpace(lowPressureTxt.Text))
+                if (String.IsNullOrWhiteSpace(recipeTxt.Text) || String.IsNullOrWhiteSpace(productTxt.Text) || String.IsNullOrWhiteSpace(lotTxt.Text) || String.IsNullOrWhiteSpace(rfidTxt.Text) ||
+                String.IsNullOrWhiteSpace(recipeUDITxt.Text) || String.IsNullOrWhiteSpace(highTempTxt.Text) || String.IsNullOrWhiteSpace(tempSetTxt.Text) ||
+                String.IsNullOrWhiteSpace(lowTempTxt.Text) || String.IsNullOrWhiteSpace(sealTimeTxt.Text) || String.IsNullOrWhiteSpace(highPressTxt.Text) ||
+                String.IsNullOrWhiteSpace(pressSetTxt.Text) || String.IsNullOrWhiteSpace(lowPressureTxt.Text) || cavMgtOptTxt.SelectedIndex == -1 ||
+                toolConfirmTxt.SelectedIndex == -1 || usingUDITxt.SelectedIndex == -1)
                 {
                     errorTxt.Visibility = Visibility.Visible;
                     saveRecipe.IsEnabled = false;
@@ -206,7 +214,7 @@ namespace Project_Epsilon
                 {
                     errorTxt.Visibility = Visibility.Visible;
                     saveRecipe.IsEnabled = false;
-                    errorTxt.Content = "All fields must be numeric input only";
+                    errorTxt.Content = "Below fields must be numeric input only";
                 }
                 else
                 {
@@ -375,7 +383,11 @@ namespace Project_Epsilon
             double pressSet;
             double lowPressure;
 
-            if (String.IsNullOrWhiteSpace(highTempTxt.Text) || String.IsNullOrWhiteSpace(tempSetTxt.Text) || String.IsNullOrWhiteSpace(lowTempTxt.Text) || String.IsNullOrWhiteSpace(sealTimeTxt.Text) || String.IsNullOrWhiteSpace(highPressTxt.Text) || String.IsNullOrWhiteSpace(pressSetTxt.Text) || String.IsNullOrWhiteSpace(lowPressureTxt.Text))
+            if (String.IsNullOrWhiteSpace(recipeTxt.Text) || String.IsNullOrWhiteSpace(productTxt.Text) || String.IsNullOrWhiteSpace(lotTxt.Text) || String.IsNullOrWhiteSpace(rfidTxt.Text) ||
+                String.IsNullOrWhiteSpace(recipeUDITxt.Text) || String.IsNullOrWhiteSpace(highTempTxt.Text) || String.IsNullOrWhiteSpace(tempSetTxt.Text) ||
+                String.IsNullOrWhiteSpace(lowTempTxt.Text) || String.IsNullOrWhiteSpace(sealTimeTxt.Text) || String.IsNullOrWhiteSpace(highPressTxt.Text) ||
+                String.IsNullOrWhiteSpace(pressSetTxt.Text) || String.IsNullOrWhiteSpace(lowPressureTxt.Text) || cavMgtOptTxt.SelectedIndex == -1 ||
+                toolConfirmTxt.SelectedIndex == -1 || usingUDITxt.SelectedIndex == -1)
             {
                 errorTxt.Visibility = Visibility.Visible;
                 saveRecipe.IsEnabled = false;
@@ -387,7 +399,7 @@ namespace Project_Epsilon
             {
                 errorTxt.Visibility = Visibility.Visible;
                 saveRecipe.IsEnabled = false;
-                errorTxt.Content = "All fields must be numeric input only";
+                errorTxt.Content = "Below fields must be numeric input only";
             }
             else
             {
