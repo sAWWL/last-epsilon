@@ -28,14 +28,14 @@
                     </MenuItem.Header>
 
                     <MenuItem Header="_Connection Manager"/>
-                    <MenuItem Header="_Exit"/>
+                    <MenuItem Header="_Exit" Click="MenuItem_Click"/>
                 </MenuItem>
 
                 <MenuItem>
                     <MenuItem.Header>
                         <TextBlock Width="25" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20">Edit</TextBlock>
                     </MenuItem.Header>
-                    <MenuItem Header="_Load Recipes" HorizontalAlignment="Left"/>
+                    <MenuItem Header="_Load Recipes" HorizontalAlignment="Left" Click="MenuItem_Click_1"/>
                     <MenuItem Header="_Delete Recipe" HorizontalAlignment="Left"/>
                 </MenuItem>
             </Menu>

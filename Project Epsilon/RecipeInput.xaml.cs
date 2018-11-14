@@ -501,5 +501,18 @@ namespace Project_Epsilon
                 rfidTxt.Text = "";
             }
         }
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            FileBrowser fileBrowser = new FileBrowser();
+            if (fileBrowser.ShowDialog() == true)
+            {
+
+            }
+        }
     }
 }

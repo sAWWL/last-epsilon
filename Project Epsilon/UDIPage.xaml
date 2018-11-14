@@ -12,29 +12,33 @@
         </Grid.ColumnDefinitions>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FF216299" Offset="1"/>
-                <GradientStop Color="Black"/>
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FFBFCEDA" Offset="0.734"/>
+                <GradientStop Color="AliceBlue" Offset="0.228"/>
+                <GradientStop Color="#FF030C13" Offset="1"/>
+                <GradientStop Color="#FF4892C9" Offset="1"/>
+                <GradientStop Color="#FF2F73AD" Offset="0.99"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <CheckBox x:Name="chkUseUDI" Content="Use UDI with this Recipe" Margin="35,20,571,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="29" Foreground="White" Checked="chkUseUDI_Checked" Unchecked="chkUseUDI_Checked"/>
+        <CheckBox x:Name="chkUseUDI" Content="Use UDI with this Recipe" Margin="35,20,571,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="29" Foreground="Black" Checked="chkUseUDI_Checked" Unchecked="chkUseUDI_Checked" FontWeight="Bold"/>
         <TextBox x:Name="txtUDIRecipe" IsEnabled="False" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="35,54,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="420"/>
         <TextBox x:Name="txtUDILength" Grid.Column="1" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="400,54,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="36"/>
-        <Label x:Name="lblUDIEntireOrPartial" Content="Compare the entire UDI against the tool and object UDI or partial: (E or P)" HorizontalAlignment="Left" Margin="35,95,0,0" VerticalAlignment="Top" Width="420" Grid.ColumnSpan="2" Foreground="White"/>
+        <Label x:Name="lblUDIEntireOrPartial" Content="Compare the entire UDI against the tool and object UDI or partial: (e or p)" HorizontalAlignment="Left" Margin="35,95,0,0" VerticalAlignment="Top" Width="433" Grid.ColumnSpan="2" Foreground="Black" FontWeight="Bold"/>
         <TextBox x:Name="txtUDIEntireOrPartial" Grid.Column="1" MaxLength="1" TextChanged="txtUDIEntireOrPartial_TextChanged" HorizontalAlignment="Left" Height="23" Margin="400,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="36" />
-        <Label x:Name="lblUDIFirstPosition" Content="Using partial compare. What is the first position in the UDI string?" HorizontalAlignment="Left" Margin="35,130,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="420" Foreground="White"/>
+        <Label x:Name="lblUDIFirstPosition" Content="Using partial compare. What is the first position in the UDI string?" HorizontalAlignment="Left" Margin="35,130,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="420" Foreground="Black" FontWeight="Bold"/>
         <TextBox x:Name="txtUDIFirstPosition" MaxLength="2" IsEnabled="False" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="400,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="36" RenderTransformOrigin="0.464,-0.017" PreviewTextInput="TextBox_PreviewTextInput" TextChanged="txtUDIFirstPosition_TextChanged"/>
-        <Label x:Name="lblUDIEndingPosition" Content="Using partial compare. How many characters after the start position?" HorizontalAlignment="Left" Margin="35,161,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="420" Foreground="White"/>
+        <Label x:Name="lblUDIEndingPosition" Content="Using partial compare. How many characters after the start position?" HorizontalAlignment="Left" Margin="35,161,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="420" Foreground="Black" FontWeight="Bold"/>
         <TextBox x:Name="txtUDIEndingPosition" MaxLength="2" IsEnabled="False" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="400,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="36" TextChanged="txtUDIEndingPosition_TextChanged" PreviewTextInput="TextBox_PreviewTextInput"/>
         <TextBox x:Name="txtUDIPartialCompare" HorizontalAlignment="Left" Height="23" Margin="35,228,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="420" Grid.ColumnSpan="2"/>
         <Button x:Name="btnBack" Content="Back" Grid.Column="1" HorizontalAlignment="Left" Margin="522,365,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="0.493,2.15" Click="btnBack_Click"/>
-        <CheckBox x:Name="chkCompareUDI" Content="Compare against UDI?" Margin="173,267,349,0" VerticalAlignment="Top" Height="29" Grid.Column="1" Checked="chkCompareUDI_Checked" Unchecked="chkCompareUDI_Checked" Foreground="White"/>
-        <Label x:Name="lblCavUDIEntireOrPartial" Content="Compare the entire Cavity UDI against the recipe UDI or partial: (e or p)" HorizontalAlignment="Left" Margin="35,287,0,0" VerticalAlignment="Top" Width="420" Grid.ColumnSpan="2" Foreground="White"/>
+        <CheckBox x:Name="chkCompareUDI" Content="Compare against UDI?" Margin="173,267,349,0" VerticalAlignment="Top" Height="29" Grid.Column="1" Checked="chkCompareUDI_Checked" Unchecked="chkCompareUDI_Checked" Foreground="Black" FontWeight="Bold"/>
+        <Label x:Name="lblCavUDIEntireOrPartial" Content="Compare the entire Cavity UDI against the recipe UDI or partial: (e or p)" HorizontalAlignment="Left" Margin="35,287,0,0" VerticalAlignment="Top" Width="420" Grid.ColumnSpan="2" Foreground="Black" FontWeight="Bold"/>
         <TextBox x:Name="txtCavUDIEntireOrPartial" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="400,291,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="36" TextChanged="txtCavUDIEntireOrPartial_TextChanged"/>
-        <Label x:Name="lblCavUDIFirstPosition" Content="Using partial compare. What is the first postion in the UDI string?" HorizontalAlignment="Left" Margin="35,322,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="420" Foreground="White"/>
+        <Label x:Name="lblCavUDIFirstPosition" Content="Using partial compare. What is the first postion in the UDI string?" HorizontalAlignment="Left" Margin="35,322,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="420" Foreground="Black" FontWeight="Bold"/>
         <TextBox x:Name="txtCavUDIFirstPosition" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="400,326,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="36" PreviewTextInput="TextBox_PreviewTextInput" TextChanged="txtCavUDIFirstPosition_TextChanged"/>
-        <Label x:Name="lblCavUDIEndingPosition" Content="Using partial compare. How many characters after the start position?" HorizontalAlignment="Left" Margin="35,353,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="420" Foreground="White"/>
+        <Label x:Name="lblCavUDIEndingPosition" Content="Using partial compare. How many characters after the start position?" HorizontalAlignment="Left" Margin="35,353,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="420" Foreground="Black" FontWeight="Bold"/>
         <TextBox x:Name="txtCavUDIEndingPosition" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="400,357,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="36" PreviewTextInput="TextBox_PreviewTextInput" TextChanged="txtCavUDIEndingPosition_TextChanged"/>
         <TextBox x:Name="txtCavUDIPartialCompare" HorizontalAlignment="Left" Height="23" Margin="35,395,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="420" Grid.ColumnSpan="2"/>
-        <Label x:Name="lblCavityManagement" Content="You are using Cavity Management" HorizontalAlignment="Left" Margin="35,261,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="215" Foreground="White"/>
-     </Grid>
+        <Label x:Name="lblCavityManagement" Content="You are using Cavity Management" HorizontalAlignment="Left" Margin="35,261,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="215" Foreground="Black" FontWeight="Bold"/>
+    </Grid>
 </Window>
