@@ -8,6 +8,7 @@ namespace Project_Epsilon
 {
     public static class Servers
     {
+        public static int ServerIdx;
         public static List<string> ServerData = new List<string>();
         
     }

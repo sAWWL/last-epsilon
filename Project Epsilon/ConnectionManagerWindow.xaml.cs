@@ -26,60 +26,15 @@ namespace Project_Epsilon
         public ConnectionManagerWindow()
         {
             InitializeComponent();
-            
+            updateServerList();
 
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (serverName.Text == "" || serverAddress.Text == "" || serverPort.Text == "" || serverUsername.Text == "")
-            {
-                MessageBox.Show("Please ensure all fields are filled out!");
-            }
-            else
-            {
-                //serverConnectLog.Text = "Attempting to connect to " + serverAddress.Text + " on port " + serverPort.Text + "\n";
-                //var ping = new Ping();
-                var tcpClient = new TcpClient();
-                //try
-                //{
-                //    var reply = ping.Send(serverAddress.Text, 6 * 100);
-                //    serverConnectLog.Text += " Success! Server is responding to ping!" + "\n";
-               // }
-                //catch
-               // {
-                 //   serverConnectLog.Text += " Error! Server NOT is responding to ping!" + "\n";
-               // }
-
-                IAsyncResult ar = tcpClient.BeginConnect(serverAddress.Text, Convert.ToInt16(serverPort.Text), null, null);
-                System.Threading.WaitHandle wh = ar.AsyncWaitHandle;
-                try
-                {
-                    if (!ar.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(2), false))
-                    {
-                        tcpClient.Close();
-                        serverConnectLog.Text += " Error! Server is NOT responding on port " + serverPort.Text + "\n";
-                        throw new TimeoutException();
-                    }
-                    else
-                    {
-                        serverConnectLog.Text += " Success! Server is responding on port " + serverPort.Text + "\n";
-                    }
-
-                    tcpClient.EndConnect(ar);
-                }
-                finally
-                {
-                    wh.Close();
-                }
-            }
-        }
-
         private void deleteServer_Click(object sender, RoutedEventArgs e)
         {
             if (serverList.SelectedIndex != -1)
             {
                 string sMessageBoxText = "Do you want to delete the selected Server?";
-                string sCaption = "My Test Application";
+                string sCaption = "Delete Server?";
 
                 MessageBoxButton btnMessageBox = MessageBoxButton.YesNoCancel;
                 MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
@@ -101,36 +56,36 @@ namespace Project_Epsilon
         }
         private void addServer_Click(object sender, RoutedEventArgs e)
         {
-            if (serverName.Text == "" || serverAddress.Text == "" || serverPort.Text == "" || serverUsername.Text == "")
+            Servers.ServerIdx = -1;
+            AddServer addServer = new AddServer();
+            if (addServer.ShowDialog() != true)
             {
-                MessageBox.Show("Please ensure all fields are filled out!");
-            }
-            else
-            {
-                Servers.ServerData.Add(serverUsername.Text + "@" + serverAddress.Text + ":" + serverPort.Text + "-" + serverName.Text);
-                serverList.Items.Add(serverName.Text);
+                updateServerList();
+
             }
         }
-        private void serverList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (serverList.SelectedIndex != -1)
-            {
-                string serverdata = Servers.ServerData[serverList.SelectedIndex];
-                string servername = serverdata.Split('-')[1];
-                string serverusername = serverdata.Split('-')[0].Split('@')[0];
-                string serveraddress = serverdata.Split('-')[0].Split('@')[1].Split(':')[0];
-                string serverport = serverdata.Split('-')[0].Split('@')[1].Split(':')[1];
-
-                serverName.Text = servername;
-                serverAddress.Text = serveraddress;
-                serverPort.Text = serverport;
-                serverUsername.Text = serverusername;
-            }
-        }
-
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+  
+        private void editServer_Click(object sender, RoutedEventArgs e)
+        {
+            Servers.ServerIdx = serverList.SelectedIndex;
+            
+            AddServer editServer = new AddServer();
+            if (editServer.ShowDialog() != true)
+            {
+                updateServerList();
+            }
+        }
+        private void updateServerList()
+        {
+            serverList.Items.Clear();
+            foreach (string server in Servers.ServerData)
+            {
+                serverList.Items.Add(server.Split('-')[1]);
+            }
         }
     }
 
