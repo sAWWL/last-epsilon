@@ -7,12 +7,20 @@
         mc:Ignorable="d"
         Title="ConnectionManagerWindow" Height="257.262" Width="720">
     <Grid>
-        <ListView x:Name="serverList" HorizontalAlignment="Left" Height="108" Margin="10,57,0,0" VerticalAlignment="Top" Width="694">
+        <ListView x:Name="serverList"  Height="108" Margin="10,57,0,0" VerticalAlignment="Top" Width="692" >
             <ListView.View>
+
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
+            <ListViewItem Margin="0">
+                <Style TargetType="{x:Type ListViewItem}" >
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="Width" Value="Auto"/>
+                </Style>
+            </ListViewItem>
         </ListView>
         <Button x:Name="deleteServer" Content="Delete Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="92" Margin="27,184,0,0" RenderTransformOrigin="2.494,1.099" Click="deleteServer_Click"/>
         <Button x:Name="addServer" Content="Add Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Margin="316,184,0,0" RenderTransformOrigin="7.224,0.599" Click="addServer_Click"/>
