@@ -105,13 +105,14 @@ namespace Project_Epsilon
             LoadedRecipe._cavMethodTwoSelected = 0;
             LoadedRecipe._cavMgtUsed = 0;
             LoadedRecipe._recUDI1 = "";
-            LoadedRecipe._recUDI3 = "";
-            LoadedRecipe._recUDI4 = "";
-            LoadedRecipe._recUDI5 = "";
+            LoadedRecipe._recUDI3 = "e";
+            LoadedRecipe._recUDI4 = "0";
+            LoadedRecipe._recUDI5 = "0";
             LoadedRecipe._recUDI6 = "";
-            LoadedRecipe._recUDI7 = "";
-            LoadedRecipe._recUDI8 = "";
-            LoadedRecipe._recUDI9 = "";
+            LoadedRecipe._recUDI7 = "e";
+            LoadedRecipe._recUDI8 = "0";
+            LoadedRecipe._recUDI9 = "0";
+            LoadedRecipe.filerows.Add("");
             this.Close();
         }
     }

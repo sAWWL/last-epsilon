@@ -49,7 +49,6 @@ namespace Project_Epsilon
             //Make sure valid option is selected
             if (serverSelector.SelectedIndex != -1)
             {
-
                 //Acquire Serverdata from global store
                 string serverdata = Servers.ServerData[serverSelector.SelectedIndex];
                 string servername = serverdata.Split('-')[1];
@@ -69,6 +68,7 @@ namespace Project_Epsilon
                     filedata = File.ReadAllText(openFileDialog1.FileName);
                     if (filedata.Contains("\n"))
                     {
+                        LoadedRecipe.filerows.Clear();
                         LoadedRecipe.headerrow = filedata.Split('\n')[0];
                         for (int x = 1; x < filedata.Split('\n').Count(); x++)
                         {
@@ -77,15 +77,14 @@ namespace Project_Epsilon
                                 LoadedRecipe.filerows.Add(filedata.Split('\n')[x]);
                             }
                         }
+                        
                         ChooseRecipe chooseRecipe = new ChooseRecipe();
-                        MessageBox.Show(openFileDialog1.FileName);
                         if (chooseRecipe.ShowDialog() != true)
                         {
                             this.Close();
                         }
                     }
                 }
-
             }
         }
         private void Button_Click(object sender, RoutedEventArgs e)

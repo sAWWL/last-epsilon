@@ -353,19 +353,33 @@ namespace Project_Epsilon
             LoadedRecipe._pressureUpperAlarmValue = Convert.ToInt32(highPressTxt.Text);
             LoadedRecipe._pressureSetpointFromOIT = Convert.ToInt32(pressSetTxt.Text);
             LoadedRecipe._pressureLowerAlarmValue = Convert.ToInt32(lowPressureTxt.Text);
-            LoadedRecipe.filerows[LoadedRecipe.recipeID] = LoadedRecipe._recipeName + "," + LoadedRecipe._product + "," + LoadedRecipe._lotNumber + "," + LoadedRecipe._recipeNumber + "," + LoadedRecipe._pressureUpperAlarmValue + "," + LoadedRecipe._pressureLowerAlarmValue + "," + LoadedRecipe._pressureSetpointFromOIT + "," + LoadedRecipe._tempHigherAlarmValue + "," + LoadedRecipe._tempLowerAlarmValue + "," + LoadedRecipe._tempSetpoint + "," + LoadedRecipe._sealTime + "," + "0" + "," + LoadedRecipe._projectName + "," + LoadedRecipe._RFIDNumber + "," + LoadedRecipe._UDIRecipe + "," + LoadedRecipe._avTagRecipeLotSealed + "," + LoadedRecipe._avTagRecipeLotToSeal + "," + LoadedRecipe._recipeName + "," + LoadedRecipe._recipeGeneratedBy + "," + LoadedRecipe._recipeGeneratedOn + "," + LoadedRecipe._recToolRequired + "," + LoadedRecipe._cavMethod2Required + "," + LoadedRecipe._UDIRecipeTool + "," + LoadedRecipe._cavMethodOneSelected + "," + LoadedRecipe._cavMethodTwoSelected + "," + LoadedRecipe._cavMgtUsed + "," + LoadedRecipe._recUDI1 + "," + LoadedRecipe._recUDI3 + "," + LoadedRecipe._recUDI4 + "," + LoadedRecipe._recUDI5 + "," + LoadedRecipe._recUDI6 + "," + LoadedRecipe._recUDI7 + "," + LoadedRecipe._recUDI8 + "," + LoadedRecipe._recUDI9;
-            FtpWebRequest deletereq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
-            deletereq.Method = WebRequestMethods.Ftp.DeleteFile;
-            PasswordInput passwordInput = new PasswordInput();
-            if (passwordInput.ShowDialog() == false)
+            
+            LoadedRecipe.filerows[LoadedRecipe.recipeID] = LoadedRecipe._recipeName + "," + LoadedRecipe._product + "," + LoadedRecipe._lotNumber + "," + LoadedRecipe._recipeNumber + "," + LoadedRecipe._pressureUpperAlarmValue + "," + LoadedRecipe._pressureLowerAlarmValue + "," + LoadedRecipe._pressureSetpointFromOIT + "," + LoadedRecipe._tempHigherAlarmValue + "," + LoadedRecipe._tempLowerAlarmValue + "," + LoadedRecipe._tempSetpoint + "," + LoadedRecipe._sealTime + "," + "0" + "," + LoadedRecipe._projectName + "," + LoadedRecipe._RFIDNumber + "," + LoadedRecipe._UDIRecipe + "," + LoadedRecipe._avTagRecipeLotSealed + "," + LoadedRecipe._avTagRecipeLotToSeal + "," + LoadedRecipe._recipeName + "," + LoadedRecipe._recipeGeneratedBy + "," + LoadedRecipe._recipeGeneratedOn + "," + LoadedRecipe._recToolRequired + "," + LoadedRecipe._cavMethod2Required + "," + LoadedRecipe._UDIRecipeTool + "," + LoadedRecipe._cavMethodOneSelected + "," + LoadedRecipe._cavMethodTwoSelected + "," + LoadedRecipe._cavMgtUsed + "," + LoadedRecipe._recUDI1 + "," + LoadedRecipe._recUDI3 + "," + LoadedRecipe._recUDI4 + "," + LoadedRecipe._recUDI5 + "," + LoadedRecipe._recUDI6 + "," + LoadedRecipe._recUDI7 + "," + LoadedRecipe._recUDI8 + "," + LoadedRecipe._recUDI9;
+
+            try
             {
-                deletereq.Credentials = new NetworkCredential(LoadedRecipe.username, LoadedRecipe.password);
-                FtpWebResponse response = (FtpWebResponse)deletereq.GetResponse();
+                FtpWebRequest deletereq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
+
+                deletereq.Method = WebRequestMethods.Ftp.DeleteFile;
+
+                PasswordInput passwordInput = new PasswordInput();
+
+                if (passwordInput.ShowDialog() == false)
+                {
+                    deletereq.Credentials = new NetworkCredential(LoadedRecipe.username, LoadedRecipe.password);
+
+                    FtpWebResponse response = (FtpWebResponse)deletereq.GetResponse();
+
+                }
+            }
+            catch
+            {
+
             }
             FtpWebRequest uploadreq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
             uploadreq.Credentials = new NetworkCredential(LoadedRecipe.username, LoadedRecipe.password);       
             uploadreq.Method = WebRequestMethods.Ftp.UploadFile;
-            string outputstring = "";
+            string outputstring = LoadedRecipe.headerrow;
             foreach (string row in LoadedRecipe.filerows)
 
             {
@@ -383,7 +397,7 @@ namespace Project_Epsilon
 
             catch
             {
-                MessageBox.Show("There was an error while uploading Recipe File. Please Try again!");
+                MessageBox.Show("There was an error while uploading Recipe File. Please check your connection and try again!");
             }
         }
 

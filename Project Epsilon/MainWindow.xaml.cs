@@ -26,6 +26,7 @@ namespace Project_Epsilon
             //Add Servers for Demo Purposes
             Servers.ServerData.Add("username@google.com:2121-Google Server");           
             Servers.ServerData.Add("ftp@schild.tech:21-Dev Server");
+            Servers.ServerData.Add("ATLASVAC@192.168.1.248:21-HMI");
         }
 
 
