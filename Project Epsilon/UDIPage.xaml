@@ -20,7 +20,7 @@
                 <GradientStop Color="#FF2F73AD" Offset="0.99"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <CheckBox x:Name="chkUseUDI" Content="Use UDI with this Recipe" Margin="35,20,571,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="29" Foreground="Black" Checked="chkUseUDI_Checked" Unchecked="chkUseUDI_Checked" FontWeight="Bold"/>
+        <CheckBox x:Name="chkUseUDI" Content="Use UDI with this Recipe" Margin="35,20,546,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="29" Foreground="Black" Checked="chkUseUDI_Checked" Unchecked="chkUseUDI_Checked" FontWeight="Bold"/>
         <TextBox x:Name="txtUDIRecipe" IsEnabled="False" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="35,54,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="420"/>
         <TextBox x:Name="txtUDILength" Grid.Column="1" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="400,54,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="36"/>
         <Label x:Name="lblUDIEntireOrPartial" Content="Compare the entire UDI against the tool and object UDI or partial: (e or p)" HorizontalAlignment="Left" Margin="35,95,0,0" VerticalAlignment="Top" Width="433" Grid.ColumnSpan="2" Foreground="Black" FontWeight="Bold"/>

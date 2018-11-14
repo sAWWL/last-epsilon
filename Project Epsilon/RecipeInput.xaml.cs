@@ -21,7 +21,7 @@ namespace Project_Epsilon
             double pressSet;
             double lowPressure;
 
-            if (String.IsNullOrWhiteSpace(recipeTxt.Text) || String.IsNullOrWhiteSpace(productTxt.Text) || String.IsNullOrWhiteSpace(lotTxt.Text) || String.IsNullOrWhiteSpace(rfidTxt.Text) ||
+            if (String.IsNullOrWhiteSpace(recipeTxt.Text) || String.IsNullOrWhiteSpace(productTxt.Text) || String.IsNullOrWhiteSpace(lotTxt.Text) ||
                 String.IsNullOrWhiteSpace(recipeUDITxt.Text) || String.IsNullOrWhiteSpace(highTempTxt.Text) || String.IsNullOrWhiteSpace(tempSetTxt.Text) ||
                 String.IsNullOrWhiteSpace(lowTempTxt.Text) || String.IsNullOrWhiteSpace(sealTimeTxt.Text) || String.IsNullOrWhiteSpace(highPressTxt.Text) ||
                 String.IsNullOrWhiteSpace(pressSetTxt.Text) || String.IsNullOrWhiteSpace(lowPressureTxt.Text) || cavMgtOptTxt.SelectedIndex == -1 ||
@@ -29,7 +29,7 @@ namespace Project_Epsilon
             {
                 errorTxt.Visibility = Visibility.Visible;
                 saveRecipe.IsEnabled = false;
-                errorTxt.Content = "All Fields are Required";
+                errorTxt.Content = "All Fields (except RFID) are Required";
             }
             else if (!Double.TryParse(highTempTxt.Text, out highTempAlarm) || !Double.TryParse(tempSetTxt.Text, out tempSetPoint) || !Double.TryParse(lowTempTxt.Text, out tempSetPoint)
                 || !Double.TryParse(sealTimeTxt.Text, out sealTime) || !Double.TryParse(highPressTxt.Text, out highPress)
@@ -198,7 +198,7 @@ namespace Project_Epsilon
                 double pressSet;
                 double lowPressure;
 
-                if (String.IsNullOrWhiteSpace(recipeTxt.Text) || String.IsNullOrWhiteSpace(productTxt.Text) || String.IsNullOrWhiteSpace(lotTxt.Text) || String.IsNullOrWhiteSpace(rfidTxt.Text) ||
+                if (String.IsNullOrWhiteSpace(recipeTxt.Text) || String.IsNullOrWhiteSpace(productTxt.Text) || String.IsNullOrWhiteSpace(lotTxt.Text) ||
                 String.IsNullOrWhiteSpace(recipeUDITxt.Text) || String.IsNullOrWhiteSpace(highTempTxt.Text) || String.IsNullOrWhiteSpace(tempSetTxt.Text) ||
                 String.IsNullOrWhiteSpace(lowTempTxt.Text) || String.IsNullOrWhiteSpace(sealTimeTxt.Text) || String.IsNullOrWhiteSpace(highPressTxt.Text) ||
                 String.IsNullOrWhiteSpace(pressSetTxt.Text) || String.IsNullOrWhiteSpace(lowPressureTxt.Text) || cavMgtOptTxt.SelectedIndex == -1 ||
@@ -206,7 +206,7 @@ namespace Project_Epsilon
                 {
                     errorTxt.Visibility = Visibility.Visible;
                     saveRecipe.IsEnabled = false;
-                    errorTxt.Content = "All Fields are Required";
+                    errorTxt.Content = "All Fields (except RFID) are Required";
                 }
                 else if (!Double.TryParse(highTempTxt.Text, out highTempAlarm) || !Double.TryParse(tempSetTxt.Text, out tempSetPoint) || !Double.TryParse(lowTempTxt.Text, out tempSetPoint)
                     || !Double.TryParse(sealTimeTxt.Text, out sealTime) || !Double.TryParse(highPressTxt.Text, out highPress)
@@ -383,7 +383,7 @@ namespace Project_Epsilon
             double pressSet;
             double lowPressure;
 
-            if (String.IsNullOrWhiteSpace(recipeTxt.Text) || String.IsNullOrWhiteSpace(productTxt.Text) || String.IsNullOrWhiteSpace(lotTxt.Text) || String.IsNullOrWhiteSpace(rfidTxt.Text) ||
+            if (String.IsNullOrWhiteSpace(recipeTxt.Text) || String.IsNullOrWhiteSpace(productTxt.Text) || String.IsNullOrWhiteSpace(lotTxt.Text) ||
                 String.IsNullOrWhiteSpace(recipeUDITxt.Text) || String.IsNullOrWhiteSpace(highTempTxt.Text) || String.IsNullOrWhiteSpace(tempSetTxt.Text) ||
                 String.IsNullOrWhiteSpace(lowTempTxt.Text) || String.IsNullOrWhiteSpace(sealTimeTxt.Text) || String.IsNullOrWhiteSpace(highPressTxt.Text) ||
                 String.IsNullOrWhiteSpace(pressSetTxt.Text) || String.IsNullOrWhiteSpace(lowPressureTxt.Text) || cavMgtOptTxt.SelectedIndex == -1 ||
@@ -391,7 +391,7 @@ namespace Project_Epsilon
             {
                 errorTxt.Visibility = Visibility.Visible;
                 saveRecipe.IsEnabled = false;
-                errorTxt.Content = "All Fields are Required";
+                errorTxt.Content = "All Fields (except RFID) are Required";
             }
             else if (!Double.TryParse(highTempTxt.Text, out highTempAlarm) || !Double.TryParse(tempSetTxt.Text, out tempSetPoint) || !Double.TryParse(lowTempTxt.Text, out tempSetPoint)
                 || !Double.TryParse(sealTimeTxt.Text, out sealTime) || !Double.TryParse(highPressTxt.Text, out highPress)
@@ -513,6 +513,17 @@ namespace Project_Epsilon
             {
 
             }
+        }
+        // Allows only numeric input from user for RFID textbox
+        private void TextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            e.Handled = !IsValid(((System.Windows.Controls.TextBox)sender).Text + e.Text);
+        }
+
+        public static bool IsValid(string str)
+        {
+            int i;
+            return int.TryParse(str, out i);
         }
     }
 }
