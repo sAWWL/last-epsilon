@@ -22,10 +22,10 @@ namespace Project_Epsilon
         public CavityToolWindow()
         {
             InitializeComponent();
-
+            
             if (LoadedRecipe._cavMethodOneSelected == 1)
             {
-                methodOneCheckbox.IsChecked = true;
+                methodTwoCheckbox.IsChecked = false;
             }
 
             if (LoadedRecipe._cavMethodTwoSelected == 1)
@@ -73,5 +73,20 @@ namespace Project_Epsilon
             return int.TryParse(str, out i) && i >= 1 && i <= 8;
         }
 
+        private void MethodOneCheckbox_Checked(object sender, RoutedEventArgs e)
+        {
+            if (methodOneCheckbox.IsChecked == true)
+            {
+                methodTwoCheckbox.IsChecked = false;
+            }
+        }
+
+        private void MethodTwoCheckbox_Checked(object sender, RoutedEventArgs e)
+        {
+            if (methodTwoCheckbox.IsChecked == true)
+            {
+                methodOneCheckbox.IsChecked = false;
+            }
+        }
     }
 }
