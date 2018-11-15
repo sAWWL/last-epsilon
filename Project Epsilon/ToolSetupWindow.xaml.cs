@@ -17,20 +17,25 @@ namespace Project_Epsilon
     /// <summary>
     /// Interaction logic for ToolSetupWindow.xaml
     /// </summary>
-public partial class ToolSetupWindow : Window
+    public partial class ToolSetupWindow : Window
     {
         public ToolSetupWindow()
         {
             InitializeComponent();
             ToolUDITextbox.Text = LoadedRecipe._UDIRecipe;
-            
+
         }
-   
+
         //Back button click event
+
+
         private void BackButton(object sender, RoutedEventArgs e)
         {
             this.Close();
-            LoadedRecipe.numCavUsed = Convert.ToInt32(NumCavsTextbox.Text);
+            if (ToolConfCheckBox.IsChecked == true)
+            {
+                LoadedRecipe.numCavUsed = Convert.ToInt32(NumCavsTextbox.Text);
+            }
         }
 
         //Tool Confirmation checkbox event
@@ -94,14 +99,14 @@ public partial class ToolSetupWindow : Window
                     BackButton2.IsEnabled = true;
                 }
             }
-            else 
+            else
             {
                 ErrorMessage.Visibility = Visibility.Hidden;
                 BackButton2.IsEnabled = true;
             }
         }
-        
-        
+
+
         //checks for input in UDI Textbox
         private void ToolUDITextbox_TextChanged(object sender, TextChangedEventArgs e)
         {

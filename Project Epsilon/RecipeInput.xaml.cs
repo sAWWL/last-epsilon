@@ -10,6 +10,7 @@ namespace Project_Epsilon
 {
     public partial class RecipeInput
     {
+        private string _password;
         public RecipeInput()
         {
             InitializeComponent();
@@ -20,6 +21,7 @@ namespace Project_Epsilon
             double highPress;
             double pressSet;
             double lowPressure;
+
 
             if (String.IsNullOrWhiteSpace(recipeTxt.Text) || String.IsNullOrWhiteSpace(productTxt.Text) || String.IsNullOrWhiteSpace(lotTxt.Text) ||
                 String.IsNullOrWhiteSpace(recipeUDITxt.Text) || String.IsNullOrWhiteSpace(highTempTxt.Text) || String.IsNullOrWhiteSpace(tempSetTxt.Text) ||
@@ -136,7 +138,7 @@ namespace Project_Epsilon
         {
             System.Windows.Application.Current.Shutdown();
         }
-        
+
         private void loadBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             FileBrowser fileBrowser = new FileBrowser();
@@ -307,7 +309,7 @@ namespace Project_Epsilon
                 }
             }
         }
-        
+
 
         private void saveRecipe_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -353,52 +355,52 @@ namespace Project_Epsilon
             LoadedRecipe._pressureUpperAlarmValue = Convert.ToInt32(highPressTxt.Text);
             LoadedRecipe._pressureSetpointFromOIT = Convert.ToInt32(pressSetTxt.Text);
             LoadedRecipe._pressureLowerAlarmValue = Convert.ToInt32(lowPressureTxt.Text);
-            
-            LoadedRecipe.filerows[LoadedRecipe.recipeID] = LoadedRecipe._recipeName + "," + LoadedRecipe._product + "," + LoadedRecipe._lotNumber + "," + LoadedRecipe._recipeNumber + "," + LoadedRecipe._pressureUpperAlarmValue + "," + LoadedRecipe._pressureLowerAlarmValue + "," + LoadedRecipe._pressureSetpointFromOIT + "," + LoadedRecipe._tempHigherAlarmValue + "," + LoadedRecipe._tempLowerAlarmValue + "," + LoadedRecipe._tempSetpoint + "," + LoadedRecipe._sealTime + "," + "0" + "," + LoadedRecipe._projectName + "," + LoadedRecipe._RFIDNumber + "," + LoadedRecipe._UDIRecipe + "," + LoadedRecipe._avTagRecipeLotSealed + "," + LoadedRecipe._avTagRecipeLotToSeal + "," + LoadedRecipe._recipeName + "," + LoadedRecipe._recipeGeneratedBy + "," + LoadedRecipe._recipeGeneratedOn + "," + LoadedRecipe._recToolRequired + "," + LoadedRecipe._cavMethod2Required + "," + LoadedRecipe._UDIRecipeTool + "," + LoadedRecipe._cavMethodOneSelected + "," + LoadedRecipe._cavMethodTwoSelected + "," + LoadedRecipe._cavMgtUsed + "," + LoadedRecipe._recUDI1 + "," + LoadedRecipe._recUDI3 + "," + LoadedRecipe._recUDI4 + "," + LoadedRecipe._recUDI5 + "," + LoadedRecipe._recUDI6 + "," + LoadedRecipe._recUDI7 + "," + LoadedRecipe._recUDI8 + "," + LoadedRecipe._recUDI9;
 
+            LoadedRecipe._projectName = "Master_HMI_Cavity_Master";
+            LoadedRecipe._recipeGeneratedBy = "ADMIN";
+            LoadedRecipe._recipeGeneratedOn = "11-11-11:11:11:11";
+
+            LoadedRecipe.filerows[LoadedRecipe.recipeID] = LoadedRecipe._recipeName + "," + LoadedRecipe._product + "," + LoadedRecipe._lotNumber + "," + LoadedRecipe._recipeNumber + "," + LoadedRecipe._pressureUpperAlarmValue + "," + LoadedRecipe._pressureLowerAlarmValue + "," + LoadedRecipe._pressureSetpointFromOIT + "," + LoadedRecipe._tempHigherAlarmValue + "," + LoadedRecipe._tempLowerAlarmValue + "," + LoadedRecipe._tempSetpoint + "," + LoadedRecipe._sealTime + "," + "0" + "," + LoadedRecipe._projectName + "," + LoadedRecipe._RFIDNumber + "," + LoadedRecipe._UDIRecipe + "," + LoadedRecipe._avTagRecipeLotSealed + "," + LoadedRecipe._avTagRecipeLotToSeal + "," + LoadedRecipe._recipeName + "," + LoadedRecipe._recipeGeneratedBy + "," + LoadedRecipe._recipeGeneratedOn + "," + LoadedRecipe._recToolRequired + "," + LoadedRecipe._cavMethod2Required + "," + LoadedRecipe._UDIRecipeTool + "," + LoadedRecipe._cavMethodOneSelected + "," + LoadedRecipe._cavMethodTwoSelected + "," + LoadedRecipe._cavMgtUsed + "," + LoadedRecipe._recUDI1 + "," + LoadedRecipe._recUDI3 + "," + LoadedRecipe._recUDI4 + "," + LoadedRecipe._recUDI5 + "," + LoadedRecipe._recUDI6 + "," + LoadedRecipe._recUDI7 + "," + LoadedRecipe._recUDI8 + "," + LoadedRecipe._recUDI9;
+            if (LoadedRecipe.loginSuccess == false)
+            {
+                PasswordInput passwordInput = new PasswordInput();
+                passwordInput.ShowDialog();
+            }
             try
             {
                 FtpWebRequest deletereq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
-
                 deletereq.Method = WebRequestMethods.Ftp.DeleteFile;
-
-                PasswordInput passwordInput = new PasswordInput();
-
-                if (passwordInput.ShowDialog() == false)
-                {
-                    deletereq.Credentials = new NetworkCredential(LoadedRecipe.username, LoadedRecipe.password);
-
-                    FtpWebResponse response = (FtpWebResponse)deletereq.GetResponse();
-
-                }
+                deletereq.Credentials = new NetworkCredential(LoadedRecipe.username, LoadedRecipe.password);
+                FtpWebResponse response = (FtpWebResponse)deletereq.GetResponse();
             }
             catch
             {
 
             }
-            FtpWebRequest uploadreq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
-            uploadreq.Credentials = new NetworkCredential(LoadedRecipe.username, LoadedRecipe.password);       
-            uploadreq.Method = WebRequestMethods.Ftp.UploadFile;
-            string outputstring = LoadedRecipe.headerrow;
-            foreach (string row in LoadedRecipe.filerows)
-
-            {
-                outputstring += row + "\n";
-            }
-
-            byte[] bytes = Encoding.UTF8.GetBytes(outputstring);
-
             try
             {
+                FtpWebRequest uploadreq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
+                uploadreq.Credentials = new NetworkCredential(LoadedRecipe.username, LoadedRecipe.password);
+                uploadreq.Method = WebRequestMethods.Ftp.UploadFile;
+                string outputstring = LoadedRecipe.headerrow + "\n";
+                foreach (string row in LoadedRecipe.filerows)
+
+                {
+                    outputstring += row + "\n";
+                }
+
+                byte[] bytes = Encoding.UTF8.GetBytes(outputstring);
                 Stream requestStream = uploadreq.GetRequestStream();
                 requestStream.Write(bytes, 0, bytes.Length);
                 requestStream.Close();
+                LoadedRecipe.loginSuccess = true;
+                MessageBox.Show("Recipe upload was successful.");
             }
-
             catch
             {
-                MessageBox.Show("There was an error while uploading Recipe File. Please check your connection and try again!");
+                MessageBox.Show("There was an error while uploading the recipe file. Please check your connection and password.");
             }
+
         }
 
         //Validation

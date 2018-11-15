@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_Epsilon"
         mc:Ignorable="d"
-        Title="ConnectionManagerWindow" Height="257.262" Width="720">
+        Title="ConnectionManagerWindow" Height="257.262" Width="446.678">
     <Grid>
-        <ListView x:Name="serverList"  Height="108" Margin="10,57,0,0" VerticalAlignment="Top" Width="692" >
+        <ListView x:Name="serverList"  Height="108" Margin="20,57,24,0" VerticalAlignment="Top" >
             <ListView.View>
 
                 <GridView>
@@ -22,10 +22,11 @@
                 </Style>
             </ListViewItem>
         </ListView>
-        <Button x:Name="deleteServer" Content="Delete Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="92" Margin="27,184,0,0" RenderTransformOrigin="2.494,1.099" Click="deleteServer_Click"/>
-        <Button x:Name="addServer" Content="Add Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Margin="316,184,0,0" RenderTransformOrigin="7.224,0.599" Click="addServer_Click"/>
-        <Button x:Name="backBtn" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="28" Margin="541,187,0,0" Click="backBtn_Click" Height="23"/>
-        <Button x:Name="editServer" Content="Edit Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="92" Margin="161,184,0,0" RenderTransformOrigin="2.494,1.099" Click="editServer_Click"/>
+        <Button x:Name="deleteServer" Content="Delete Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="225,185,0,0" Click="deleteServer_Click"/>
+        <Button x:Name="addServer" Content="Add Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="20,185,0,0" Click="addServer_Click"/>
+        <Button x:Name="backBtn" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="325,185,0,0" Click="backBtn_Click"/>
+        <Button x:Name="editServer" Content="Edit Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="125,185,0,0" Click="editServer_Click"/>
+        <Label Content="Manage Servers" HorizontalAlignment="Left" Margin="20,26,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

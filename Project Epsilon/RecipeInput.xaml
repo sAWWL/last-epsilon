@@ -139,15 +139,13 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
-                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Button x:Name="optionsBtn"  Grid.Column="0" Click="optionsBtn_Click" Grid.RowSpan="2" Content="Options" Margin="5,0"/>
-                    <Button x:Name="loadBtn" Grid.Column="1" Grid.RowSpan="2" Content="Load" Margin="5,0" Click="loadBtn_Click"/>
-                    <Button x:Name="clearBtn" Grid.Column="2" Grid.RowSpan="2" Content="Clear" Margin="5,0" Click="clearBtn_Click"/>
-                    <Button x:Name="deleteBtn" Grid.Column="3" Grid.RowSpan="2" Content="Delete" Margin="5,0"/>
-                    <Button x:Name="saveRecipe" Height="24" Grid.Column="4" Margin="5,0" Click="saveRecipe_Click">Save</Button>
-                    <Button x:Name="homeBtn"  Grid.Column="5" Grid.RowSpan="2" Content="Home" Click="homeBtn_Click" Margin="5,0"/>
+                    <Button x:Name="optionsBtn"  Grid.Column="0" Click="optionsBtn_Click" Grid.RowSpan="2" Content="Options" Margin="10,0"/>
+                    <Button x:Name="loadBtn" Grid.Column="1" Grid.RowSpan="2" Content="Load" Margin="10,0" Click="loadBtn_Click"/>
+                    <Button x:Name="clearBtn" Grid.Column="2" Grid.RowSpan="2" Content="Clear" Margin="10,0" Click="clearBtn_Click"/>
+                    <Button x:Name="saveRecipe" Height="24" Grid.Column="3" Margin="10,0" Click="saveRecipe_Click">Save</Button>
+                    <Button x:Name="homeBtn"  Grid.Column="4" Grid.RowSpan="2" Content="Home" Click="homeBtn_Click" Margin="10,0"/>
 
                 </Grid>
             </StackPanel>

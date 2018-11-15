@@ -115,5 +115,36 @@ namespace Project_Epsilon
             LoadedRecipe.filerows.Add("");
             this.Close();
         }
+
+        private void deleteRecipeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(selectRecipe.SelectedIndex != -1)
+            {
+                string sMessageBoxText = "Do you want to delete the selected Recipe?";
+                string sCaption = "Delete Recipe?";
+
+                MessageBoxButton btnMessageBox = MessageBoxButton.YesNoCancel;
+                MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
+
+                MessageBoxResult rsltMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
+
+                switch (rsltMessageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        LoadedRecipe.filerows.RemoveAt(selectRecipe.SelectedIndex);
+                        selectRecipe.Items.Clear();
+                        foreach (string recipe in LoadedRecipe.filerows)
+                        {
+                            selectRecipe.Items.Add(recipe.Split(',')[0]);
+                        }
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                    case MessageBoxResult.Cancel:
+                        break;
+                }
+                
+            }
+        }
     }
 }

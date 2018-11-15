@@ -10,7 +10,7 @@ namespace Project_Epsilon
     {
         public static string file;
         public static List<string> filerows = new List<string>();
-        public static bool cavUsed;
+        public static bool cavUsed, loginSuccess = false;
         public static string _product, _recipeName, _UDIRecipe,
                          _UDITrayValue, _fieldName, _projectName,
                          _recipeGeneratedBy;
