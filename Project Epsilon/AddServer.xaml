@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_Epsilon"
         mc:Ignorable="d"
-        Title="Add Server" Height="298.607" Width="561.949"
+        Title="Edit Server" Height="298.607" Width="561.949"
         ResizeMode="NoResize">
     <Grid Margin="0,0,4,2.2">
         <TextBox x:Name="serverName" HorizontalAlignment="Left" Height="23" Margin="167,17,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="344"/>
@@ -16,7 +16,7 @@
         <Label Content="Server Hostname / IP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,63,0,0"/>
         <Label Content="Server Port" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,110,0,0"/>
         <Label Content="Username" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,160,0,0"/>
-        <Button Name="AddServerBtn" Content="Add Server" HorizontalAlignment="Left" Margin="466,237,0,0" VerticalAlignment="Top" Width="75" Click="AddServerBtn_Click"/>
+        <Button Name="AddServerBtn" Content="Save" HorizontalAlignment="Left" Margin="466,237,0,0" VerticalAlignment="Top" Width="75" Click="AddServerBtn_Click"/>
         <Button Name="CancelAddBtn" Content="Cancel" HorizontalAlignment="Left" Margin="374,237,0,0" VerticalAlignment="Top" Width="75" Click="CancelAddBtn_Click"/>
 
     </Grid>
