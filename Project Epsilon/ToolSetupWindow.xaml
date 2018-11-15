@@ -23,7 +23,7 @@
         <Label x:Name="NumCavsLabel" Content="Number of Cavities in the Tool?" Margin="150,200,0,0" Visibility="Hidden" FontWeight="Bold" Foreground="Black"/>
         <TextBox x:Name="NumCavsTextbox" MaxLength="1" Visibility="Hidden" PreviewTextInput="TextBox_PreviewTextInput" TextChanged="NumCavsTextbox_TextChanged" Margin="175,55,115,0" Height="20" Width="20"/>
         <Button x:Name="BackButton2" Content="&lt; Back" Margin="450,250,0,0" Width="75" Click="BackButton" Height="20" IsEnabled="True"/>
-        <Label x:Name="ErrorMessage" Content="Tool UDI and # of Cavities are Required when Tool Confirmation Required is Checked" HorizontalAlignment="Left" Margin="95,45,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="Red" Visibility="Hidden" />
+        <Label x:Name="ErrorMessage" Content="Tool UDI and # of Cavities are Required when Tool Confirmation Required is Checked" HorizontalAlignment="Left" Margin="95,45,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="Red" Visibility="Hidden" Foreground="White"/>
 
     </Grid>
 </Window>
