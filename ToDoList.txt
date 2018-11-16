@@ -6,6 +6,10 @@ Cavity Tool screen
 
 Connection Management
 	- change wherever server is to machine ie "add server" to "add machine"
+	- edit server window 
+		- make sure only valid local IP can be entered
+		- remove username and server port 
+		- make sure to change server to machine 
 
 _____________________________
 
@@ -24,10 +28,7 @@ UDI screen
 	- group two sections of the page together with black line or box to show which ones are related 
 
 Connection Management
-	- edit server window 
-		- make sure only valid local IP can be entered
-		- remove username and server port 
-		- make sure to change server to machine 
+	
 File Browser 
 	- always use recipe1.csv
 	- add data grid with all of the recipes for easy access

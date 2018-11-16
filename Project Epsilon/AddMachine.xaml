@@ -5,19 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_Epsilon"
         mc:Ignorable="d"
-        Title="Edit Machine" Height="298.607" Width="561.949"
+        Title="Edit Machine" Height="218" Width="410"
         ResizeMode="NoResize">
     <Grid Margin="0,0,4,2.2">
-        <TextBox x:Name="machineName" HorizontalAlignment="Left" Height="23" Margin="167,17,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="344"/>
-        <TextBox x:Name="machineAddress" HorizontalAlignment="Left" Height="23" Margin="167,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="344"/>
-        <TextBox x:Name="machinePort" HorizontalAlignment="Left" Height="23" Margin="167,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="26"/>
-        <TextBox x:Name="machineUsername" HorizontalAlignment="Left" Height="23" Margin="167,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179"/>
-        <Label Content="Machine Nickname" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,13,0,0"/>
-        <Label Content="Machine Hostname / IP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,63,0,0"/>
-        <Label Content="Machine Port" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,110,0,0"/>
-        <Label Content="Username" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,160,0,0"/>
-        <Button Name="AddMachineBtn" Content="Save" HorizontalAlignment="Left" Margin="466,237,0,0" VerticalAlignment="Top" Width="75" Click="AddMachineBtn_Click"/>
-        <Button Name="CancelAddBtn" Content="Cancel" HorizontalAlignment="Left" Margin="374,237,0,0" VerticalAlignment="Top" Width="75" Click="CancelAddBtn_Click"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="AliceBlue" Offset="1"/>
+                <GradientStop Color="AliceBlue"/>
+                <GradientStop Color="#FF89B9E4" Offset="0.801"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBox x:Name="machineName" HorizontalAlignment="Left" Height="23" Margin="183,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="183"/>
+        <TextBox x:Name="machineAddress" HorizontalAlignment="Left" Height="23" Margin="183,71,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="183" LostFocus="AddressEntry_LostFocus" GotFocus="AddressEntry_OnFocus"/>
+        <Label Content="Machine Nickname" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,21,0,0"/>
+        <Label Content="Machine Hostname / IP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,71,0,0"/>
+        <Button Name="AddMachineBtn" Content="Save" HorizontalAlignment="Left" Margin="291,143,0,0" VerticalAlignment="Top" Width="75" Click="AddMachineBtn_Click"/>
+        <Button Name="CancelAddBtn" Content="Cancel" HorizontalAlignment="Left" Margin="199,143,0,0" VerticalAlignment="Top" Width="75" Click="CancelAddBtn_Click"/>
+        <TextBlock Name="IPAddressError" HorizontalAlignment="Left" Margin="26,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340" Height="18" Background="#FFC93B3B" FontWeight="Bold" TextAlignment="Center"
+                   Text="Hostname/IP Must Be A Valid Local Address" Foreground="White" Visibility="hidden"/>
 
     </Grid>
 </Window>
