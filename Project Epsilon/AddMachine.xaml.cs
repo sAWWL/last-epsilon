@@ -34,11 +34,7 @@ namespace Project_Epsilon
                 oct2.Text = machineaddress.Split('.')[1].Split('.')[0];
                 oct3.Text = machineaddress.Split('.')[2];
                 oct4.Text = machineaddress.Split('.')[3];
-
-
-
                 machineName.Text = machinename;
-                // Todo: auto poopulate
             }
         }
         private void AddMachineBtn_Click(object sender, RoutedEventArgs e)

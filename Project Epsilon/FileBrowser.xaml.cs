@@ -70,9 +70,17 @@ namespace Project_Epsilon
                     FtpWebRequest downloadreq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
                     downloadreq.Method = WebRequestMethods.Ftp.DownloadFile;
                     downloadreq.Credentials = new NetworkCredential(LoadedRecipe.username, LoadedRecipe.password);
-                    FtpWebResponse response = (FtpWebResponse)downloadreq.GetResponse();
 
-                    filedata = response.ToString();
+
+                    using (Stream stream = downloadreq.GetResponse().GetResponseStream())
+                    {
+                        using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+                        {
+                            filedata = reader.ReadToEnd();
+                        }
+                    }
+
+
                     if (filedata.Contains("\n"))
                     {
                         LoadedRecipe.filerows.Clear();
@@ -95,7 +103,7 @@ namespace Project_Epsilon
                 catch
                 {
                     MessageBox.Show("There was an error reading data from the machine.");
-                }                  
+                }
             }
         }
         private void Button_Click(object sender, RoutedEventArgs e)

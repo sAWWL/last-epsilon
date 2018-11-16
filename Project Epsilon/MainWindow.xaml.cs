@@ -25,8 +25,9 @@ namespace Project_Epsilon
             InitializeComponent();
             //Add Machines for Demo Purposes
             Machines.MachineData.Add("ATLASVAC@192.168.1.248:21-HMI");
+            Machines.MachineData.Add("ATLASVAC@192.168.0.4:21-local");
         }
-
+        
 
         private void RecipeEditorBtn_Click(object sender, RoutedEventArgs e)
         {

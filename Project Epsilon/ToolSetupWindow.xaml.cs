@@ -19,48 +19,18 @@ namespace Project_Epsilon
     /// </summary>
     public partial class ToolSetupWindow : Window
     {
-        public ToolSetupWindow()
-        {
-            InitializeComponent();
-
-            //puts variable from LoadedRecipe into textbox
-            ToolUDITextbox.Text = LoadedRecipe._UDIRecipe;
-        }
-
-        //Back button click event
-        private void BackButton(object sender, RoutedEventArgs e)
-        {
-            //closes current window
-            this.Close();
-
-            //creates new instance of page RecipeInput
-            //shows new page as primary page
-            RecipeInput RecipeInput = new RecipeInput();
-            RecipeInput.Show();
-
-            //if the tool checkbox is checked
-            //Convert to integer, load intoo numCavUsed variable
-            if (ToolConfCheckBox.IsChecked == true)
-            {
-                LoadedRecipe.numCavUsed = Convert.ToInt32(NumCavsTextbox.Text);
-            }
-        }
-
-        //Tool Confirmation checkbox event
-        private void ToolConfChecked(object sender, EventArgs e)
+        public void RefreshToolSetup()
         {
             //if tool checkbox is checked
             if (ToolConfCheckBox.IsChecked == true)
             {
-                //assigns value "1" to variable
-                LoadedRecipe._recToolRequired = 1;
                 
                 //Makes these controls visible
                 NumCavsTextbox.Visibility = Visibility.Visible;
                 NumCavsLabel.Visibility = Visibility.Visible;
                 ToolUDILabel.Visibility = Visibility.Visible;
                 ToolUDITextbox.Visibility = Visibility.Visible;
-                
+
                 //tests textboxes is box is null or just empty with white spaces
                 if (String.IsNullOrWhiteSpace(ToolUDITextbox.Text) == true || String.IsNullOrWhiteSpace(NumCavsTextbox.Text) == true)
                 {
@@ -92,6 +62,49 @@ namespace Project_Epsilon
                 //Enables back button
                 BackButton2.IsEnabled = true;
             }
+        }
+
+
+        public ToolSetupWindow()
+        {
+            InitializeComponent();
+
+            //puts variable from LoadedRecipe into textbox
+            ToolUDITextbox.Text = LoadedRecipe._UDIRecipe;
+            NumCavsTextbox.Text = Convert.ToString(LoadedRecipe.numCavUsed);
+            if(LoadedRecipe._recToolRequired == 1)
+            {
+                ToolConfCheckBox.IsChecked = true;
+            }
+            RefreshToolSetup();
+
+        }
+
+        //Back button click event
+        private void BackButton(object sender, RoutedEventArgs e)
+        {
+            //if the tool checkbox is checked
+            //Convert to integer, load intoo numCavUsed variable
+            if (ToolConfCheckBox.IsChecked == true)
+            {
+                LoadedRecipe.numCavUsed = Convert.ToInt32(NumCavsTextbox.Text);
+                LoadedRecipe._recToolRequired = 1;
+                LoadedRecipe._UDIRecipe = ToolUDITextbox.Text;
+            }
+            
+            //closes current window
+            this.Close();
+
+           
+
+            
+           
+        }
+
+        //Tool Confirmation checkbox event
+        private void ToolConfChecked(object sender, EventArgs e)
+        {
+            RefreshToolSetup();
 
         }
 
