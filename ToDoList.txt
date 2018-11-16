@@ -1,7 +1,8 @@
 
 
 *** FINISHED ***
-
+Cavity Tool screen
+	- methods are either/or/none
 _____________________________
 
 *** NOT FINISHED ***
@@ -10,8 +11,7 @@ Recipe input screen
 	- change error message box text color to white
 	- change tool confirmation, Cavity management and using udi dropdown to labels. 
 
-Cavity Tool screen
-	- methods are either/or/none
+
 UDI screen 
 	- green textboxes should populate and be read only
 	- second textbox should be the recipe UDI and read only. Also needs to be moved up. 
