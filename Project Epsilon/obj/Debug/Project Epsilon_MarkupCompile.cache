@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\
 Project_Epsilon
 none
 false
 DEBUG;TRACE
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\App.xaml
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\App.xaml
 11929823540
 
 19-1508090536
 13-1142990016
 AddServer.xaml;CavityToolWindow.xaml;ChooseRecipe.xaml;ConnectionManagerWindow.xaml;FileBrowser.xaml;MainWindow.xaml;OptionsMenu.xaml;PasswordInput.xaml;RecipeInput.xaml;ToolSetupWindow.xaml;UDIPage.xaml;
 
-False
+True
 

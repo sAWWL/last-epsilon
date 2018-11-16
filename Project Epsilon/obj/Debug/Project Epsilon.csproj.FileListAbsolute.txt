@@ -299,38 +299,38 @@ C:\Users\cvsch\Desktop\final fibal final\last-epsilon\Project Epsilon\obj\Debug\
 C:\Users\cvsch\Desktop\final fibal final\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.csproj.CoreCompileInputs.cache
 C:\Users\cvsch\Desktop\final fibal final\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.exe
 C:\Users\cvsch\Desktop\final fibal final\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.pdb
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\bin\Debug\Project Epsilon.exe.config
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\bin\Debug\Project Epsilon.exe
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\bin\Debug\Project Epsilon.pdb
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.csprojAssemblyReference.cache
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\FileBrowser.baml
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\OptionsMenu.baml
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\RecipeInput.baml
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\ToolSetupWindow.baml
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\UDIPage.baml
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\AddServer.g.cs
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\CavityToolWindow.g.cs
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\ChooseRecipe.g.cs
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\ConnectionManagerWindow.g.cs
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\FileBrowser.g.cs
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\MainWindow.g.cs
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\OptionsMenu.g.cs
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\PasswordInput.g.cs
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\RecipeInput.g.cs
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\ToolSetupWindow.g.cs
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\UDIPage.g.cs
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\App.g.cs
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon_MarkupCompile.cache
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon_MarkupCompile.lref
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\AddServer.baml
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\CavityToolWindow.baml
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\ChooseRecipe.baml
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\ConnectionManagerWindow.baml
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\MainWindow.baml
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\PasswordInput.baml
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.g.resources
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\Project_Epsilon.Properties.Resources.resources
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.csproj.GenerateResource.cache
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.csproj.CoreCompileInputs.cache
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.exe
-C:\Users\oswinverdy\Source\Repos\sAWWL\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.pdb
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\bin\Debug\Project Epsilon.exe.config
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\bin\Debug\Project Epsilon.exe
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\bin\Debug\Project Epsilon.pdb
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.csprojAssemblyReference.cache
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\FileBrowser.baml
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\OptionsMenu.baml
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\RecipeInput.baml
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\ToolSetupWindow.baml
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\UDIPage.baml
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\AddServer.g.cs
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\CavityToolWindow.g.cs
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\ChooseRecipe.g.cs
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\ConnectionManagerWindow.g.cs
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\FileBrowser.g.cs
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\MainWindow.g.cs
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\OptionsMenu.g.cs
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\PasswordInput.g.cs
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\RecipeInput.g.cs
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\ToolSetupWindow.g.cs
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\UDIPage.g.cs
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\App.g.cs
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon_MarkupCompile.cache
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon_MarkupCompile.lref
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\AddServer.baml
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\CavityToolWindow.baml
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\ChooseRecipe.baml
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\ConnectionManagerWindow.baml
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\MainWindow.baml
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\PasswordInput.baml
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.g.resources
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\Project_Epsilon.Properties.Resources.resources
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.csproj.GenerateResource.cache
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.csproj.CoreCompileInputs.cache
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.exe
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.pdb
