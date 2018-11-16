@@ -26,15 +26,15 @@ namespace Project_Epsilon
         public ConnectionManagerWindow()
         {
             InitializeComponent();
-            updateServerList();
+            updateMachineList();
 
         }
-        private void deleteServer_Click(object sender, RoutedEventArgs e)
+        private void deleteMachine_Click(object sender, RoutedEventArgs e)
         {
-            if (serverList.SelectedIndex != -1)
+            if (machineList.SelectedIndex != -1)
             {
-                string sMessageBoxText = "Do you want to delete the selected Server?";
-                string sCaption = "Delete Server?";
+                string sMessageBoxText = "Do you want to delete the selected Machine?";
+                string sCaption = "Delete Machine?";
 
                 MessageBoxButton btnMessageBox = MessageBoxButton.YesNoCancel;
                 MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
@@ -44,8 +44,8 @@ namespace Project_Epsilon
                 switch (rsltMessageBox)
                 {
                     case MessageBoxResult.Yes:
-                        Servers.ServerData.RemoveAt(serverList.SelectedIndex);
-                        serverList.Items.RemoveAt(serverList.SelectedIndex);
+                        Machines.MachineData.RemoveAt(machineList.SelectedIndex);
+                        machineList.Items.RemoveAt(machineList.SelectedIndex);
                         break;
                     case MessageBoxResult.No:
                         break;
@@ -54,13 +54,13 @@ namespace Project_Epsilon
                 }
             }
         }
-        private void addServer_Click(object sender, RoutedEventArgs e)
+        private void addMachine_Click(object sender, RoutedEventArgs e)
         {
-            Servers.ServerIdx = -1;
-            AddServer addServer = new AddServer();
-            if (addServer.ShowDialog() != true)
+            Machines.MachineIdx = -1;
+            AddMachine addMachine = new AddMachine();
+            if (addMachine.ShowDialog() != true)
             {
-                updateServerList();
+                updateMachineList();
 
             }
         }
@@ -69,22 +69,22 @@ namespace Project_Epsilon
             this.Close();
         }
   
-        private void editServer_Click(object sender, RoutedEventArgs e)
+        private void editMachine_Click(object sender, RoutedEventArgs e)
         {
-            Servers.ServerIdx = serverList.SelectedIndex;
+            Machines.MachineIdx = machineList.SelectedIndex;
             
-            AddServer editServer = new AddServer();
-            if (editServer.ShowDialog() != true)
+            AddMachine editMachine = new AddMachine();
+            if (editMachine.ShowDialog() != true)
             {
-                updateServerList();
+                updateMachineList();
             }
         }
-        private void updateServerList()
+        private void updateMachineList()
         {
-            serverList.Items.Clear();
-            foreach (string server in Servers.ServerData)
+            machineList.Items.Clear();
+            foreach (string machine in Machines.MachineData)
             {
-                serverList.Items.Add(server.Split('-')[1]);
+                machineList.Items.Add(machine.Split('-')[1]);
             }
         }
     }

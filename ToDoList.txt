@@ -3,6 +3,10 @@
 *** FINISHED ***
 Cavity Tool screen
 	- methods are either/or/none
+
+Connection Management
+	- change wherever server is to machine ie "add server" to "add machine"
+
 _____________________________
 
 *** NOT FINISHED ***
@@ -20,7 +24,6 @@ UDI screen
 	- group two sections of the page together with black line or box to show which ones are related 
 
 Connection Management
-	- change wherever server is to machine ie "add server" to "add machine"
 	- edit server window 
 		- make sure only valid local IP can be entered
 		- remove username and server port 

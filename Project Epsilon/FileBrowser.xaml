@@ -6,9 +6,9 @@
         mc:Ignorable="d"
         Title="FileBrowser"  Height="218.128" Width="309.744">
     <Grid Margin="0,0,2.2,-1">
-        <Label Content="Select a Server" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="93,0,0,0"/>
+        <Label Content="Select a Machine" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="93,0,0,0"/>
         <Button x:Name="connectButton" Content="Connect" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="35,150,0,0" Click="connectButton_Click"/>
-        <ListView x:Name="serverSelector" HorizontalAlignment="Left" Height="98" VerticalAlignment="Top" Width="270" Margin="10,26,0,0" >
+        <ListView x:Name="machineSelector" HorizontalAlignment="Left" Height="98" VerticalAlignment="Top" Width="270" Margin="10,26,0,0" >
 
 
             <ListView.View>

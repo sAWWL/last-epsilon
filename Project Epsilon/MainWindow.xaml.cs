@@ -23,10 +23,10 @@ namespace Project_Epsilon
         public MainWindow()
         {
             InitializeComponent();
-            //Add Servers for Demo Purposes
-            Servers.ServerData.Add("username@google.com:2121-Google Server");           
-            Servers.ServerData.Add("ftp@schild.tech:21-Dev Server");
-            Servers.ServerData.Add("ATLASVAC@192.168.1.248:21-HMI");
+            //Add Machines for Demo Purposes
+            Machines.MachineData.Add("username@google.com:2121-Google Machine");           
+            Machines.MachineData.Add("ftp@schild.tech:21-Dev Machine");
+            Machines.MachineData.Add("ATLASVAC@192.168.1.248:21-HMI");
         }
 
 

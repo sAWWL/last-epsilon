@@ -27,18 +27,18 @@ namespace Project_Epsilon
         string[] reciperows;
         public string filedata;
 
-        public void addnewserver(string newserver)
+        public void addnewmachine(string newmachine)
         {
         }
         public FileBrowser()
         {
             InitializeComponent();
 
-            //Loop through Servers
-            foreach(String server in Servers.ServerData)
+            //Loop through Machines
+            foreach(String machine in Machines.MachineData)
             {
-                //Add each to the serverselector
-                serverSelector.Items.Add(server.Split('-')[1]);
+                //Add each to the machineselector
+                machineSelector.Items.Add(machine.Split('-')[1]);
                 
             }
         }
@@ -47,15 +47,15 @@ namespace Project_Epsilon
         private void connectButton_Click(object sender, RoutedEventArgs e)
         {
             //Make sure valid option is selected
-            if (serverSelector.SelectedIndex != -1)
+            if (machineSelector.SelectedIndex != -1)
             {
-                //Acquire Serverdata from global store
-                string serverdata = Servers.ServerData[serverSelector.SelectedIndex];
-                string servername = serverdata.Split('-')[1];
-                LoadedRecipe.username = serverdata.Split('-')[0].Split('@')[0];
-                LoadedRecipe.host = serverdata.Split('-')[0].Split('@')[1].Split(':')[0];
-                LoadedRecipe.port = serverdata.Split('-')[0].Split('@')[1].Split(':')[1];
-                    //Connect to Server selected
+                //Acquire Machinedata from global store
+                string machinedata = Machines.MachineData[machineSelector.SelectedIndex];
+                string machinename = machinedata.Split('-')[1];
+                LoadedRecipe.username = machinedata.Split('-')[0].Split('@')[0];
+                LoadedRecipe.host = machinedata.Split('-')[0].Split('@')[1].Split(':')[0];
+                LoadedRecipe.port = machinedata.Split('-')[0].Split('@')[1].Split(':')[1];
+                    //Connect to Machine selected
                     OpenFileDialog openFileDialog1 = new OpenFileDialog
                     {
                         InitialDirectory = "ftp://" + LoadedRecipe.username + "@" + LoadedRecipe.host + ":" + LoadedRecipe.port,
