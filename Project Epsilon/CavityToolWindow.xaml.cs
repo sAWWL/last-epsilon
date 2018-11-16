@@ -38,10 +38,16 @@ namespace Project_Epsilon
             //Converts numCavUsed to a string
             //Displays it as text in textbox
             numCavitiesTxtBox.Text = Convert.ToString(LoadedRecipe.numCavUsed);
+            if (LoadedRecipe._recToolRequired == 1)
+            {
+                numCavitiesTxtBox.IsReadOnly = true;
+            }
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
+            LoadedRecipe.numCavUsed = Convert.ToInt32(numCavitiesTxtBox.Text);
+
             //Assigns method one checkbox a number when button is pressed.
             //If method one checkbox is checked, then value assigned is 1
             if (methodOneCheckbox.IsChecked == true)
