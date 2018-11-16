@@ -67,22 +67,21 @@
                     <TextBlock Text="Recipe Name" Grid.Column="0" Margin="0,0,45,0" FontSize="13" FontWeight="DemiBold"/>
                     <TextBox Name="recipeTxt" MaxWidth="75" MaxHeight="20" Margin="74,0,45,75" Grid.Column="0"/>
                     <TextBlock Text="Tool Confirmation" Grid.Column="1" Margin="0,0,0,0" FontSize="13" FontWeight="DemiBold"/>
-                    <TextBox Name="toolConfirmTxt" MaxWidth="50" Margin="100,-2,45,78" Grid.Column="1">
-                    </TextBox>
+                    <TextBox Name="toolConfirmTxt" MaxWidth="50" Margin="100,-2,45,78" Grid.Column="1" IsReadOnly="True" FontWeight="Bold" TextAlignment="Center" Background="LightGreen" />
+
 
                     <!--row 2-->
                     <TextBlock Text="Product" Grid.Column="0" Margin="0,25,45,0" FontSize="13" FontWeight="DemiBold"/>
                     <TextBox Name="productTxt" MaxWidth="75" MaxHeight="20" Margin="74,25,45,50" Grid.Column="0"/>
                     <TextBlock Text="Cav Mgt Option" Margin ="0,25,45,0" Grid.Column="1" FontSize="13" FontWeight="DemiBold"/>
-                    <TextBlock Name="cavMgtOptTxt" MaxWidth="50" Margin="100,25,45,51" Grid.Column="1">
-                    </TextBlock>
+                    <TextBox Name="cavMgtOptTxt" MaxWidth="50" Margin="100,25,45,51" Grid.Column="1" IsReadOnly="True" FontWeight="Bold" TextAlignment="Center" Background="LightGreen"/>
+
 
                     <!--row 3-->
                     <TextBlock Text="Lot" Grid.Column="0" Margin="0,50,45,0" FontSize="13" FontWeight="DemiBold"/>
                     <TextBox Name="lotTxt" MaxWidth="75" MaxHeight="20" Margin="74,50,45,25" Grid.Column="0"/>
                     <TextBlock Text="Using UDI" Margin ="0,50,45,0" Grid.Column="1" FontSize="13" FontWeight="DemiBold"/>
-                    <TextBox Name="usingUDITxt" MaxWidth="50" Margin="100,52,45,23" Grid.Column="1" IsReadOnly="True">
-                    </TextBox>
+                    <TextBox Name="usingUDITxt" MaxWidth="50" Margin="100,52,45,23" Grid.Column="1" IsReadOnly="True" FontWeight="Bold" TextAlignment="Center" Background="LightGreen"/>
                     <TextBlock Text="RFID #" Margin ="0,50,45,0" Grid.Column="2" FontSize="13" FontWeight="DemiBold"/>
                     <TextBox Name="rfidTxt" MaxWidth="35" Height="25" Margin="40,50,118,25" Grid.Column="2" PreviewTextInput="TextBox_PreviewTextInput"/>
 

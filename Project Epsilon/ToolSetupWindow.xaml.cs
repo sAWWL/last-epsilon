@@ -23,15 +23,16 @@ namespace Project_Epsilon
         {
             InitializeComponent();
             ToolUDITextbox.Text = LoadedRecipe._UDIRecipe;
-
         }
 
         //Back button click event
-
-
         private void BackButton(object sender, RoutedEventArgs e)
         {
             this.Close();
+
+            RecipeInput RecipeInput = new RecipeInput();
+            RecipeInput.Show();
+
             if (ToolConfCheckBox.IsChecked == true)
             {
                 LoadedRecipe.numCavUsed = Convert.ToInt32(NumCavsTextbox.Text);
@@ -43,6 +44,8 @@ namespace Project_Epsilon
         {
             if (ToolConfCheckBox.IsChecked == true)
             {
+                LoadedRecipe._recToolRequired = 1;
+                
                 NumCavsTextbox.Visibility = Visibility.Visible;
                 NumCavsLabel.Visibility = Visibility.Visible;
                 ToolUDILabel.Visibility = Visibility.Visible;
@@ -60,6 +63,7 @@ namespace Project_Epsilon
             }
             else if (ToolConfCheckBox.IsChecked == false)
             {
+                LoadedRecipe._recToolRequired = 0;
                 NumCavsTextbox.Visibility = Visibility.Hidden;
                 NumCavsLabel.Visibility = Visibility.Hidden;
                 ToolUDILabel.Visibility = Visibility.Hidden;

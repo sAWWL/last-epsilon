@@ -11,6 +11,8 @@ namespace Project_Epsilon
     public partial class RecipeInput
     {
         private string _password;
+
+
         public RecipeInput()
         {
             InitializeComponent();
@@ -22,12 +24,53 @@ namespace Project_Epsilon
             double pressSet;
             double lowPressure;
 
+            //displays Yes or No in the read only toolConfirmTxt textbox to show whether or not  tool confirmation has been set to required
+            if (LoadedRecipe._recToolRequired == 1)
+            {
+                toolConfirmTxt.Text = "Yes";
+            }
+            else if (LoadedRecipe._recToolRequired == 0)
+            {
+                toolConfirmTxt.Text = "No";
+            }
+            else
+            {
+                toolConfirmTxt.Text = "No";
+            }
+
+            //displays Yes or No in the read only cavMgtOpt textbox to show whether or not cavity mgt is being used
+            if (LoadedRecipe._cavMgtUsed == 1)
+            {
+                cavMgtOptTxt.Text = "Yes";
+            }
+            else if (LoadedRecipe._cavMgtUsed == 0)
+            {
+                cavMgtOptTxt.Text = "No";
+            }
+            else
+            {
+                cavMgtOptTxt.Text = "No";
+            }
+
+            //displays Yes or No in the read only cavMgtOpt textbox to show whether or not cavity mgt is being used
+            if (LoadedRecipe._recUDI1 == "1")
+            {
+                usingUDITxt.Text = "Yes";
+            }
+            else if (LoadedRecipe._recUDI1 == "0")
+            {
+                usingUDITxt.Text = "No";
+            }
+            else
+            {
+                usingUDITxt.Text = "No";
+            }
 
             if (String.IsNullOrWhiteSpace(recipeTxt.Text) || String.IsNullOrWhiteSpace(productTxt.Text) || String.IsNullOrWhiteSpace(lotTxt.Text) ||
                 String.IsNullOrWhiteSpace(recipeUDITxt.Text) || String.IsNullOrWhiteSpace(highTempTxt.Text) || String.IsNullOrWhiteSpace(tempSetTxt.Text) ||
                 String.IsNullOrWhiteSpace(lowTempTxt.Text) || String.IsNullOrWhiteSpace(sealTimeTxt.Text) || String.IsNullOrWhiteSpace(highPressTxt.Text) ||
-                String.IsNullOrWhiteSpace(pressSetTxt.Text) || String.IsNullOrWhiteSpace(lowPressureTxt.Text) || cavMgtOptTxt.SelectedIndex == -1 ||
-                toolConfirmTxt.SelectedIndex == -1 || usingUDITxt.SelectedIndex == -1)
+                String.IsNullOrWhiteSpace(pressSetTxt.Text) || String.IsNullOrWhiteSpace(lowPressureTxt.Text) ||
+                String.IsNullOrWhiteSpace(cavMgtOptTxt.Text) || String.IsNullOrWhiteSpace(toolConfirmTxt.Text) || String.IsNullOrWhiteSpace(usingUDITxt.Text))
             {
                 errorTxt.Visibility = Visibility.Visible;
                 saveRecipe.IsEnabled = false;
@@ -124,6 +167,9 @@ namespace Project_Epsilon
                 }
             }
         }
+
+        
+
         private void optionsBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             OptionsMenu winOptionsMenu = new OptionsMenu();
@@ -154,41 +200,38 @@ namespace Project_Epsilon
                 toolConfirmTxt.Text = Convert.ToString(LoadedRecipe._recToolRequired);
                 if (toolConfirmTxt.Text == "1")
                 {
-                    toolConfirmTxt.SelectedIndex = 0;
+                    toolConfirmTxt.Text = "Yes";
                 }
                 else if (toolConfirmTxt.Text == "0")
                 {
-                    toolConfirmTxt.SelectedIndex = 1;
+                    toolConfirmTxt.Text = "No";
                 }
-                else
-                {
-                    toolConfirmTxt.SelectedItem = null;
-                }
+                
                 cavMgtOptTxt.Text = Convert.ToString(LoadedRecipe._cavMgtUsed);
                 if (cavMgtOptTxt.Text == "1")
                 {
-                    cavMgtOptTxt.SelectedIndex = 0;
+                    cavMgtOptTxt.Text = "Yes";
                 }
                 else if (cavMgtOptTxt.Text == "0")
                 {
-                    cavMgtOptTxt.SelectedIndex = 1;
+                    cavMgtOptTxt.Text = "No";
                 }
                 else
                 {
-                    cavMgtOptTxt.SelectedItem = null;
+                    toolConfirmTxt.Text = "No";
                 }
                 usingUDITxt.Text = Convert.ToString(LoadedRecipe._recUDI1);
-                if (usingUDITxt.Text == "1")
+                if (cavMgtOptTxt.Text == "1")
                 {
-                    usingUDITxt.SelectedIndex = 0;
+                    cavMgtOptTxt.Text = "Yes";
                 }
-                else if (usingUDITxt.Text == "0")
+                else if (cavMgtOptTxt.Text == "0")
                 {
-                    usingUDITxt.SelectedIndex = 1;
+                    cavMgtOptTxt.Text = "No";
                 }
                 else
                 {
-                    usingUDITxt.SelectedItem = null;
+                    toolConfirmTxt.Text = "No";
                 }
                 lotTxt.Text = Convert.ToString(LoadedRecipe._lotNumber);
                 rfidTxt.Text = Convert.ToString(LoadedRecipe._RFIDNumber);
@@ -210,8 +253,8 @@ namespace Project_Epsilon
                 if (String.IsNullOrWhiteSpace(recipeTxt.Text) || String.IsNullOrWhiteSpace(productTxt.Text) || String.IsNullOrWhiteSpace(lotTxt.Text) ||
                 String.IsNullOrWhiteSpace(recipeUDITxt.Text) || String.IsNullOrWhiteSpace(highTempTxt.Text) || String.IsNullOrWhiteSpace(tempSetTxt.Text) ||
                 String.IsNullOrWhiteSpace(lowTempTxt.Text) || String.IsNullOrWhiteSpace(sealTimeTxt.Text) || String.IsNullOrWhiteSpace(highPressTxt.Text) ||
-                String.IsNullOrWhiteSpace(pressSetTxt.Text) || String.IsNullOrWhiteSpace(lowPressureTxt.Text) || cavMgtOptTxt.SelectedIndex == -1 ||
-                toolConfirmTxt.SelectedIndex == -1 || usingUDITxt.SelectedIndex == -1)
+                String.IsNullOrWhiteSpace(pressSetTxt.Text) || String.IsNullOrWhiteSpace(lowPressureTxt.Text) ||
+                String.IsNullOrWhiteSpace(cavMgtOptTxt.Text) || String.IsNullOrWhiteSpace(toolConfirmTxt.Text) || String.IsNullOrWhiteSpace(usingUDITxt.Text))
                 {
                     errorTxt.Visibility = Visibility.Visible;
                     saveRecipe.IsEnabled = false;
@@ -313,33 +356,34 @@ namespace Project_Epsilon
 
         private void saveRecipe_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (toolConfirmTxt.SelectedIndex == 0)
+            //Converts toolConfirmTxt textbox string of Yes or No to .csv format  1 or 0
+            if (toolConfirmTxt.Text == "Yes")
             {
                 LoadedRecipe._recToolRequired = 1;
             }
-            else if (toolConfirmTxt.SelectedIndex == 1)
+            else if (toolConfirmTxt.Text == "No")
             {
                 LoadedRecipe._recToolRequired = 0;
             }
 
 
-            //cavMgtOptTxt combobox to csv
-            if (cavMgtOptTxt.SelectedIndex == 0)
+            //Converts cavMgtOptTxt textbox string of Yes or No to .csv format  1 or 0
+            if (cavMgtOptTxt.Text == "Yes")
             {
                 LoadedRecipe._cavMgtUsed = 1;
             }
-            else if (cavMgtOptTxt.SelectedIndex == 1)
+            else if (cavMgtOptTxt.Text == "No")
             {
                 LoadedRecipe._cavMgtUsed = 0;
             }
 
 
-            //usingUDITxt combobox to csv
-            if (usingUDITxt.SelectedIndex == 0)
+            //Converts usingUDITxt textbox string of Yes or No to .csv format  1 or 0
+            if (usingUDITxt.Text == "Yes")
             {
                 LoadedRecipe._recUDI1 = "1";
             }
-            else if (usingUDITxt.SelectedIndex == 1)
+            else if (usingUDITxt.Text == "No")
             {
                 LoadedRecipe._recUDI1 = "0";
             }
@@ -417,8 +461,8 @@ namespace Project_Epsilon
             if (String.IsNullOrWhiteSpace(recipeTxt.Text) || String.IsNullOrWhiteSpace(productTxt.Text) || String.IsNullOrWhiteSpace(lotTxt.Text) ||
                 String.IsNullOrWhiteSpace(recipeUDITxt.Text) || String.IsNullOrWhiteSpace(highTempTxt.Text) || String.IsNullOrWhiteSpace(tempSetTxt.Text) ||
                 String.IsNullOrWhiteSpace(lowTempTxt.Text) || String.IsNullOrWhiteSpace(sealTimeTxt.Text) || String.IsNullOrWhiteSpace(highPressTxt.Text) ||
-                String.IsNullOrWhiteSpace(pressSetTxt.Text) || String.IsNullOrWhiteSpace(lowPressureTxt.Text) || cavMgtOptTxt.SelectedIndex == -1 ||
-                toolConfirmTxt.SelectedIndex == -1 || usingUDITxt.SelectedIndex == -1)
+                String.IsNullOrWhiteSpace(pressSetTxt.Text) || String.IsNullOrWhiteSpace(lowPressureTxt.Text) ||
+                String.IsNullOrWhiteSpace(cavMgtOptTxt.Text) || String.IsNullOrWhiteSpace(toolConfirmTxt.Text) || String.IsNullOrWhiteSpace(usingUDITxt.Text))
             {
                 errorTxt.Visibility = Visibility.Visible;
                 saveRecipe.IsEnabled = false;
