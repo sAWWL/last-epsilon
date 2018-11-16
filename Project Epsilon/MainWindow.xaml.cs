@@ -24,8 +24,6 @@ namespace Project_Epsilon
         {
             InitializeComponent();
             //Add Machines for Demo Purposes
-            Machines.MachineData.Add("username@google.com:2121-Google Machine");           
-            Machines.MachineData.Add("ftp@schild.tech:21-Dev Machine");
             Machines.MachineData.Add("ATLASVAC@192.168.1.248:21-HMI");
         }
 

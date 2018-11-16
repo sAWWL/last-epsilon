@@ -54,18 +54,25 @@ namespace Project_Epsilon
                 string machinename = machinedata.Split('-')[1];
                 LoadedRecipe.username = machinedata.Split('-')[0].Split('@')[0];
                 LoadedRecipe.host = machinedata.Split('-')[0].Split('@')[1].Split(':')[0];
-                LoadedRecipe.port = machinedata.Split('-')[0].Split('@')[1].Split(':')[1];
-                    //Connect to Machine selected
-                    OpenFileDialog openFileDialog1 = new OpenFileDialog
-                    {
-                        InitialDirectory = "ftp://" + LoadedRecipe.username + "@" + LoadedRecipe.host + ":" + LoadedRecipe.port,
-                        Filter = "All files (*.*)|*.*",
-                        FilterIndex = 2,
-                        RestoreDirectory = false
-                    };
-                if (openFileDialog1.ShowDialog() == true)
+                LoadedRecipe.port = machinedata.Split('-')[0].Split('@')[1].Split(':')[1].Split('-')[0];
+
+
+                if (LoadedRecipe.loginSuccess == false)
                 {
-                    filedata = File.ReadAllText(openFileDialog1.FileName);
+                    //create new instance of password input and prompt for it
+                    PasswordInput passwordInput = new PasswordInput();
+                    passwordInput.ShowDialog();
+                }
+
+                //creates a try catch block
+                try
+                {
+                    FtpWebRequest downloadreq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
+                    downloadreq.Method = WebRequestMethods.Ftp.DownloadFile;
+                    downloadreq.Credentials = new NetworkCredential(LoadedRecipe.username, LoadedRecipe.password);
+                    FtpWebResponse response = (FtpWebResponse)downloadreq.GetResponse();
+
+                    filedata = response.ToString();
                     if (filedata.Contains("\n"))
                     {
                         LoadedRecipe.filerows.Clear();
@@ -77,7 +84,7 @@ namespace Project_Epsilon
                                 LoadedRecipe.filerows.Add(filedata.Split('\n')[x]);
                             }
                         }
-                        
+
                         ChooseRecipe chooseRecipe = new ChooseRecipe();
                         if (chooseRecipe.ShowDialog() != true)
                         {
@@ -85,6 +92,10 @@ namespace Project_Epsilon
                         }
                     }
                 }
+                catch
+                {
+                    MessageBox.Show("There was an error reading data from the machine.");
+                }                  
             }
         }
         private void Button_Click(object sender, RoutedEventArgs e)

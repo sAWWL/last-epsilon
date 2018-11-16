@@ -19,6 +19,8 @@ namespace Project_Epsilon
     /// </summary>
     public partial class AddMachine : Window
     {
+        bool correctIP;
+        List<int> octets = new List<int>();
         public AddMachine()
         {
             InitializeComponent();
@@ -28,73 +30,79 @@ namespace Project_Epsilon
                 string machinename = machinedata.Split('-')[1];
                 string machineaddress = machinedata.Split('-')[0].Split('@')[1].Split(':')[0];
 
+                oct1.Text = machineaddress.Split('.')[0].Split('.')[0];
+                oct2.Text = machineaddress.Split('.')[1].Split('.')[0];
+                oct3.Text = machineaddress.Split('.')[2];
+                oct4.Text = machineaddress.Split('.')[3];
+
+
+
                 machineName.Text = machinename;
-                machineAddress.Text = machineaddress;
+                // Todo: auto poopulate
             }
-            
         }
         private void AddMachineBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(Machines.MachineIdx == -1)
+            correctIP = false;
+            if(machineName.Text != "" && oct1.Text != "" && oct2.Text != "" && oct3.Text != "" && oct4.Text != "")
             {
-                Machines.MachineData.Add(machineName.Text + "@" + machineAddress.Text + ":21");
-            }else
-            {
-                Machines.MachineData[Machines.MachineIdx] = machineName.Text + "@" + machineAddress.Text + ":21";
-            }
-            this.Close();
-        }
-
-        private void AddressEntry_LostFocus(object sender, RoutedEventArgs e)
-        {
-            try // incase there are no periods in string - otherwise would break on .split('.')
-            {
-                string[] test = machineAddress.Text.Split('.');
-                int isInteger;
-                if (int.TryParse(test[0], out isInteger)) // If numeric IP address instead of string
+                
+                try
                 {
-
-                    IPAddressError.Visibility = Visibility.Hidden;
-                    int[] octets = new int[4];
-                    int counter = 0;
-                    bool isCorrectAddress = true;
-                    foreach (string octet in machineAddress.Text.Split('.'))
+                    octets.Add(Convert.ToInt16(oct1.Text));
+                    octets.Add(Convert.ToInt16(oct2.Text));
+                    octets.Add(Convert.ToInt16(oct3.Text));
+                    octets.Add(Convert.ToInt16(oct4.Text));
+                }
+                catch
+                {
+                    MessageBox.Show("Please verify that the address is correct and try again!");
+                    correctIP = false;
+                }
+                if(octets[0] == 10 || octets[0] == 192)
+                {
+                    foreach (int octet in octets)
                     {
-                        octets[counter] = Convert.ToInt32(octet);
-                        if (!Enumerable.Range(0, 256).Contains(Convert.ToInt32(octet)))
+                        if (octet < 255 && octet > 0)
                         {
-                            isCorrectAddress = false;
-                            break;
-                        }
-                        else
+                            correctIP = true;
+                        }else
                         {
-                            isCorrectAddress = true;
+                            correctIP = false;
                         }
-                        counter += 1;
-                    }
-                    if (!isCorrectAddress)
-                    {
-                        IPAddressError.Visibility = Visibility.Visible;
-                    }
-
-                    if (octets[0] == 192 || octets[0] == 127)
-                    {
-                        ;
-                    }
-                    else
-                    {
-                        IPAddressError.Visibility = Visibility.Visible;
-                        IPAddressError.Text = "Invalid IP Address - Must Be '192.x.x.x' Or '127.0.0.1'";
                     }
                 }
-            } catch {; }
-        }
+                else
+                {
+                    MessageBox.Show("At least one of your fields is out of range.");
+                    correctIP = false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please fill all fields out");
+                correctIP = false;
+            }
 
-        private void AddressEntry_OnFocus(object sender, RoutedEventArgs e)
-        {
-            IPAddressError.Visibility = Visibility.Hidden;
+            if (correctIP)
+            {
+                string ip = "";
+                foreach (int octet in octets)
+                {
+                    ip += Convert.ToString(octet) + ".";
+                }
+                ip.TrimEnd('.');
+                if (Machines.MachineIdx == -1)
+                {
+                    Machines.MachineData.Add("ATLASVAC@" + ip + ":21-" + machineName.Text);
+                }
+                else
+                {
+                    Machines.MachineData[Machines.MachineIdx] = "ATLASVAC@" + ip + ":21-" + machineName.Text;
+                }
+                this.Close();
+            }
         }
-
         private void CancelAddBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
