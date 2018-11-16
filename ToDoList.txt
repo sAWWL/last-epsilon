@@ -7,13 +7,13 @@ _____________________________
 
 *** NOT FINISHED ***
 
-Recipe input screen
+Recipe input screen (kinda done)
 	- change error message box text color to white
 	- change tool confirmation, Cavity management and using udi dropdown to labels. 
 
 
 UDI screen 
-	- green textboxes should populate and be read only
+	- green textboxes should populate and be read only (done)
 	- second textbox should be the recipe UDI and read only. Also needs to be moved up. 
 	- make sure that cavity management does not show up if cavity management method one or two is not checked on the cav management screen
 	- move third UDI textbox up 
