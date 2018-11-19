@@ -25,10 +25,10 @@
         <TextBlock Name="IPAddressError" HorizontalAlignment="Left" Margin="26,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340" Height="18" Background="#FFC93B3B" FontWeight="Bold" TextAlignment="Center"
                    Text="Hostname/IP Must Be A Valid Local Address" Foreground="White" Visibility="hidden"/>
         <Label Content="." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,68,0,0"/>
-        <TextBox x:Name="oct1" HorizontalAlignment="Left" Height="23" Margin="183,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35"/>
-        <TextBox x:Name="oct2" HorizontalAlignment="Left" Height="23" Margin="233,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35"/>
-        <TextBox x:Name="oct3" HorizontalAlignment="Left" Height="23" Margin="283,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35"/>
-        <TextBox x:Name="oct4" HorizontalAlignment="Left" Height="23" Margin="331,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35"/>
+        <TextBox x:Name="oct1" HorizontalAlignment="Left" Height="23" Margin="183,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35" LostFocus="AddressEntry_LostFocus" GotFocus="AddressEntry_OnFocus"/>
+        <TextBox x:Name="oct2" HorizontalAlignment="Left" Height="23" Margin="233,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35" LostFocus="AddressEntry_LostFocus" GotFocus="AddressEntry_OnFocus"/>
+        <TextBox x:Name="oct3" HorizontalAlignment="Left" Height="23" Margin="283,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35" LostFocus="AddressEntry_LostFocus" GotFocus="AddressEntry_OnFocus"/>
+        <TextBox x:Name="oct4" HorizontalAlignment="Left" Height="23" Margin="331,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35" LostFocus="AddressEntry_LostFocus" GotFocus="AddressEntry_OnFocus"/>
         <Label Content="." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="265,67,0,0"/>
         <Label Content="." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="318,67,0,0"/>
         
