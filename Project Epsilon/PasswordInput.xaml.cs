@@ -26,12 +26,17 @@ namespace Project_Epsilon
 
         private void applyPasswordBtn_Click(object sender, RoutedEventArgs e)
         {
+
+            //if variable is blank do this
             if(passwordInputTxt.Password != "")
             {
+                //creates new instance of password loaded recipe and stores it
+                //closes the page
                 LoadedRecipe.password = passwordInputTxt.Password;
                 this.Close();
             }
         }
+        //closes the page
         private void cancelBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

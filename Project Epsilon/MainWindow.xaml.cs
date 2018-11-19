@@ -32,17 +32,20 @@ namespace Project_Epsilon
 
         private void RecipeEditorBtn_Click(object sender, RoutedEventArgs e)
         {
+            //creates new instance of recipe input page and displays it
             RecipeInput RecipeInput = new RecipeInput();
             RecipeInput.Show();
         }      
 
         private void Exit(object sender, RoutedEventArgs e)
         {
+            //when button pressed, closes the app
             System.Windows.Application.Current.Shutdown();
         }
 
         private void ConnectionManagerBtn_Click(object sender, RoutedEventArgs e)
         {
+            //creates new instance of connection manager page and displays it
             ConnectionManagerWindow connectionmanager = new ConnectionManagerWindow();
             connectionmanager.Show();
         }

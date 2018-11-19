@@ -29,10 +29,13 @@ namespace Project_Epsilon
             updateServerList();
 
         }
+
+        //event triggers when delete server button pressed
         private void deleteServer_Click(object sender, RoutedEventArgs e)
         {
             if (serverList.SelectedIndex != -1)
             {
+                //displays messages and controls for user interaction
                 string sMessageBoxText = "Do you want to delete the selected Server?";
                 string sCaption = "Delete Server?";
 
@@ -40,7 +43,8 @@ namespace Project_Epsilon
                 MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
 
                 MessageBoxResult rsltMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
-
+                
+                //removes server information depending on user interaction with controls
                 switch (rsltMessageBox)
                 {
                     case MessageBoxResult.Yes:
@@ -54,9 +58,12 @@ namespace Project_Epsilon
                 }
             }
         }
+        
         private void addServer_Click(object sender, RoutedEventArgs e)
         {
+            //adds a vvalue to variable
             Servers.ServerIdx = -1;
+            //creates new instance of page AddServer
             AddServer addServer = new AddServer();
             if (addServer.ShowDialog() != true)
             {
@@ -64,13 +71,17 @@ namespace Project_Epsilon
 
             }
         }
+
+        //closes the page
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-  
+        //event triggered when button pressed
         private void editServer_Click(object sender, RoutedEventArgs e)
         {
+
+            //the value from serverList.SelectedIndex is stored into variable serverIdx from the Servers page
             Servers.ServerIdx = serverList.SelectedIndex;
             
             AddServer editServer = new AddServer();
@@ -79,8 +90,10 @@ namespace Project_Epsilon
                 updateServerList();
             }
         }
+        
         private void updateServerList()
         {
+            //clears any selected items
             serverList.Items.Clear();
             foreach (string server in Servers.ServerData)
             {

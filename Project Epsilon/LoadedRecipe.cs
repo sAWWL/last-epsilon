@@ -11,6 +11,9 @@ namespace Project_Epsilon
         public static string file;
         public static List<string> filerows = new List<string>();
         public static bool cavUsed, loginSuccess = false;
+
+        //Public variables to be used throughout the app
+        //Type of Variable - string
         public static string _product, _recipeName, _UDIRecipe,
                          _UDITrayValue, _fieldName, _projectName,
                          _recipeGeneratedBy;

@@ -23,6 +23,7 @@ namespace Project_Epsilon
     /// </summary>
     public partial class FileBrowser : Window
     {
+        //variables
         string recipedata;
         string[] reciperows;
         public string filedata;
@@ -87,11 +88,14 @@ namespace Project_Epsilon
                 }
             }
         }
+
+        //closes the page
         private void Button_Click(object sender, RoutedEventArgs e)
         {
                 this.Close();
         }
 
+        //closes the page
         private void CancelLoad_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

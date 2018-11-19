@@ -22,7 +22,11 @@ namespace Project_Epsilon
         public ChooseRecipe()
         {
             InitializeComponent();
+
+            //Clears current selected recipes
             selectRecipe.Items.Clear();
+            
+            //adds in recipes for each value, separated by a comma
             foreach(string recipe in LoadedRecipe.filerows)
             {
                 selectRecipe.Items.Add(recipe.Split(',')[0]);
@@ -32,6 +36,7 @@ namespace Project_Epsilon
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
             if(selectRecipe.SelectedIndex != -1)
             {
                 string[] tempServerData = LoadedRecipe.filerows[selectRecipe.SelectedIndex].Split(',');
@@ -70,12 +75,16 @@ namespace Project_Epsilon
                 if (tempServerData[33].Length > 0) { LoadedRecipe._recUDI9 = tempServerData[33]; }
                 LoadedRecipe.recipeID = selectRecipe.SelectedIndex;
                 this.Close();
-            }else
+            }
+
+            //load the variable, close the page
+            else
             {
                 LoadedRecipe.recipeID = -1;
                 this.Close();
             }   
         }
+        //enters values into variables
         private void newRecipeBtn_Click(object sender, RoutedEventArgs e)
         {
             LoadedRecipe.recipeID = LoadedRecipe.filerows.Count();
@@ -118,11 +127,14 @@ namespace Project_Epsilon
 
         private void deleteRecipeBtn_Click(object sender, RoutedEventArgs e)
         {
+
+            //deletes any selected recipe(s)
             if(selectRecipe.SelectedIndex != -1)
             {
                 string sMessageBoxText = "Do you want to delete the selected Recipe?";
                 string sCaption = "Delete Recipe?";
 
+                //displays message boxes and controls
                 MessageBoxButton btnMessageBox = MessageBoxButton.YesNoCancel;
                 MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
 
