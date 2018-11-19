@@ -53,8 +53,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddServer.xaml.cs">
-      <DependentUpon>AddServer.xaml</DependentUpon>
+    <Compile Include="AddMachine.xaml.cs">
+      <DependentUpon>AddMachine.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -80,8 +80,6 @@
     <Compile Include="RecipeInput.xaml.cs">
       <DependentUpon>RecipeInput.xaml</DependentUpon>
     </Compile>
-    <Compile Include="sample_filewrite.cs" />
-    <Compile Include="sample_parser.cs" />
     <Compile Include="Servers.cs" />
     <Compile Include="ToolSetupWindow.xaml.cs" />
     <Compile Include="UDIPage.xaml.cs" />
@@ -114,7 +112,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="AddServer.xaml">
+    <Page Include="AddMachine.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

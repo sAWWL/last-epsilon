@@ -28,18 +28,18 @@ namespace Project_Epsilon
         string[] reciperows;
         public string filedata;
 
-        public void addnewserver(string newserver)
+        public void addnewmachine(string newmachine)
         {
         }
         public FileBrowser()
         {
             InitializeComponent();
 
-            //Loop through Servers
-            foreach(String server in Servers.ServerData)
+            //Loop through Machines
+            foreach(String machine in Machines.MachineData)
             {
-                //Add each to the serverselector
-                serverSelector.Items.Add(server.Split('-')[1]);
+                //Add each to the machineselector
+                machineSelector.Items.Add(machine.Split('-')[1]);
                 
             }
         }
@@ -48,25 +48,40 @@ namespace Project_Epsilon
         private void connectButton_Click(object sender, RoutedEventArgs e)
         {
             //Make sure valid option is selected
-            if (serverSelector.SelectedIndex != -1)
+            if (machineSelector.SelectedIndex != -1)
             {
-                //Acquire Serverdata from global store
-                string serverdata = Servers.ServerData[serverSelector.SelectedIndex];
-                string servername = serverdata.Split('-')[1];
-                LoadedRecipe.username = serverdata.Split('-')[0].Split('@')[0];
-                LoadedRecipe.host = serverdata.Split('-')[0].Split('@')[1].Split(':')[0];
-                LoadedRecipe.port = serverdata.Split('-')[0].Split('@')[1].Split(':')[1];
-                    //Connect to Server selected
-                    OpenFileDialog openFileDialog1 = new OpenFileDialog
-                    {
-                        InitialDirectory = "ftp://" + LoadedRecipe.username + "@" + LoadedRecipe.host + ":" + LoadedRecipe.port,
-                        Filter = "All files (*.*)|*.*",
-                        FilterIndex = 2,
-                        RestoreDirectory = false
-                    };
-                if (openFileDialog1.ShowDialog() == true)
+                //Acquire Machinedata from global store
+                string machinedata = Machines.MachineData[machineSelector.SelectedIndex];
+                string machinename = machinedata.Split('-')[1];
+                LoadedRecipe.username = machinedata.Split('-')[0].Split('@')[0];
+                LoadedRecipe.host = machinedata.Split('-')[0].Split('@')[1].Split(':')[0];
+                LoadedRecipe.port = machinedata.Split('-')[0].Split('@')[1].Split(':')[1].Split('-')[0];
+
+
+                if (LoadedRecipe.loginSuccess == false)
                 {
-                    filedata = File.ReadAllText(openFileDialog1.FileName);
+                    //create new instance of password input and prompt for it
+                    PasswordInput passwordInput = new PasswordInput();
+                    passwordInput.ShowDialog();
+                }
+
+                //creates a try catch block
+                try
+                {
+                    FtpWebRequest downloadreq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
+                    downloadreq.Method = WebRequestMethods.Ftp.DownloadFile;
+                    downloadreq.Credentials = new NetworkCredential(LoadedRecipe.username, LoadedRecipe.password);
+
+
+                    using (Stream stream = downloadreq.GetResponse().GetResponseStream())
+                    {
+                        using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+                        {
+                            filedata = reader.ReadToEnd();
+                        }
+                    }
+
+
                     if (filedata.Contains("\n"))
                     {
                         LoadedRecipe.filerows.Clear();
@@ -78,13 +93,17 @@ namespace Project_Epsilon
                                 LoadedRecipe.filerows.Add(filedata.Split('\n')[x]);
                             }
                         }
-                        
+
                         ChooseRecipe chooseRecipe = new ChooseRecipe();
                         if (chooseRecipe.ShowDialog() != true)
                         {
                             this.Close();
                         }
                     }
+                }
+                catch
+                {
+                    MessageBox.Show("There was an error reading data from the machine.");
                 }
             }
         }

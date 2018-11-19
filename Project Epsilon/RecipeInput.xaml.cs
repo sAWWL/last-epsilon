@@ -16,6 +16,13 @@ namespace Project_Epsilon
         public RecipeInput()
         {
             InitializeComponent();
+            RefreshPage();
+
+            
+            
+        }
+        public void RefreshPage()
+        {
             //creates variables
             double highTempAlarm;
             double tempSetPoint;
@@ -24,7 +31,6 @@ namespace Project_Epsilon
             double highPress;
             double pressSet;
             double lowPressure;
-
             //displays Yes or No in the read only toolConfirmTxt textbox to show whether or not  tool confirmation has been set to required
             if (LoadedRecipe._recToolRequired == 1)
             {
@@ -184,20 +190,21 @@ namespace Project_Epsilon
                     //error message is invisible, save Recipe is enabled
                     errorTxt.Visibility = Visibility.Hidden;
                     saveRecipe.IsEnabled = true;
+
                 }
+
             }
         }
-
-        
-
         private void optionsBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             //ccreats new instance of OptionsMenu page and displays it as primary window
             OptionsMenu winOptionsMenu = new OptionsMenu();
-            winOptionsMenu.Show();
+            
 
-            //stores text in textbox into public variable
-            LoadedRecipe._UDIRecipe = recipeUDITxt.Text;
+            if(winOptionsMenu.ShowDialog() == false)
+            {
+                RefreshPage(); 
+            }
         }
         
         //when home button is clicked
@@ -475,8 +482,8 @@ namespace Project_Epsilon
 
             //stores text in varriables
             LoadedRecipe._projectName = "Master_HMI_Cavity_Master";
-            LoadedRecipe._recipeGeneratedBy = "ADMIN";
-            LoadedRecipe._recipeGeneratedOn = "11-11-11:11:11:11";
+            LoadedRecipe._recipeGeneratedBy = "AES";
+            LoadedRecipe._recipeGeneratedOn = Convert.ToString(DateTime.Now);
 
             //categorizes information from csv file into public variables
             LoadedRecipe.filerows[LoadedRecipe.recipeID] = LoadedRecipe._recipeName + "," + LoadedRecipe._product + "," + LoadedRecipe._lotNumber + "," + LoadedRecipe._recipeNumber + "," + LoadedRecipe._pressureUpperAlarmValue + "," + LoadedRecipe._pressureLowerAlarmValue + "," + LoadedRecipe._pressureSetpointFromOIT + "," + LoadedRecipe._tempHigherAlarmValue + "," + LoadedRecipe._tempLowerAlarmValue + "," + LoadedRecipe._tempSetpoint + "," + LoadedRecipe._sealTime + "," + "0" + "," + LoadedRecipe._projectName + "," + LoadedRecipe._RFIDNumber + "," + LoadedRecipe._UDIRecipe + "," + LoadedRecipe._avTagRecipeLotSealed + "," + LoadedRecipe._avTagRecipeLotToSeal + "," + LoadedRecipe._recipeName + "," + LoadedRecipe._recipeGeneratedBy + "," + LoadedRecipe._recipeGeneratedOn + "," + LoadedRecipe._recToolRequired + "," + LoadedRecipe._cavMethod2Required + "," + LoadedRecipe._UDIRecipeTool + "," + LoadedRecipe._cavMethodOneSelected + "," + LoadedRecipe._cavMethodTwoSelected + "," + LoadedRecipe._cavMgtUsed + "," + LoadedRecipe._recUDI1 + "," + LoadedRecipe._recUDI3 + "," + LoadedRecipe._recUDI4 + "," + LoadedRecipe._recUDI5 + "," + LoadedRecipe._recUDI6 + "," + LoadedRecipe._recUDI7 + "," + LoadedRecipe._recUDI8 + "," + LoadedRecipe._recUDI9;

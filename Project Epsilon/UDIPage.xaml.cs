@@ -224,9 +224,7 @@ namespace Project_Epsilon
         //validate user input (only integers) for all textboxes concerning position.
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            //e.Handled = !IsValid(((TextBox)sender).Text + e.Text);
-            //var textbox = (TextBox)sender;
-            //textbox.Text += e.Text;
+            
             e.Handled = !IsValid((TextBox)sender, e);
 
         }

@@ -23,12 +23,11 @@ namespace Project_Epsilon
         public MainWindow()
         {
             InitializeComponent();
-            //Add Servers for Demo Purposes
-            Servers.ServerData.Add("username@google.com:2121-Google Server");           
-            Servers.ServerData.Add("ftp@schild.tech:21-Dev Server");
-            Servers.ServerData.Add("ATLASVAC@192.168.1.248:21-HMI");
+            //Add Machines for Demo Purposes
+            Machines.MachineData.Add("ATLASVAC@192.168.1.248:21-HMI");
+            Machines.MachineData.Add("ATLASVAC@192.168.0.4:21-local");
         }
-
+        
 
         private void RecipeEditorBtn_Click(object sender, RoutedEventArgs e)
         {
