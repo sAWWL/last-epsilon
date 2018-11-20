@@ -30,8 +30,8 @@
                 <TextBlock Name="titleLbl" Text="Recipe Options Cavity Management" Grid.Column="2"/>
             </Grid>
             <StackPanel Margin="100">
-                <CheckBox Name="methodOneCheckbox" Foreground="Black" FontWeight="Bold" Checked="MethodOneCheckbox_Checked">Method One (Count All Cavities used)</CheckBox>
-                <CheckBox Name="methodTwoCheckbox" Foreground="Black" FontWeight="Bold" Checked="MethodTwoCheckbox_Checked">Method Two (Count using Required Cavities)</CheckBox>
+                <RadioButton Name="methodOneCheckbox" Foreground="Black" FontWeight="Bold" Checked="MethodOneCheckbox_Checked">Method One (Count All Cavities used)</RadioButton>
+                <RadioButton Name="methodTwoCheckbox" Foreground="Black" FontWeight="Bold" Checked="MethodTwoCheckbox_Checked">Method Two (Count using Required Cavities)</RadioButton>
                 <TextBlock x:Name="numCavitiesLbl" Foreground="Black" FontWeight="Bold">Number of Cavities in the Tool?<InlineUIContainer>
                         <TextBox Name="numCavitiesTxtBox" Width="15" Height="15" Margin="5,5,0,0" PreviewTextInput="TextBox_PreviewTextInput"/>
                     </InlineUIContainer></TextBlock>

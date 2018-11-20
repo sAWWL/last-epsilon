@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 
 namespace Project_Epsilon
@@ -192,7 +193,11 @@ namespace Project_Epsilon
                     saveRecipe.IsEnabled = true;
 
                 }
-
+            }
+            var noSpecialCharacters = new Regex("^[a-zA-Z0-9]*$");
+            if (!noSpecialCharacters.IsMatch(recipeUDITxt.Text))
+            {
+                errorTxt.Content = "No special characters are allowed.";
             }
         }
         private void optionsBtn_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -662,6 +667,11 @@ namespace Project_Epsilon
                     saveRecipe.IsEnabled = true;
                 }
             }
+
+            var noSpecialCharacters = new Regex("^[a-zA-Z0-9]*$");
+            if (!noSpecialCharacters.IsMatch(recipeUDITxt.Text)) {
+                errorTxt.Content = "No special characters are allowed.";
+            }           
         }
 
         //clear button is pressed

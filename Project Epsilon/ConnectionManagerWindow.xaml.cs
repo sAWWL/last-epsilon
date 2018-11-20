@@ -26,30 +26,30 @@ namespace Project_Epsilon
         public ConnectionManagerWindow()
         {
             InitializeComponent();
-            updateServerList();
+            updateMachineList();
 
         }
 
-        //event triggers when delete server button pressed
-        private void deleteServer_Click(object sender, RoutedEventArgs e)
+        //event triggers when delete machine button pressed
+        private void deleteMachine_Click(object sender, RoutedEventArgs e)
         {
-            if (serverList.SelectedIndex != -1)
+            if (machineList.SelectedIndex != -1)
             {
                 //displays messages and controls for user interaction
-                string sMessageBoxText = "Do you want to delete the selected Server?";
-                string sCaption = "Delete Server?";
+                string sMessageBoxText = "Do you want to delete the selected Machine?";
+                string sCaption = "Delete Machine?";
 
                 MessageBoxButton btnMessageBox = MessageBoxButton.YesNoCancel;
                 MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
 
                 MessageBoxResult rsltMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
                 
-                //removes server information depending on user interaction with controls
+                //removes machine information depending on user interaction with controls
                 switch (rsltMessageBox)
                 {
                     case MessageBoxResult.Yes:
-                        Servers.ServerData.RemoveAt(serverList.SelectedIndex);
-                        serverList.Items.RemoveAt(serverList.SelectedIndex);
+                        Machines.MachineData.RemoveAt(machineList.SelectedIndex);
+                        machineList.Items.RemoveAt(machineList.SelectedIndex);
                         break;
                     case MessageBoxResult.No:
                         break;
@@ -59,15 +59,15 @@ namespace Project_Epsilon
             }
         }
         
-        private void addServer_Click(object sender, RoutedEventArgs e)
+        private void addMachine_Click(object sender, RoutedEventArgs e)
         {
             //adds a vvalue to variable
-            Servers.ServerIdx = -1;
-            //creates new instance of page AddServer
-            AddServer addServer = new AddServer();
-            if (addServer.ShowDialog() != true)
+            Machines.MachineIdx = -1;
+            //creates new instance of page AddMachine
+            AddMachine addMachine = new AddMachine();
+            if (addMachine.ShowDialog() != true)
             {
-                updateServerList();
+                updateMachineList();
 
             }
         }
@@ -78,26 +78,26 @@ namespace Project_Epsilon
             this.Close();
         }
         //event triggered when button pressed
-        private void editServer_Click(object sender, RoutedEventArgs e)
+        private void editMachine_Click(object sender, RoutedEventArgs e)
         {
 
-            //the value from serverList.SelectedIndex is stored into variable serverIdx from the Servers page
-            Servers.ServerIdx = serverList.SelectedIndex;
+            //the value from machineList.SelectedIndex is stored into variable machineIdx from the Machines page
+            Machines.MachineIdx = machineList.SelectedIndex;
             
-            AddServer editServer = new AddServer();
-            if (editServer.ShowDialog() != true)
+            AddMachine editMachine = new AddMachine();
+            if (editMachine.ShowDialog() != true)
             {
-                updateServerList();
+                updateMachineList();
             }
         }
         
-        private void updateServerList()
+        private void updateMachineList()
         {
             //clears any selected items
-            serverList.Items.Clear();
-            foreach (string server in Servers.ServerData)
+            machineList.Items.Clear();
+            foreach (string machine in Machines.MachineData)
             {
-                serverList.Items.Add(server.Split('-')[1]);
+                machineList.Items.Add(machine.Split('-')[1]);
             }
         }
     }

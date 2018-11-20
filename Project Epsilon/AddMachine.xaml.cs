@@ -49,30 +49,35 @@ namespace Project_Epsilon
                     octets.Add(Convert.ToInt16(oct2.Text));
                     octets.Add(Convert.ToInt16(oct3.Text));
                     octets.Add(Convert.ToInt16(oct4.Text));
+
+                    if (octets[0] == 10 || octets[0] == 192)
+                    {
+                        foreach (int octet in octets)
+                        {
+                            if (octet < 255 && octet > 0)
+                            {
+                                correctIP = true;
+                            }
+                            else
+                            {
+                                correctIP = false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("At least one of your fields is out of range.");
+                        correctIP = false;
+                    }
+
                 }
                 catch
                 {
+                    IPAddressError.Visibility = Visibility.Visible;
+                    IPAddressError.Text = "Please verify that the address is correct and try again!";
                     MessageBox.Show("Please verify that the address is correct and try again!");
                     correctIP = false;
-                }
-                if(octets[0] == 10 || octets[0] == 192)
-                {
-                    foreach (int octet in octets)
-                    {
-                        if (octet < 255 && octet > 0)
-                        {
-                            correctIP = true;
-                        }else
-                        {
-                            correctIP = false;
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("At least one of your fields is out of range.");
-                    correctIP = false;
-                }
+                }               
             }
             else
             {
@@ -99,6 +104,45 @@ namespace Project_Epsilon
                 this.Close();
             }
         }
+
+        private void AddressEntry_LostFocus(object sender, RoutedEventArgs e)
+        {
+            List<int> octets = new List<int>();
+            try
+            {
+                octets.Add(Convert.ToInt16(oct1.Text));
+                octets.Add(Convert.ToInt16(oct2.Text));
+                octets.Add(Convert.ToInt16(oct3.Text));
+                octets.Add(Convert.ToInt16(oct4.Text));
+
+                if (octets[0] == 10 || octets[0] == 192)
+                {
+                    ;
+                }
+                else
+                {
+                    IPAddressError.Visibility = Visibility.Visible;
+                    IPAddressError.Text = "The first octet is out of range (must be 10 or 192)";                  
+                }
+
+                foreach (int octet in octets)
+                {
+                    if (octet > 255 || octet < 1)
+                    {
+                        IPAddressError.Visibility = Visibility.Visible;
+                        IPAddressError.Text = "At least one of your fields is out of range (1-255)";
+                    }
+                }
+
+            } catch {; }
+        }
+
+        private void AddressEntry_OnFocus(object sender, RoutedEventArgs e)
+        {
+            IPAddressError.Visibility = Visibility.Hidden;
+            IPAddressError.Text = "";
+        }
+
         private void CancelAddBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

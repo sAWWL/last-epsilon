@@ -15,41 +15,41 @@ using System.Windows.Shapes;
 namespace Project_Epsilon
 {
     /// <summary>
-    /// Interaction logic for AddServer.xaml
+    /// Interaction logic for AddMachine.xaml
     /// </summary>
-    public partial class AddServer : Window
+    public partial class AddMachine : Window
     {
-        public AddServer()
+        public AddMachine()
         {
             InitializeComponent();
-            if(Servers.ServerIdx != -1)
+            if(Machines.MachineIdx != -1)
             {
                 //storing values into variables
-                string serverdata = Servers.ServerData[Servers.ServerIdx];
-                string servername = serverdata.Split('-')[1];
-                string serverusername = serverdata.Split('-')[0].Split('@')[0];
-                string serveraddress = serverdata.Split('-')[0].Split('@')[1].Split(':')[0];
-                string serverport = serverdata.Split('-')[0].Split('@')[1].Split(':')[1];
+                string machinedata = Machines.MachineData[Machines.MachineIdx];
+                string machinename = machinedata.Split('-')[1];
+                string machineusername = machinedata.Split('-')[0].Split('@')[0];
+                string machineaddress = machinedata.Split('-')[0].Split('@')[1].Split(':')[0];
+                string machineport = machinedata.Split('-')[0].Split('@')[1].Split(':')[1];
 
                 //storing values into variables
-                serverName.Text = servername;
-                serverAddress.Text = serveraddress;
-                serverPort.Text = serverport;
-                serverUsername.Text = serverusername;
+                machineName.Text = machinename;
+                machineAddress.Text = machineaddress;
+                machinePort.Text = machineport;
+                machineUsername.Text = machineusername;
             }
             
         }
 
 
-        //event triggered when the add server bbutton is pressed
-        private void AddServerBtn_Click(object sender, RoutedEventArgs e)
+        //event triggered when the add machine bbutton is pressed
+        private void AddMachineBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(Servers.ServerIdx == -1)
+            if(Machines.MachineIdx == -1)
             {
-                Servers.ServerData.Add(serverUsername.Text + "@" + serverAddress.Text + ":" + serverPort.Text + "-" + serverName.Text);
+                Machines.MachineData.Add(machineUsername.Text + "@" + machineAddress.Text + ":" + machinePort.Text + "-" + machineName.Text);
             }else
             {
-                Servers.ServerData[Servers.ServerIdx] = serverUsername.Text + "@" + serverAddress.Text + ":" + serverPort.Text + "-" + serverName.Text;
+                Machines.MachineData[Machines.MachineIdx] = machineUsername.Text + "@" + machineAddress.Text + ":" + machinePort.Text + "-" + machineName.Text;
             }
             this.Close();
         }

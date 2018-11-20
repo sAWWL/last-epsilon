@@ -50,9 +50,6 @@
                         <ColumnDefinition Width="188*"/>
                         <ColumnDefinition Width="59*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Margin="50, 0, 0, 0" Text="#" Grid.Column="0"/>
-                    <TextBlock Margin="50, 0, 0, 0" Text="#####" Name="userLbl" Grid.Column="1"/>
-                    <TextBlock Margin="50, 0, 0, 0" Text="currently Logged in" Grid.Column="2"/>
                     <TextBlock Margin="20, -55, 0, 0" Text="Create Recipes" FontSize="20" FontWeight="Bold" Grid.Column="3" Grid.ColumnSpan="2"/>
                 </Grid>
                 <!--fix the widths now. its going to be 3x4-->
@@ -132,6 +129,7 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
                     <Button x:Name="optionsBtn"  Grid.Column="0" Click="optionsBtn_Click" Grid.RowSpan="2" Content="Options" Margin="10,0"/>
@@ -139,6 +137,8 @@
                     <Button x:Name="clearBtn" Grid.Column="2" Grid.RowSpan="2" Content="Clear" Margin="10,0" Click="clearBtn_Click"/>
                     <Button x:Name="saveRecipe" Height="24" Grid.Column="3" Margin="10,0" Click="saveRecipe_Click">Save</Button>
                     <Button x:Name="homeBtn"  Grid.Column="4" Grid.RowSpan="2" Content="Home" Click="homeBtn_Click" Margin="10,0"/>
+                    <Button x:Name="ExitBtn"  Grid.Column="5" Grid.RowSpan="2" Content="Exit" Click="homeBtn_Click" Margin="10, 0"/>
+
 
                 </Grid>
             </StackPanel>
