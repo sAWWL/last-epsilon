@@ -119,5 +119,11 @@ namespace Project_Epsilon
                 methodOneCheckbox.IsChecked = false;
             }
         }
+
+        private void ClrButton_Click(object sender, RoutedEventArgs e)
+        {
+            methodOneCheckbox.IsChecked = false;
+            methodTwoCheckbox.IsChecked = false;
+        }
     }
 }

@@ -65,6 +65,7 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
+                    <Button Name="ClrButton" Grid.Column="1" Margin="20,0,20,-20" Click="ClrButton_Click" >Clear</Button>
                     <Button Name="backBtn" Grid.Column="2" Margin="0,0,20,-20" Click="backBtn_Click">Back</Button>
                 </Grid>
             </StackPanel>
