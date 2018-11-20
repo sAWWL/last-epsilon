@@ -474,3 +474,4 @@ C:\Users\cvsch\Desktop\ksaldkslkdslad\last-epsilon\Project Epsilon\obj\Debug\Pro
 C:\Users\cvsch\Desktop\ksaldkslkdslad\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.csproj.CoreCompileInputs.cache
 C:\Users\cvsch\Desktop\ksaldkslkdslad\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.exe
 C:\Users\cvsch\Desktop\ksaldkslkdslad\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.pdb
+C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\AddMachine.g.cs
