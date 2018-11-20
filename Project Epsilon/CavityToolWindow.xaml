@@ -25,10 +25,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBox x:Name="userNameTxtBox" Height="25" Text="UserName: " IsReadOnly="True" Grid.Column="0" Margin="0,0,0,340"/>
-                <TextBlock Name="logInLbl" Text="is currently Logged In" Grid.Column="1" Margin="10,0,0,0"/>
-                <TextBlock Name="titleLbl" Text="Recipe Options Cavity Management" Grid.Column="2"/>
-            </Grid>
+                </Grid>
             <StackPanel Margin="100">
                 <RadioButton Name="methodOneCheckbox" Foreground="Black" FontWeight="Bold" Checked="MethodOneCheckbox_Checked">Method One (Count All Cavities used)</RadioButton>
                 <RadioButton Name="methodTwoCheckbox" Foreground="Black" FontWeight="Bold" Checked="MethodTwoCheckbox_Checked">Method Two (Count using Required Cavities)</RadioButton>
