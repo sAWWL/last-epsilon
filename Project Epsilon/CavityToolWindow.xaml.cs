@@ -27,7 +27,7 @@ namespace Project_Epsilon
             if (LoadedRecipe._cavMethodOneSelected == 1)
             {
                 //unchecks method two checkbox
-                methodTwoCheckbox.IsChecked = false;
+                methodOneCheckbox.IsChecked = true;
             }
             //if LoadedRecipe._cavMethodTwoSelected has a value of 1
             if (LoadedRecipe._cavMethodTwoSelected == 1)
