@@ -93,12 +93,7 @@ namespace Project_Epsilon
             }
             
             //closes current window
-            this.Close();
-
-           
-
-            
-           
+            this.Close(); 
         }
 
         //Tool Confirmation checkbox event

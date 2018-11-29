@@ -28,6 +28,10 @@ General
 	- No username login info included. 
 	- UDI characters should be from a-z, upper, lower case, 0-9 and include at least one character
 	- Add an exit button
+	- If the tool confirmation is selected on the tool setup screen then cavity tool window 
+	"number of cavities" textbox should be green/read only. But if not checked then the textbox is editable on the cav tool window. 
+	
+
 _____________________________
 
 *** NOT FINISHED ***
@@ -49,8 +53,5 @@ General
 	- Put a load button on the home page (Austin)
 	- Make sure that everything is cleared when clear button used. - delete record out of memory (Austin)
 	
-	- If the tool confirmation is selected on the tool setup screen then cavity tool window 
-	"number of cavities" textbox should be green/read only. But if not checked then the textbox is editable on the cav tool window. (Saul)
 	
-
 ________________________________________
