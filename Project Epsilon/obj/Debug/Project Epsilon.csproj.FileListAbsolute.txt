@@ -688,3 +688,5 @@ C:\Users\sap334\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\Project Epsi
 C:\Users\sap334\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.csproj.CoreCompileInputs.cache
 C:\Users\sap334\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.exe
 C:\Users\sap334\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.pdb
+C:\Users\mar632\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\RecipePreview.g.cs
+C:\Users\mar632\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\RecipePreview.baml
