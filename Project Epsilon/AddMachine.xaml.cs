@@ -36,6 +36,7 @@ namespace Project_Epsilon
                 oct4.Text = machineaddress.Split('.')[3];
                 machineName.Text = machinename;
             }
+            machineName.Focus();
         }
         private void AddMachineBtn_Click(object sender, RoutedEventArgs e)
         {

@@ -32,7 +32,6 @@
         <TextBox x:Name="txtUDIEndingPosition" MaxLength="2" IsEnabled="False" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="400,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="36" TextChanged="txtUDIEndingPosition_TextChanged" PreviewTextInput="TextBox_PreviewTextInput"/>
         <Line Stretch="Fill" Stroke="Black" X2="1" Grid.ColumnSpan="2" Margin="35,0,233,0.5"/>
         <TextBox x:Name="txtUDIPartialCompare" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="35,192,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="420" Grid.ColumnSpan="2" Background="#FF8EDC87"/>
-        <Button x:Name="btnBack" Content="Back" Grid.Column="1" HorizontalAlignment="Left" Margin="522,365,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="0.493,2.15" Click="btnBack_Click"/>
         <CheckBox x:Name="chkCompareUDI" Content="Compare against UDI?" Margin="173,267,349,0" VerticalAlignment="Top" Height="29" Grid.Column="1" Checked="chkCompareUDI_Checked" Unchecked="chkCompareUDI_Checked" Foreground="Black" FontWeight="Bold"/>
         <Label x:Name="lblCavUDIEntireOrPartial" Content="Compare the entire Cavity UDI against the recipe UDI or partial: (e or p)" HorizontalAlignment="Left" Margin="35,287,0,0" VerticalAlignment="Top" Width="420" Grid.ColumnSpan="2" Foreground="Black" FontWeight="Bold"/>
         <TextBox x:Name="txtCavUDIEntireOrPartial" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="400,291,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="36" TextChanged="txtCavUDIEntireOrPartial_TextChanged"/>
@@ -42,5 +41,6 @@
         <TextBox x:Name="txtCavUDIEndingPosition" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="400,357,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="36" PreviewTextInput="TextBox_PreviewTextInput" TextChanged="txtCavUDIEndingPosition_TextChanged"/>
         <TextBox x:Name="txtCavUDIPartialCompare" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="35,384,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="420" Grid.ColumnSpan="2" Background="#FF8EDC87"/>
         <Label x:Name="lblCavityManagement" Content="You are using Cavity Management" HorizontalAlignment="Left" Margin="35,261,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="215" Foreground="Black" FontWeight="Bold"/>
+        <Button x:Name="btnBack" Content="Back" Grid.Column="1" HorizontalAlignment="Left" Margin="522,365,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="0.493,2.15" Click="btnBack_Click"/>
     </Grid>
 </Window>
