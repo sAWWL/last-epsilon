@@ -20,8 +20,7 @@
         
         <Label Content="Machine Nickname" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,21,0,0"/>
         <Label Content="Machine Address" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,71,0,0"/>
-        <Button Name="AddMachineBtn" Content="Save" HorizontalAlignment="Left" Margin="291,143,0,0" VerticalAlignment="Top" Width="75" Click="AddMachineBtn_Click"/>
-        <Button Name="CancelAddBtn" Content="Cancel" HorizontalAlignment="Left" Margin="199,143,0,0" VerticalAlignment="Top" Width="75" Click="CancelAddBtn_Click"/>
+        
         <TextBlock Name="IPAddressError" HorizontalAlignment="Left" Margin="26,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340" Height="18" Background="#FFC93B3B" FontWeight="Bold" TextAlignment="Center"
                    Text="Hostname/IP Must Be A Valid Local Address" Foreground="White" Visibility="hidden"/>
         <Label Content="." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,68,0,0"/>
@@ -31,7 +30,8 @@
         <TextBox x:Name="oct4" HorizontalAlignment="Left" Height="23" Margin="331,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35" LostFocus="AddressEntry_LostFocus" GotFocus="AddressEntry_OnFocus"/>
         <Label Content="." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="265,67,0,0"/>
         <Label Content="." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="318,67,0,0"/>
+        <Button Name="CancelAddBtn" Content="Cancel" HorizontalAlignment="Left" Margin="199,143,0,0" VerticalAlignment="Top" Width="75" Click="CancelAddBtn_Click"/>
+        <Button Name="AddMachineBtn" Content="Save" HorizontalAlignment="Left" Margin="291,143,0,0" VerticalAlignment="Top" Width="75" Click="AddMachineBtn_Click"/>
         
-
     </Grid>
 </Window>
