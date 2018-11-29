@@ -24,6 +24,7 @@ namespace Project_Epsilon
         {
             if(LoadedRecipe.recipeloaded == true)
             {
+                MessageBox.Show(Convert.ToString(LoadedRecipe._pressureLowerAlarmValue));
                 //creates variables
                 double highTempAlarm;
                 double tempSetPoint;

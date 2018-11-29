@@ -83,7 +83,6 @@ namespace Project_Epsilon
                     LoadedRecipe.confirmload = false;
                     RecipeInput recipeInput = new RecipeInput();
                     recipeInput.Show();
-                    MessageBox.Show(LoadedRecipe._recipeName);
                     this.Close();
                 }
             }
