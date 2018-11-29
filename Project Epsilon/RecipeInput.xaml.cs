@@ -702,55 +702,7 @@ namespace Project_Epsilon
                 cavMgtOptTxt.Text = "";
                 usingUDITxt.Text = "";
                 rfidTxt.Text = "";
-                LoadedRecipe.recipeloaded = false;
-
-                LoadedRecipe._product = "";
-                LoadedRecipe._recipeName = "";
-                LoadedRecipe._UDIRecipe = "";
-                LoadedRecipe._UDITrayValue = "";
-                LoadedRecipe._fieldName = "";
-                LoadedRecipe._projectName = "";
-                LoadedRecipe._recipeGeneratedBy = "";
-
-                LoadedRecipe._pressureUpperAlarmValue = 0.0;
-                LoadedRecipe._pressureLowerAlarmValue = 0.0;
-                LoadedRecipe._pressureSetpointFromOIT = 0.0;
-                LoadedRecipe._tempHigherAlarmValue = 0.0;
-                LoadedRecipe._tempLowerAlarmValue = 0.0;
-                LoadedRecipe._tempSetpoint = 0.0;
-                LoadedRecipe._sealTime = 0.0;
-                LoadedRecipe._UDIRecipeTool = 0.0;
-
-                LoadedRecipe._RFIDNumber = 0;
-                LoadedRecipe._recipeNumber = 0;
-                LoadedRecipe._lotNumber = 0;
-                LoadedRecipe._avTagRecipeLotSealed = 0;
-                LoadedRecipe._avTagRecipeLotToSeal = 0;
-                LoadedRecipe._recToolRequired = 0;
-                LoadedRecipe._cavMethod2Required = 0;
-                LoadedRecipe._cavMethodOneSelected = 0;
-                LoadedRecipe._cavMethodTwoSelected = 0;
-                LoadedRecipe._cavMgtUsed = 0;
-                LoadedRecipe.recipeID = 0;
-                LoadedRecipe.numCavUsed = 0;
-
-                LoadedRecipe._tmpUDIRecipe = "";
-                LoadedRecipe._recUDI2 = "";
-                LoadedRecipe._recUDI89 = "";
-                LoadedRecipe._recUDI1 = "";
-                LoadedRecipe._recUDI3 = "";
-                LoadedRecipe._recUDI4 = "";
-                LoadedRecipe._recUDI5 = "";
-                LoadedRecipe._recUDI6 = "";
-                LoadedRecipe._recUDI7 = "";
-                LoadedRecipe._recUDI8 = "";
-                LoadedRecipe._recipeGeneratedOn = "";
-                LoadedRecipe.fileName = "";
-                LoadedRecipe.host = "";
-                LoadedRecipe.port = "";
-                LoadedRecipe.username = "";
-                LoadedRecipe.password = "";
-                LoadedRecipe.headerrow = "";
+                LoadedRecipe.ClearData();
             }
         }
         //when exit is clicked, closes app
@@ -779,6 +731,11 @@ namespace Project_Epsilon
         {
             int i;
             return int.TryParse(str, out i);
+        }
+
+        private void exitBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

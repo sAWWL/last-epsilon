@@ -48,5 +48,32 @@ namespace Project_Epsilon
             ConnectionManagerWindow connectionmanager = new ConnectionManagerWindow();
             connectionmanager.Show();
         }
+        private void RecipesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //creates new instance of connection manager page and displays it
+            if (LoadedRecipe.recipeloaded == false)
+            {
+                FileBrowser winFileBrowser = new FileBrowser();
+                winFileBrowser.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Resume previous recipe?", "Confirm", System.Windows.MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    RecipeInput winRecipeInput = new RecipeInput();
+                    winRecipeInput.Show();
+                    this.Close();
+                }
+                else
+                {
+                    FileBrowser winFileBrowser = new FileBrowser();
+                    winFileBrowser.Show();
+                    this.Close();
+                }
+            }
+        }
+
     }
 }

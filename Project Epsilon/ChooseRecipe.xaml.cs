@@ -83,8 +83,13 @@ namespace Project_Epsilon
             else
             {
                 LoadedRecipe.recipeID = -1;
-                LoadedRecipe.recipeloaded = true;
-                this.Close();
+                RecipePreview recipePreview = new RecipePreview();
+                if(LoadedRecipe.confirmload == true)
+                {
+                    LoadedRecipe.recipeloaded = true;
+                    LoadedRecipe.confirmload = false;
+                    this.Close();
+                }
             }   
         }
         //enters values into variables

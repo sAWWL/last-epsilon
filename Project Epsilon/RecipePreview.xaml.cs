@@ -23,5 +23,17 @@ namespace Project_Epsilon
         {
             InitializeComponent();
         }
+
+        private void WrongRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            LoadedRecipe.confirmload = false;
+            this.Close();
+        }
+
+        private void CorrcetRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            LoadedRecipe.confirmload = false;
+            this.Close();
+        }
     }
 }
