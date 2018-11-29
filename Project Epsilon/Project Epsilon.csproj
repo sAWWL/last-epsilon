@@ -80,6 +80,9 @@
     <Compile Include="RecipeInput.xaml.cs">
       <DependentUpon>RecipeInput.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RecipePreview.xaml.cs">
+      <DependentUpon>RecipePreview.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Servers.cs" />
     <Compile Include="ToolSetupWindow.xaml.cs" />
     <Compile Include="UDIPage.xaml.cs" />
@@ -147,6 +150,10 @@
     <Page Include="RecipeInput.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RecipePreview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ToolSetupWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

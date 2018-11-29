@@ -74,6 +74,7 @@ namespace Project_Epsilon
                 if (tempMachineData[32].Length > 0) { LoadedRecipe._recUDI8 = tempMachineData[32]; }
                 if (tempMachineData[33].Length > 0) { LoadedRecipe._recUDI9 = tempMachineData[33]; }
                 LoadedRecipe.recipeID = selectRecipe.SelectedIndex;
+                LoadedRecipe.recipeloaded = true;
                 this.Close();
             }
 
@@ -81,6 +82,7 @@ namespace Project_Epsilon
             else
             {
                 LoadedRecipe.recipeID = -1;
+                LoadedRecipe.recipeloaded = true;
                 this.Close();
             }   
         }
@@ -122,6 +124,8 @@ namespace Project_Epsilon
             LoadedRecipe._recUDI8 = "0";
             LoadedRecipe._recUDI9 = "0";
             LoadedRecipe.filerows.Add("");
+            LoadedRecipe.recipeloaded = true;
+            LoadedRecipe.recipeloaded = true;
             this.Close();
         }
 

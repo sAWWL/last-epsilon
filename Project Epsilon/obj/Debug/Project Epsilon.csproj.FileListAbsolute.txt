@@ -614,3 +614,40 @@ C:\Users\mar632\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\Project Epsi
 \\fcbshares.cba.nau.edu\fcb-semestercourses\sap334\Desktop\project-epsilon\Project Epsilon\obj\Debug\Project Epsilon.pdb
 C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\AddMachine.g.cs
 C:\Users\Mark\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\AddMachine.baml
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\bin\Debug\Project Epsilon.exe.config
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\bin\Debug\Project Epsilon.exe
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\bin\Debug\Project Epsilon.pdb
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.csprojResolveAssemblyReference.cache
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\FileBrowser.baml
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\OptionsMenu.baml
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\RecipeInput.baml
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\ToolSetupWindow.baml
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\UDIPage.baml
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\AddMachine.g.cs
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\CavityToolWindow.g.cs
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\ChooseRecipe.g.cs
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\ConnectionManagerWindow.g.cs
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\FileBrowser.g.cs
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\MainWindow.g.cs
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\OptionsMenu.g.cs
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\PasswordInput.g.cs
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\RecipeInput.g.cs
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\ToolSetupWindow.g.cs
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\UDIPage.g.cs
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\App.g.cs
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon_MarkupCompile.cache
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon_MarkupCompile.lref
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\AddMachine.baml
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\CavityToolWindow.baml
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\ChooseRecipe.baml
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\ConnectionManagerWindow.baml
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\MainWindow.baml
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\PasswordInput.baml
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.g.resources
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\Project_Epsilon.Properties.Resources.resources
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.csproj.GenerateResource.cache
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.csproj.CoreCompileInputs.cache
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.exe
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.pdb
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\RecipePreview.g.cs
+C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\RecipePreview.baml
