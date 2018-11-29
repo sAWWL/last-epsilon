@@ -5,10 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_Epsilon"
         mc:Ignorable="d"
-        Title="RecipePreview" Height="450" Width="800">
+        Title="RecipePreview" Height="450" Width="423.086">
     <Grid>
-        <Button Content="Load" HorizontalAlignment="Left" Margin="615,383,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" Margin="66,388,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Yes" HorizontalAlignment="Left" Margin="290,388,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="No" HorizontalAlignment="Left" Margin="60,388,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Recipe Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="27,30,0,0"/>
+        <Label Content="Product:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="27,76,0,0"/>
+        <Label Content="Temperatures:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="27,127,0,0"/>
+        <Label Content="Seal time:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,284,0,0"/>
+        <TextBox Name="preview_recipeName" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="149,33,0,0"/>
+        <TextBox x:Name="preview_recipeProduct" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="149,76,0,0"/>
+        <TextBox x:Name="preview_recipeTempHigh" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="41" Margin="236,153,0,0"/>
+        <TextBox x:Name="preview_recipeTempLow" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="41" Margin="128,153,0,0"/>
+        <TextBox x:Name="preview_recipeTempSet" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="41" Margin="184,153,0,0"/>
+        <Label Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="134,127,0,0"/>
+        <Label Content="Set" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="189,127,0,0"/>
+        <Label Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,128,0,0"/>
+        <Label Content="Pressures:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="27,204,0,0"/>
+        <TextBox x:Name="preview_recipePressureHigh" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="41" Margin="236,230,0,0"/>
+        <TextBox x:Name="preview_recipePressureLow" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="41" Margin="128,230,0,0"/>
+        <TextBox x:Name="preview_recipePressureSet" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="41" Margin="184,230,0,0"/>
+        <Label Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="134,204,0,0"/>
+        <Label Content="Set" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="189,204,0,0"/>
+        <Label Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,205,0,0"/>
+        <TextBox x:Name="preview_recipeProduct_Copy" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35" Margin="134,284,0,0"/>
+        <Label Content="Is This the correct Recipe?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="148,340,0,0"/>
 
     </Grid>
 </Window>
