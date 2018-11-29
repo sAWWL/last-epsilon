@@ -41,6 +41,7 @@ namespace Project_Epsilon
             if (LoadedRecipe._recToolRequired == 1)
             {
                 numCavitiesTxtBox.IsReadOnly = true;
+                numCavitiesTxtBox.Background = Brushes.LightGreen;
             }
         }
 

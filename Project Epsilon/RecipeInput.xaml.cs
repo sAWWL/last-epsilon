@@ -231,6 +231,8 @@ namespace Project_Epsilon
         //load button is clicked
         private void loadBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            createdByTxt.Text = LoadedRecipe._recipeGeneratedBy;
+            createdOnTxt.Text = LoadedRecipe._recipeGeneratedOn;
             //creates new instance of filebrowser
             FileBrowser fileBrowser = new FileBrowser();
 
@@ -439,6 +441,7 @@ namespace Project_Epsilon
                     }
                 }
             }
+            
         }
 
         //whhen saveRecipe button is clicked

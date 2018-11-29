@@ -65,15 +65,17 @@
                     <TextBox Name="recipeTxt" MaxWidth="75" MaxHeight="20" Margin="74,0,45,75" Grid.Column="0"/>
                     <TextBlock Text="Tool Confirmation" Grid.Column="1" Margin="0,0,0,0" FontSize="13" FontWeight="DemiBold"/>
                     <TextBox Name="toolConfirmTxt" MaxWidth="50" Margin="100,-2,45,78" Grid.Column="1" IsReadOnly="True" FontWeight="Bold" TextAlignment="Center" Background="LightGreen" />
-
+                    <Label Name="createdByLbl" Grid.Column="2" Content="Created by:" FontWeight="Demibold"></Label>
+                    <TextBlock Name="createdByTxt" Grid.Column="2" Margin="75,6" Text="###"/>
 
                     <!--row 2-->
                     <TextBlock Text="Product" Grid.Column="0" Margin="0,25,45,0" FontSize="13" FontWeight="DemiBold"/>
                     <TextBox Name="productTxt" MaxWidth="75" MaxHeight="20" Margin="74,25,45,50" Grid.Column="0"/>
                     <TextBlock Text="Cav Mgt Option" Margin ="0,25,45,0" Grid.Column="1" FontSize="13" FontWeight="DemiBold"/>
                     <TextBox Name="cavMgtOptTxt" MaxWidth="50" Margin="100,25,45,51" Grid.Column="1" IsReadOnly="True" FontWeight="Bold" TextAlignment="Center" Background="LightGreen"/>
-
-
+                    <Label Name="createdOnLbl" Grid.Column="2" Content="Created On:" Margin="0,20" FontWeight="DemiBold"></Label>
+                    <TextBlock Name="createdOnTxt" Grid.Column="2" Margin="75,26" Text="###"/>
+                    
                     <!--row 3-->
                     <TextBlock Text="Lot" Grid.Column="0" Margin="0,50,45,0" FontSize="13" FontWeight="DemiBold"/>
                     <TextBox Name="lotTxt" MaxWidth="75" MaxHeight="20" Margin="74,50,45,25" Grid.Column="0"/>
