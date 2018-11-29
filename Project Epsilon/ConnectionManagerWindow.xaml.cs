@@ -43,7 +43,7 @@ namespace Project_Epsilon
                 MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
 
                 MessageBoxResult rsltMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
-                
+
                 //removes machine information depending on user interaction with controls
                 switch (rsltMessageBox)
                 {
@@ -58,7 +58,7 @@ namespace Project_Epsilon
                 }
             }
         }
-        
+
         private void addMachine_Click(object sender, RoutedEventArgs e)
         {
             //adds a vvalue to variable
@@ -75,6 +75,8 @@ namespace Project_Epsilon
         //closes the page
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow winMainWindow = new MainWindow();
+            winMainWindow.Show();
             this.Close();
         }
         //event triggered when button pressed
@@ -83,14 +85,14 @@ namespace Project_Epsilon
 
             //the value from machineList.SelectedIndex is stored into variable machineIdx from the Machines page
             Machines.MachineIdx = machineList.SelectedIndex;
-            
+
             AddMachine editMachine = new AddMachine();
             if (editMachine.ShowDialog() != true)
             {
                 updateMachineList();
             }
         }
-        
+
         private void updateMachineList()
         {
             //clears any selected items

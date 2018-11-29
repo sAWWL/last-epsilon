@@ -28,7 +28,7 @@
         <Label Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="134,204,0,0"/>
         <Label Content="Set" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="189,204,0,0"/>
         <Label Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,205,0,0"/>
-        <TextBox x:Name="preview_recipeProduct_Copy" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35" Margin="134,284,0,0"/>
+        <TextBox x:Name="preview_recipeSealTime" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35" Margin="134,284,0,0"/>
         <Label Content="Is This the correct Recipe?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="148,340,0,0"/>
 
     </Grid>

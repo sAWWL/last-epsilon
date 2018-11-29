@@ -19,22 +19,30 @@ namespace Project_Epsilon
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+
         public MainWindow()
         {
             InitializeComponent();
             //Add Machines for Demo Purposes
             Machines.MachineData.Add("ATLASVAC@192.168.1.248:21-HMI");
             Machines.MachineData.Add("ATLASVAC@192.168.0.4:21-local");
+            Machines.MachineData.Add("ATLASVAC@localhost:21-local2");
         }
-        
+
 
         private void RecipeEditorBtn_Click(object sender, RoutedEventArgs e)
         {
             //creates new instance of recipe input page and displays it
             RecipeInput RecipeInput = new RecipeInput();
             RecipeInput.Show();
-        }      
+        }
+
+        private void SettingsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ConnectionManagerWindow connectionManagerWindow = new ConnectionManagerWindow();
+            connectionManagerWindow.Show();
+            this.Hide();
+        }
 
         private void Exit(object sender, RoutedEventArgs e)
         {
@@ -42,12 +50,6 @@ namespace Project_Epsilon
             System.Windows.Application.Current.Shutdown();
         }
 
-        private void ConnectionManagerBtn_Click(object sender, RoutedEventArgs e)
-        {
-            //creates new instance of connection manager page and displays it
-            ConnectionManagerWindow connectionmanager = new ConnectionManagerWindow();
-            connectionmanager.Show();
-        }
         private void RecipesBtn_Click(object sender, RoutedEventArgs e)
         {
             //creates new instance of connection manager page and displays it
@@ -74,6 +76,5 @@ namespace Project_Epsilon
                 }
             }
         }
-
     }
 }

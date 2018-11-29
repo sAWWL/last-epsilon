@@ -75,19 +75,30 @@ namespace Project_Epsilon
                 if (tempMachineData[32].Length > 0) { LoadedRecipe._recUDI8 = tempMachineData[32]; }
                 if (tempMachineData[33].Length > 0) { LoadedRecipe._recUDI9 = tempMachineData[33]; }
                 LoadedRecipe.recipeID = selectRecipe.SelectedIndex;
-                LoadedRecipe.recipeloaded = true;
-                this.Close();
+                RecipePreview recipePreview = new RecipePreview();
+                recipePreview.ShowDialog();
+                if (LoadedRecipe.confirmload == true)
+                {
+                    LoadedRecipe.recipeloaded = true;
+                    LoadedRecipe.confirmload = false;
+                    RecipeInput recipeInput = new RecipeInput();
+                    recipeInput.Show();
+                    MessageBox.Show(LoadedRecipe._recipeName);
+                    this.Close();
+                }
             }
-
             //load the variable, close the page
             else
             {
                 LoadedRecipe.recipeID = -1;
                 RecipePreview recipePreview = new RecipePreview();
+                recipePreview.ShowDialog();
                 if(LoadedRecipe.confirmload == true)
                 {
                     LoadedRecipe.recipeloaded = true;
                     LoadedRecipe.confirmload = false;
+                    RecipeInput recipeInput = new RecipeInput();
+                    recipeInput.Show();
                     this.Close();
                 }
             }   

@@ -22,6 +22,16 @@ namespace Project_Epsilon
         public RecipePreview()
         {
             InitializeComponent();
+            preview_recipeName.Text = LoadedRecipe._recipeName;
+            preview_recipeProduct.Text = LoadedRecipe._product;
+            preview_recipeTempHigh.Text = Convert.ToString(LoadedRecipe._tempHigherAlarmValue);
+            preview_recipeTempLow.Text = Convert.ToString(LoadedRecipe._tempLowerAlarmValue);
+            preview_recipeTempSet.Text = Convert.ToString(LoadedRecipe._tempSetpoint);
+            preview_recipePressureHigh.Text = Convert.ToString(LoadedRecipe._pressureUpperAlarmValue);
+            preview_recipePressureLow.Text = Convert.ToString(LoadedRecipe._pressureLowerAlarmValue);
+            preview_recipePressureSet.Text = Convert.ToString(LoadedRecipe._pressureSetpointFromOIT);
+            preview_recipeSealTime.Text = Convert.ToString(LoadedRecipe._sealTime);
+
         }
 
         private void WrongRecipe_Click(object sender, RoutedEventArgs e)
@@ -32,7 +42,7 @@ namespace Project_Epsilon
 
         private void CorrcetRecipe_Click(object sender, RoutedEventArgs e)
         {
-            LoadedRecipe.confirmload = false;
+            LoadedRecipe.confirmload = true;
             this.Close();
         }
     }
