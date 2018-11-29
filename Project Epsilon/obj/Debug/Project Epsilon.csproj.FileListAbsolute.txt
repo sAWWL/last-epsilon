@@ -651,3 +651,5 @@ C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\Project Ep
 C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.pdb
 C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\RecipePreview.g.cs
 C:\Users\cvsch\Desktop\EPSILON\last-epsilon\Project Epsilon\obj\Debug\RecipePreview.baml
+C:\Users\mar632\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\RecipePreview.g.cs
+C:\Users\mar632\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\RecipePreview.baml
