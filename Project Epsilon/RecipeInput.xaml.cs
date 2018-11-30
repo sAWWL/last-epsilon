@@ -24,7 +24,6 @@ namespace Project_Epsilon
         {
             if(LoadedRecipe.recipeloaded == true)
             {
-                MessageBox.Show(Convert.ToString(LoadedRecipe._pressureLowerAlarmValue));
                 //creates variables
                 double highTempAlarm;
                 double tempSetPoint;
@@ -33,6 +32,195 @@ namespace Project_Epsilon
                 double highPress;
                 double pressSet;
                 double lowPressure;
+
+                createdByTxt.Text = LoadedRecipe._recipeGeneratedBy;
+                createdOnTxt.Text = LoadedRecipe._recipeGeneratedOn;
+                    //pulls public variables, converts, and stores in textboxes
+                    recipeTxt.Text = Convert.ToString(LoadedRecipe._recipeName);
+                    productTxt.Text = Convert.ToString(LoadedRecipe._product);
+                    recipeUDITxt.Text = Convert.ToString(LoadedRecipe._UDIRecipe);
+                    toolConfirmTxt.Text = Convert.ToString(LoadedRecipe._recToolRequired);
+
+                    //if text has a value of 1
+                    if (toolConfirmTxt.Text == "1")
+                    {
+                        //display yes
+                        toolConfirmTxt.Text = "Yes";
+                    }
+
+                    //if text hhas value of 0
+                    else if (toolConfirmTxt.Text == "0")
+                    {
+                        //display no
+                        toolConfirmTxt.Text = "No";
+                    }
+                    //convert to string and place in textbox
+                    cavMgtOptTxt.Text = Convert.ToString(LoadedRecipe._cavMgtUsed);
+
+                    //if textbox is given value of 1
+                    if (cavMgtOptTxt.Text == "1")
+                    {
+                        cavMgtOptTxt.Text = "Yes";
+                    }
+
+                    //if textbox is given value of 0
+                    else if (cavMgtOptTxt.Text == "0")
+                    {
+                        cavMgtOptTxt.Text = "No";
+                    }
+                    //if given any other value
+                    else
+                    {
+                        toolConfirmTxt.Text = "No";
+                    }
+                    //convert to string and place in textbox
+                    usingUDITxt.Text = Convert.ToString(LoadedRecipe._recUDI1);
+
+                    //if textbox is given value of 1
+                    if (cavMgtOptTxt.Text == "1")
+                    {
+                        cavMgtOptTxt.Text = "Yes";
+                    }
+
+                    //if textbox is given value of 1//if textbox is given value of 0
+                    else if (cavMgtOptTxt.Text == "0")
+                    {
+                        cavMgtOptTxt.Text = "No";
+                    }
+                    //if given any other value
+                    else
+                    {
+                        toolConfirmTxt.Text = "No";
+                    }
+
+                    //pulls public variables, converts, and stores in textboxes
+                    lotTxt.Text = Convert.ToString(LoadedRecipe._lotNumber);
+                    rfidTxt.Text = Convert.ToString(LoadedRecipe._RFIDNumber);
+                    highTempTxt.Text = Convert.ToString(LoadedRecipe._tempHigherAlarmValue);
+                    tempSetTxt.Text = Convert.ToString(LoadedRecipe._tempSetpoint);
+                    lowTempTxt.Text = Convert.ToString(LoadedRecipe._tempLowerAlarmValue);
+                    sealTimeTxt.Text = Convert.ToString(LoadedRecipe._sealTime);
+                    pressSetTxt.Text = Convert.ToString(LoadedRecipe._pressureSetpointFromOIT);
+                    highPressTxt.Text = Convert.ToString(LoadedRecipe._pressureUpperAlarmValue);
+                    lowPressureTxt.Text = Convert.ToString(LoadedRecipe._pressureLowerAlarmValue);
+
+                    //tests controls is box is null or just empty with white spaces
+                    if (String.IsNullOrWhiteSpace(recipeTxt.Text) || String.IsNullOrWhiteSpace(productTxt.Text) || String.IsNullOrWhiteSpace(lotTxt.Text) ||
+                    String.IsNullOrWhiteSpace(recipeUDITxt.Text) || String.IsNullOrWhiteSpace(highTempTxt.Text) || String.IsNullOrWhiteSpace(tempSetTxt.Text) ||
+                    String.IsNullOrWhiteSpace(lowTempTxt.Text) || String.IsNullOrWhiteSpace(sealTimeTxt.Text) || String.IsNullOrWhiteSpace(highPressTxt.Text) ||
+                    String.IsNullOrWhiteSpace(pressSetTxt.Text) || String.IsNullOrWhiteSpace(lowPressureTxt.Text) ||
+                    String.IsNullOrWhiteSpace(cavMgtOptTxt.Text) || String.IsNullOrWhiteSpace(toolConfirmTxt.Text) || String.IsNullOrWhiteSpace(usingUDITxt.Text))
+                    {
+                        //error message is visible, saveRecipe is disabled, displays error message
+                        errorTxt.Visibility = Visibility.Visible;
+                        saveRecipe.IsEnabled = false;
+                        errorTxt.Content = "All Fields (except RFID) are Required";
+                    }
+
+                    else if (!Double.TryParse(highTempTxt.Text, out highTempAlarm) || !Double.TryParse(tempSetTxt.Text, out tempSetPoint) || !Double.TryParse(lowTempTxt.Text, out tempSetPoint)
+                        || !Double.TryParse(sealTimeTxt.Text, out sealTime) || !Double.TryParse(highPressTxt.Text, out highPress)
+                        || !Double.TryParse(pressSetTxt.Text, out pressSet) || !Double.TryParse(lowPressureTxt.Text, out lowPressure))
+                    {
+                        //error message is visible, save Recipe is disabled, error message is displayed
+                        errorTxt.Visibility = Visibility.Visible;
+                        saveRecipe.IsEnabled = false;
+                        errorTxt.Content = "Below fields must be numeric input only";
+                    }
+
+                    else if (recipeUDITxt.Text.Length != 40)
+                    {
+                        //error message is visible, save Recipe is disabled, error message is displayed
+                        errorTxt.Visibility = Visibility.Visible;
+                        saveRecipe.IsEnabled = false;
+                        errorTxt.Content = "Recipe UDI must be 40 characters";
+                    }
+                    else
+                    {
+                        highTempAlarm = Convert.ToDouble(highTempTxt.Text);
+                        tempSetPoint = Convert.ToDouble(tempSetTxt.Text);
+                        lowTemp = Convert.ToDouble(lowTempTxt.Text);
+                        sealTime = Convert.ToDouble(sealTimeTxt.Text);
+                        highPress = Convert.ToDouble(highPressTxt.Text);
+                        pressSet = Convert.ToDouble(pressSetTxt.Text);
+                        lowPressure = Convert.ToDouble(lowPressureTxt.Text);
+
+                        if (highTempAlarm <= tempSetPoint)
+                        {
+                            //error message is visible, save Recipe is disabled, error message is displayed
+                            errorTxt.Visibility = Visibility.Visible;
+                            saveRecipe.IsEnabled = false;
+                            errorTxt.Content = "Fix High Temperature. It is Lower than Temp Setpoint";
+                        }
+                        else if (highTempAlarm >= 250)
+                        {
+                            //error message is visible, save Recipe is disabled, error message is displayed
+                            errorTxt.Visibility = Visibility.Visible;
+                            saveRecipe.IsEnabled = false;
+                            errorTxt.Content = "High Temp Alarm must be less than 250 degrees";
+                        }
+                        else if (lowTemp >= tempSetPoint)
+                        {
+                            //error message is visible, save Recipe is disabled, error message is displayed
+                            errorTxt.Visibility = Visibility.Visible;
+                            saveRecipe.IsEnabled = false;
+                            errorTxt.Content = "Fix Low Temperature. It is Greater than Temp Setpoint";
+                        }
+                        else if (lowTemp <= 50)
+                        {
+                            //error message is visible, save Recipe is disabled, error message is displayed
+                            errorTxt.Visibility = Visibility.Visible;
+                            saveRecipe.IsEnabled = false;
+                            errorTxt.Content = "Low Temp Alarm must be greater than 50 degrees";
+                        }
+                        else if (sealTime <= 0)
+                        {
+                            //error message is visible, save Recipe is disabled, error message is displayed
+                            errorTxt.Visibility = Visibility.Visible;
+                            saveRecipe.IsEnabled = false;
+                            errorTxt.Content = "Fix Seal Time. Seal Time must be greater than 0 seconds";
+                        }
+                        else if (sealTime >= 10)
+                        {
+                            //error message is visible, save Recipe is disabled, error message is displayed
+                            errorTxt.Visibility = Visibility.Visible;
+                            saveRecipe.IsEnabled = false;
+                            errorTxt.Content = "Fix Seal Time. Seal Time must be less than 10 seconds";
+                        }
+                        else if (highPress <= pressSet)
+                        {
+                            //error message is visible, save Recipe is disabled, error message is displayed
+                            errorTxt.Visibility = Visibility.Visible;
+                            saveRecipe.IsEnabled = false;
+                            errorTxt.Content = "Fix High Pressure. It is Lower than Pressure Setpoint";
+                        }
+                        else if (highPress >= 125)
+                        {
+                            //error message is visible, save Recipe is disabled, error message is displayed
+                            errorTxt.Visibility = Visibility.Visible;
+                            saveRecipe.IsEnabled = false;
+                            errorTxt.Content = "High Pressure Alarm must be less than 125 PSI";
+                        }
+                        else if (lowPressure >= pressSet)
+                        {
+                            //error message is visible, save Recipe is disabled, error message is displayed
+                            errorTxt.Visibility = Visibility.Visible;
+                            saveRecipe.IsEnabled = false;
+                            errorTxt.Content = "Fix Low Pressure. It is Greater than Pressure Setpoint";
+                        }
+                        else if (lowPressure <= 0)
+                        {
+                            //error message is visible, save Recipe is disabled, error message is displayed
+                            errorTxt.Visibility = Visibility.Visible;
+                            saveRecipe.IsEnabled = false;
+                            errorTxt.Content = "Low Pressure Alarm must be greater than 0 PSI";
+                        }
+                        else
+                        {
+                            //error is invisible, saveRecipe is enabled
+                            errorTxt.Visibility = Visibility.Hidden;
+                            saveRecipe.IsEnabled = true;
+                        }
+                    }
                 //displays Yes or No in the read only toolConfirmTxt textbox to show whether or not  tool confirmation has been set to required
                 if (LoadedRecipe._recToolRequired == 1)
                 {
@@ -230,216 +418,7 @@ namespace Project_Epsilon
         //load button is clicked
         private void loadBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            createdByTxt.Text = LoadedRecipe._recipeGeneratedBy;
-            createdOnTxt.Text = LoadedRecipe._recipeGeneratedOn;
-            //creates new instance of filebrowser
-            FileBrowser fileBrowser = new FileBrowser();
-
-            //if filebbroswer shows its dialog to user
-            if (fileBrowser.ShowDialog() == true)
-            {
-
-            }
             
-            //else
-            else
-            {
-                //pulls public variables, converts, and stores in textboxes
-                recipeTxt.Text = Convert.ToString(LoadedRecipe._recipeName);
-                productTxt.Text = Convert.ToString(LoadedRecipe._product);
-                recipeUDITxt.Text = Convert.ToString(LoadedRecipe._UDIRecipe);
-                toolConfirmTxt.Text = Convert.ToString(LoadedRecipe._recToolRequired);
-                
-                //if text has a value of 1
-                if (toolConfirmTxt.Text == "1")
-                {
-                    //display yes
-                    toolConfirmTxt.Text = "Yes";
-                }
-                
-                //if text hhas value of 0
-                else if (toolConfirmTxt.Text == "0")
-                {
-                    //display no
-                    toolConfirmTxt.Text = "No";
-                }
-                //convert to string and place in textbox
-                cavMgtOptTxt.Text = Convert.ToString(LoadedRecipe._cavMgtUsed);
-
-                //if textbox is given value of 1
-                if (cavMgtOptTxt.Text == "1")
-                {
-                    cavMgtOptTxt.Text = "Yes";
-                }
-
-                //if textbox is given value of 0
-                else if (cavMgtOptTxt.Text == "0")
-                {
-                    cavMgtOptTxt.Text = "No";
-                }
-                //if given any other value
-                else
-                {
-                    toolConfirmTxt.Text = "No";
-                }
-                //convert to string and place in textbox
-                usingUDITxt.Text = Convert.ToString(LoadedRecipe._recUDI1);
-
-                //if textbox is given value of 1
-                if (cavMgtOptTxt.Text == "1")
-                {
-                    cavMgtOptTxt.Text = "Yes";
-                }
-
-                //if textbox is given value of 1//if textbox is given value of 0
-                else if (cavMgtOptTxt.Text == "0")
-                {
-                    cavMgtOptTxt.Text = "No";
-                }
-                //if given any other value
-                else
-                {
-                    toolConfirmTxt.Text = "No";
-                }
-
-                //pulls public variables, converts, and stores in textboxes
-                lotTxt.Text = Convert.ToString(LoadedRecipe._lotNumber);
-                rfidTxt.Text = Convert.ToString(LoadedRecipe._RFIDNumber);
-                highTempTxt.Text = Convert.ToString(LoadedRecipe._tempHigherAlarmValue);
-                tempSetTxt.Text = Convert.ToString(LoadedRecipe._tempSetpoint);
-                lowTempTxt.Text = Convert.ToString(LoadedRecipe._tempLowerAlarmValue);
-                sealTimeTxt.Text = Convert.ToString(LoadedRecipe._sealTime);
-                pressSetTxt.Text = Convert.ToString(LoadedRecipe._pressureSetpointFromOIT);
-                highPressTxt.Text = Convert.ToString(LoadedRecipe._pressureUpperAlarmValue);
-                lowPressureTxt.Text = Convert.ToString(LoadedRecipe._pressureLowerAlarmValue);
-
-                //public variables
-                double highTempAlarm;
-                double tempSetPoint;
-                double lowTemp;
-                double sealTime;
-                double highPress;
-                double pressSet;
-                double lowPressure;
-
-                //tests controls is box is null or just empty with white spaces
-                if (String.IsNullOrWhiteSpace(recipeTxt.Text) || String.IsNullOrWhiteSpace(productTxt.Text) || String.IsNullOrWhiteSpace(lotTxt.Text) ||
-                String.IsNullOrWhiteSpace(recipeUDITxt.Text) || String.IsNullOrWhiteSpace(highTempTxt.Text) || String.IsNullOrWhiteSpace(tempSetTxt.Text) ||
-                String.IsNullOrWhiteSpace(lowTempTxt.Text) || String.IsNullOrWhiteSpace(sealTimeTxt.Text) || String.IsNullOrWhiteSpace(highPressTxt.Text) ||
-                String.IsNullOrWhiteSpace(pressSetTxt.Text) || String.IsNullOrWhiteSpace(lowPressureTxt.Text) ||
-                String.IsNullOrWhiteSpace(cavMgtOptTxt.Text) || String.IsNullOrWhiteSpace(toolConfirmTxt.Text) || String.IsNullOrWhiteSpace(usingUDITxt.Text))
-                {
-                    //error message is visible, saveRecipe is disabled, displays error message
-                    errorTxt.Visibility = Visibility.Visible;
-                    saveRecipe.IsEnabled = false;
-                    errorTxt.Content = "All Fields (except RFID) are Required";
-                }
-                
-                else if (!Double.TryParse(highTempTxt.Text, out highTempAlarm) || !Double.TryParse(tempSetTxt.Text, out tempSetPoint) || !Double.TryParse(lowTempTxt.Text, out tempSetPoint)
-                    || !Double.TryParse(sealTimeTxt.Text, out sealTime) || !Double.TryParse(highPressTxt.Text, out highPress)
-                    || !Double.TryParse(pressSetTxt.Text, out pressSet) || !Double.TryParse(lowPressureTxt.Text, out lowPressure))
-                {
-                    //error message is visible, save Recipe is disabled, error message is displayed
-                    errorTxt.Visibility = Visibility.Visible;
-                    saveRecipe.IsEnabled = false;
-                    errorTxt.Content = "Below fields must be numeric input only";
-                }
-                
-                else if (recipeUDITxt.Text.Length != 40)
-                {
-                    //error message is visible, save Recipe is disabled, error message is displayed
-                    errorTxt.Visibility = Visibility.Visible;
-                    saveRecipe.IsEnabled = false;
-                    errorTxt.Content = "Recipe UDI must be 40 characters";
-                }
-                else
-                {
-                    highTempAlarm = Convert.ToDouble(highTempTxt.Text);
-                    tempSetPoint = Convert.ToDouble(tempSetTxt.Text);
-                    lowTemp = Convert.ToDouble(lowTempTxt.Text);
-                    sealTime = Convert.ToDouble(sealTimeTxt.Text);
-                    highPress = Convert.ToDouble(highPressTxt.Text);
-                    pressSet = Convert.ToDouble(pressSetTxt.Text);
-                    lowPressure = Convert.ToDouble(lowPressureTxt.Text);
-
-                    if (highTempAlarm <= tempSetPoint)
-                    {
-                        //error message is visible, save Recipe is disabled, error message is displayed
-                        errorTxt.Visibility = Visibility.Visible;
-                        saveRecipe.IsEnabled = false;
-                        errorTxt.Content = "Fix High Temperature. It is Lower than Temp Setpoint";
-                    }
-                    else if (highTempAlarm >= 250)
-                    {
-                        //error message is visible, save Recipe is disabled, error message is displayed
-                        errorTxt.Visibility = Visibility.Visible;
-                        saveRecipe.IsEnabled = false;
-                        errorTxt.Content = "High Temp Alarm must be less than 250 degrees";
-                    }
-                    else if (lowTemp >= tempSetPoint)
-                    {
-                        //error message is visible, save Recipe is disabled, error message is displayed
-                        errorTxt.Visibility = Visibility.Visible;
-                        saveRecipe.IsEnabled = false;
-                        errorTxt.Content = "Fix Low Temperature. It is Greater than Temp Setpoint";
-                    }
-                    else if (lowTemp <= 50)
-                    {
-                        //error message is visible, save Recipe is disabled, error message is displayed
-                        errorTxt.Visibility = Visibility.Visible;
-                        saveRecipe.IsEnabled = false;
-                        errorTxt.Content = "Low Temp Alarm must be greater than 50 degrees";
-                    }
-                    else if (sealTime <= 0)
-                    {
-                        //error message is visible, save Recipe is disabled, error message is displayed
-                        errorTxt.Visibility = Visibility.Visible;
-                        saveRecipe.IsEnabled = false;
-                        errorTxt.Content = "Fix Seal Time. Seal Time must be greater than 0 seconds";
-                    }
-                    else if (sealTime >= 10)
-                    {
-                        //error message is visible, save Recipe is disabled, error message is displayed
-                        errorTxt.Visibility = Visibility.Visible;
-                        saveRecipe.IsEnabled = false;
-                        errorTxt.Content = "Fix Seal Time. Seal Time must be less than 10 seconds";
-                    }
-                    else if (highPress <= pressSet)
-                    {
-                        //error message is visible, save Recipe is disabled, error message is displayed
-                        errorTxt.Visibility = Visibility.Visible;
-                        saveRecipe.IsEnabled = false;
-                        errorTxt.Content = "Fix High Pressure. It is Lower than Pressure Setpoint";
-                    }
-                    else if (highPress >= 125)
-                    {
-                        //error message is visible, save Recipe is disabled, error message is displayed
-                        errorTxt.Visibility = Visibility.Visible;
-                        saveRecipe.IsEnabled = false;
-                        errorTxt.Content = "High Pressure Alarm must be less than 125 PSI";
-                    }
-                    else if (lowPressure >= pressSet)
-                    {
-                        //error message is visible, save Recipe is disabled, error message is displayed
-                        errorTxt.Visibility = Visibility.Visible;
-                        saveRecipe.IsEnabled = false;
-                        errorTxt.Content = "Fix Low Pressure. It is Greater than Pressure Setpoint";
-                    }
-                    else if (lowPressure <= 0)
-                    {
-                        //error message is visible, save Recipe is disabled, error message is displayed
-                        errorTxt.Visibility = Visibility.Visible;
-                        saveRecipe.IsEnabled = false;
-                        errorTxt.Content = "Low Pressure Alarm must be greater than 0 PSI";
-                    }
-                    else
-                    {
-                        //error is invisible, saveRecipe is enabled
-                        errorTxt.Visibility = Visibility.Hidden;
-                        saveRecipe.IsEnabled = true;
-                    }
-                }
-            }
             
         }
 
@@ -536,7 +515,10 @@ namespace Project_Epsilon
                 requestStream.Write(bytes, 0, bytes.Length);
                 requestStream.Close();
                 LoadedRecipe.loginSuccess = true;
+                LoadedRecipe.recipeloaded = false;
                 MessageBox.Show("Recipe upload was successful.");
+                LoadedRecipe.ClearData();
+                this.Close();
             }
             catch
             {
@@ -704,6 +686,8 @@ namespace Project_Epsilon
                 usingUDITxt.Text = "";
                 rfidTxt.Text = "";
                 LoadedRecipe.ClearData();
+                LoadedRecipe.recipeloaded = false;
+                this.Close();
             }
         }
         //when exit is clicked, closes app
@@ -712,16 +696,7 @@ namespace Project_Epsilon
             System.Windows.Application.Current.Shutdown();
         }
 
-        // when recipe loader in edit tab is clicked
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
-        {
-            //opens new instance of filebrowser
-            FileBrowser fileBrowser = new FileBrowser();
-            if (fileBrowser.ShowDialog() == true)
-            {
-
-            }
-        }
+        
         // Allows only numeric input from user for RFID textbox
         private void TextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {

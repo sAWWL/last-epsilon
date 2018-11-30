@@ -82,7 +82,7 @@ namespace Project_Epsilon
                     LoadedRecipe.recipeloaded = true;
                     LoadedRecipe.confirmload = false;
                     RecipeInput recipeInput = new RecipeInput();
-                    recipeInput.Show();
+                    recipeInput.ShowDialog();
                     this.Close();
                 }
             }
@@ -97,7 +97,7 @@ namespace Project_Epsilon
                     LoadedRecipe.recipeloaded = true;
                     LoadedRecipe.confirmload = false;
                     RecipeInput recipeInput = new RecipeInput();
-                    recipeInput.Show();
+                    recipeInput.ShowDialog();
                     this.Close();
                 }
             }   
