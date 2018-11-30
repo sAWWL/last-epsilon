@@ -15,6 +15,7 @@ using System.Collections.Specialized;
 using System.Net.NetworkInformation;
 using System.Drawing;
 using System.Net.Sockets;
+using System.ComponentModel;
 
 namespace Project_Epsilon
 {
@@ -102,6 +103,11 @@ namespace Project_Epsilon
                 machineList.Items.Add(machine.Split('-')[1]);
             }
         }
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            MainWindow winMainWindow = new MainWindow();
+            winMainWindow.Show();
+        }       
     }
 
 }
