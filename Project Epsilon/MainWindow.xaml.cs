@@ -78,7 +78,7 @@ namespace Project_Epsilon
         }
         protected override void OnClosing(CancelEventArgs e)
         {
-            System.Windows.Application.Current.Shutdown();
+            Application.Current.Shutdown();
         }       
     }
 }

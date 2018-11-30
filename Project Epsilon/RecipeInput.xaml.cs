@@ -20,6 +20,27 @@ namespace Project_Epsilon
             RefreshPage();
             recipeTxt.Focus();
         }
+        public void StoreTempData()
+        {
+            MessageBox.Show("Saved!");
+            LoadedRecipe._recipeName = recipeTxt.Text;
+            LoadedRecipe._product = productTxt.Text;
+            LoadedRecipe._lotNumber = Convert.ToInt32(lotTxt.Text);
+            LoadedRecipe._RFIDNumber = Convert.ToInt32(rfidTxt.Text);
+            LoadedRecipe._UDIRecipe = recipeUDITxt.Text;
+            LoadedRecipe._tempHigherAlarmValue = Convert.ToInt32(highTempTxt.Text);
+            LoadedRecipe._tempSetpoint = Convert.ToInt32(tempSetTxt.Text);
+            LoadedRecipe._tempLowerAlarmValue = Convert.ToInt32(lowTempTxt.Text);
+            LoadedRecipe._sealTime = Convert.ToDouble(sealTimeTxt.Text);
+            LoadedRecipe._pressureUpperAlarmValue = Convert.ToInt32(highPressTxt.Text);
+            LoadedRecipe._pressureSetpointFromOIT = Convert.ToInt32(pressSetTxt.Text);
+            LoadedRecipe._pressureLowerAlarmValue = Convert.ToInt32(lowPressureTxt.Text);
+
+            //stores text in varriables
+            LoadedRecipe._projectName = "Master_HMI_Cavity_Master";
+            LoadedRecipe._recipeGeneratedBy = "AES";
+            LoadedRecipe._recipeGeneratedOn = Convert.ToString(DateTime.Now);
+        }
         public void RefreshPage()
         {
             if(LoadedRecipe.recipeloaded == true)
@@ -381,6 +402,7 @@ namespace Project_Epsilon
         }
         private void optionsBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            StoreTempData();
             //ccreats new instance of OptionsMenu page and displays it as primary window
             OptionsMenu winOptionsMenu = new OptionsMenu();
             
@@ -394,13 +416,15 @@ namespace Project_Epsilon
         //when home button is clicked
         private void homeBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            this.Close();
+            MessageBox.Show("test?");
+            StoreTempData();
+            //this.Close();
         }
 
         //exit method
         private void Exit()
         {
-            System.Windows.Application.Current.Shutdown();
+            Application.Current.Shutdown();
         }
 
         //load button is clicked
@@ -445,23 +469,7 @@ namespace Project_Epsilon
                 LoadedRecipe._recUDI1 = "0";
             }
             //takes input in text boxes, converts if needed, stores in public variable
-            LoadedRecipe._recipeName = recipeTxt.Text;
-            LoadedRecipe._product = productTxt.Text;
-            LoadedRecipe._lotNumber = Convert.ToInt32(lotTxt.Text);
-            LoadedRecipe._RFIDNumber = Convert.ToInt32(rfidTxt.Text);
-            LoadedRecipe._UDIRecipe = recipeUDITxt.Text;
-            LoadedRecipe._tempHigherAlarmValue = Convert.ToInt32(highTempTxt.Text);
-            LoadedRecipe._tempSetpoint = Convert.ToInt32(tempSetTxt.Text);
-            LoadedRecipe._tempLowerAlarmValue = Convert.ToInt32(lowTempTxt.Text);
-            LoadedRecipe._sealTime = Convert.ToDouble(sealTimeTxt.Text);
-            LoadedRecipe._pressureUpperAlarmValue = Convert.ToInt32(highPressTxt.Text);
-            LoadedRecipe._pressureSetpointFromOIT = Convert.ToInt32(pressSetTxt.Text);
-            LoadedRecipe._pressureLowerAlarmValue = Convert.ToInt32(lowPressureTxt.Text);
-
-            //stores text in varriables
-            LoadedRecipe._projectName = "Master_HMI_Cavity_Master";
-            LoadedRecipe._recipeGeneratedBy = "AES";
-            LoadedRecipe._recipeGeneratedOn = Convert.ToString(DateTime.Now);
+            StoreTempData();
 
             //categorizes information from csv file into public variables
             LoadedRecipe.filerows[LoadedRecipe.recipeID] = LoadedRecipe._recipeName + "," + LoadedRecipe._product + "," + LoadedRecipe._lotNumber + "," + LoadedRecipe._recipeNumber + "," + LoadedRecipe._pressureUpperAlarmValue + "," + LoadedRecipe._pressureLowerAlarmValue + "," + LoadedRecipe._pressureSetpointFromOIT + "," + LoadedRecipe._tempHigherAlarmValue + "," + LoadedRecipe._tempLowerAlarmValue + "," + LoadedRecipe._tempSetpoint + "," + LoadedRecipe._sealTime + "," + "0" + "," + LoadedRecipe._projectName + "," + LoadedRecipe._RFIDNumber + "," + LoadedRecipe._UDIRecipe + "," + LoadedRecipe._avTagRecipeLotSealed + "," + LoadedRecipe._avTagRecipeLotToSeal + "," + LoadedRecipe._recipeName + "," + LoadedRecipe._recipeGeneratedBy + "," + LoadedRecipe._recipeGeneratedOn + "," + LoadedRecipe._recToolRequired + "," + LoadedRecipe._cavMethod2Required + "," + LoadedRecipe._UDIRecipeTool + "," + LoadedRecipe._cavMethodOneSelected + "," + LoadedRecipe._cavMethodTwoSelected + "," + LoadedRecipe._cavMgtUsed + "," + LoadedRecipe._recUDI1 + "," + LoadedRecipe._recUDI3 + "," + LoadedRecipe._recUDI4 + "," + LoadedRecipe._recUDI5 + "," + LoadedRecipe._recUDI6 + "," + LoadedRecipe._recUDI7 + "," + LoadedRecipe._recUDI8 + "," + LoadedRecipe._recUDI9;
