@@ -96,6 +96,7 @@ namespace Project_Epsilon
                 {
                     LoadedRecipe.recipeloaded = true;
                     LoadedRecipe.confirmload = false;
+                    LoadedRecipe.loginSuccess = true;
                     RecipeInput recipeInput = new RecipeInput();
                     recipeInput.ShowDialog();
                     this.Close();

@@ -22,7 +22,6 @@ namespace Project_Epsilon
         }
         public void StoreTempData()
         {
-            MessageBox.Show("Saved!");
             LoadedRecipe._recipeName = recipeTxt.Text;
             LoadedRecipe._product = productTxt.Text;
             LoadedRecipe._lotNumber = Convert.ToInt32(lotTxt.Text);
@@ -414,12 +413,7 @@ namespace Project_Epsilon
         }
         
         //when home button is clicked
-        private void homeBtn_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            MessageBox.Show("test?");
-            StoreTempData();
-            //this.Close();
-        }
+        
 
         //exit method
         private void Exit()
@@ -513,8 +507,6 @@ namespace Project_Epsilon
                 LoadedRecipe.loginSuccess = true;
                 LoadedRecipe.recipeloaded = false;
                 MessageBox.Show("Recipe upload was successful.");
-                LoadedRecipe.ClearData();
-                this.Close();
             }
             catch
             {
@@ -663,6 +655,7 @@ namespace Project_Epsilon
                 highTempTxt.Text = "";
                 tempSetTxt.Text = "";
                 lowTempTxt.Text = "";
+                //#Cursed #HailSatan
                 sealTimeTxt.Text = "";
                 highPressTxt.Text = "";
                 pressSetTxt.Text = "";
@@ -701,7 +694,13 @@ namespace Project_Epsilon
 
         private void exitBtn_Click(object sender, RoutedEventArgs e)
         {
+            Application.Current.Shutdown();
+        }
 
+        private void homeBtn_Click(object sender, RoutedEventArgs e)
+        {
+                StoreTempData();
+                this.Close();
         }
     }
 }

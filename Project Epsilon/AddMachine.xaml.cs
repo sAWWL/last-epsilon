@@ -21,6 +21,10 @@ namespace Project_Epsilon
     {
         bool correctIP;
         List<int> octets = new List<int>();
+
+
+
+
         public AddMachine()
         {
             InitializeComponent();
@@ -38,57 +42,51 @@ namespace Project_Epsilon
             }
             machineName.Focus();
         }
-        private void AddMachineBtn_Click(object sender, RoutedEventArgs e)
+        public bool ValidateIP()
         {
-            correctIP = false;
-            if(machineName.Text != "" && oct1.Text != "" && oct2.Text != "" && oct3.Text != "" && oct4.Text != "")
+            bool valid = true;
+            
+            try
             {
-                
-                try
+                octets.Add(Convert.ToInt16(oct1.Text));
+                octets.Add(Convert.ToInt16(oct2.Text));
+                octets.Add(Convert.ToInt16(oct3.Text));
+                octets.Add(Convert.ToInt16(oct4.Text));
+                foreach (int octet in octets)
                 {
-                    octets.Add(Convert.ToInt16(oct1.Text));
-                    octets.Add(Convert.ToInt16(oct2.Text));
-                    octets.Add(Convert.ToInt16(oct3.Text));
-                    octets.Add(Convert.ToInt16(oct4.Text));
-
-                    if (octets[0] == 10 || octets[0] == 192)
+                    if (octet > 255 || octet < 0)
                     {
-                        foreach (int octet in octets)
-                        {
-                            if (octet < 255 && octet > 0)
-                            {
-                                correctIP = true;
-                            }
-                            else
-                            {
-                                correctIP = false;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("At least one of your fields is out of range.");
-                        correctIP = false;
+                        IPAddressError.Visibility = Visibility.Visible;
+                        IPAddressError.Text += Convert.ToString(octet);
+                        valid = false;
                     }
 
                 }
-                catch
+               if(octets[0] == 192 || octets[0] == 10)
                 {
-                    IPAddressError.Visibility = Visibility.Visible;
-                    IPAddressError.Text = "Please verify that the address is correct and try again!";
-                    MessageBox.Show("Please verify that the address is correct and try again!");
-                    correctIP = false;
-                }               
-            }
-            else
-            {
-                MessageBox.Show("Please fill all fields out");
-                correctIP = false;
-            }
+                    
+                }else
+                {
+                    valid = false;
+                }
 
-            if (correctIP)
+
+                return valid;
+
+            }
+            catch {
+                IPAddressError.Visibility = Visibility.Visible;
+                IPAddressError.Text = "Not all fields have the correct format";
+                return false;
+            }
+        }
+        private void AddMachineBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (ValidateIP())
             {
                 string ip = "";
+                
+
                 foreach (int octet in octets)
                 {
                     ip += Convert.ToString(octet) + ".";
@@ -104,46 +102,11 @@ namespace Project_Epsilon
                 }
                 this.Close();
             }
-        }
-
-        private void AddressEntry_LostFocus(object sender, RoutedEventArgs e)
-        {
-            List<int> octets = new List<int>();
-            try
+            else
             {
-                octets.Add(Convert.ToInt16(oct1.Text));
-                octets.Add(Convert.ToInt16(oct2.Text));
-                octets.Add(Convert.ToInt16(oct3.Text));
-                octets.Add(Convert.ToInt16(oct4.Text));
 
-                if (octets[0] == 10 || octets[0] == 192)
-                {
-                    ;
-                }
-                else
-                {
-                    IPAddressError.Visibility = Visibility.Visible;
-                    IPAddressError.Text = "The first octet is out of range (must be 10 or 192)";                  
-                }
-
-                foreach (int octet in octets)
-                {
-                    if (octet > 255 || octet < 1)
-                    {
-                        IPAddressError.Visibility = Visibility.Visible;
-                        IPAddressError.Text = "At least one of your fields is out of range (1-255)";
-                    }
-                }
-
-            } catch {; }
+            }
         }
-
-        private void AddressEntry_OnFocus(object sender, RoutedEventArgs e)
-        {
-            IPAddressError.Visibility = Visibility.Hidden;
-            IPAddressError.Text = "";
-        }
-
         private void CancelAddBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
