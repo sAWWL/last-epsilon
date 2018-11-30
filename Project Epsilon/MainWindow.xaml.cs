@@ -42,13 +42,13 @@ namespace Project_Epsilon
         {
             ConnectionManagerWindow connectionManagerWindow = new ConnectionManagerWindow();
             connectionManagerWindow.Show();
-            this.Hide();
+            
         }
 
         private void Exit(object sender, RoutedEventArgs e)
         {
             //when button pressed, closes the app
-            System.Windows.Application.Current.Shutdown();
+            Application.Current.Shutdown();
         }
 
         private void RecipesBtn_Click(object sender, RoutedEventArgs e)
@@ -66,13 +66,13 @@ namespace Project_Epsilon
                 {
                     RecipeInput winRecipeInput = new RecipeInput();
                     winRecipeInput.Show();
-                    this.Close();
+                    
                 }
                 else
                 {
                     FileBrowser winFileBrowser = new FileBrowser();
                     winFileBrowser.Show();
-                    this.Close();
+                    
                 }
             }
         }
