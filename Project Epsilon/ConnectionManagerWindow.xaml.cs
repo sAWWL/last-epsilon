@@ -75,9 +75,7 @@ namespace Project_Epsilon
 
         //closes the page
         private void backBtn_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow winMainWindow = new MainWindow();
-            winMainWindow.Show();
+        { 
             this.Close();
         }
         //event triggered when button pressed
@@ -105,8 +103,7 @@ namespace Project_Epsilon
         }
         protected override void OnClosing(CancelEventArgs e)
         {
-            MainWindow winMainWindow = new MainWindow();
-            winMainWindow.Show();
+            
         }       
     }
 
