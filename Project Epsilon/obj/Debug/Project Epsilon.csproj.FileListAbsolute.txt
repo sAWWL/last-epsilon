@@ -727,3 +727,40 @@ C:\Users\cvsch\Desktop\Demonstration\last-epsilon\Project Epsilon\obj\Debug\Proj
 C:\Users\cvsch\Desktop\Demonstration\last-epsilon\Project Epsilon\obj\Debug\Project_Epsilon.Properties.Resources.resources
 C:\Users\cvsch\Desktop\Demonstration\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.csproj.GenerateResource.cache
 C:\Users\cvsch\Desktop\Demonstration\last-epsilon\Project Epsilon\obj\Debug\Project Epsilon.csproj.CoreCompileInputs.cache
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\bin\Debug\Project Epsilon.exe.config
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\bin\Debug\Project Epsilon.exe
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\bin\Debug\Project Epsilon.pdb
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\Project Epsilon.csprojResolveAssemblyReference.cache
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\FileBrowser.baml
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\OptionsMenu.baml
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\RecipeInput.baml
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\ToolSetupWindow.baml
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\UDIPage.baml
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\AddMachine.g.cs
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\CavityToolWindow.g.cs
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\ChooseRecipe.g.cs
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\ConnectionManagerWindow.g.cs
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\FileBrowser.g.cs
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\MainWindow.g.cs
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\OptionsMenu.g.cs
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\PasswordInput.g.cs
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\RecipeInput.g.cs
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\RecipePreview.g.cs
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\ToolSetupWindow.g.cs
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\UDIPage.g.cs
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\App.g.cs
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\Project Epsilon_MarkupCompile.cache
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\Project Epsilon_MarkupCompile.lref
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\AddMachine.baml
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\CavityToolWindow.baml
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\ChooseRecipe.baml
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\ConnectionManagerWindow.baml
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\MainWindow.baml
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\PasswordInput.baml
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\RecipePreview.baml
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\Project Epsilon.g.resources
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\Project_Epsilon.Properties.Resources.resources
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\Project Epsilon.csproj.GenerateResource.Cache
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\Project Epsilon.csproj.CoreCompileInputs.cache
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\Project Epsilon.exe
+\\fcbshares.cba.nau.edu\fcb-semestercourses\ara286\Desktop\epsilon\Project Epsilon\obj\Debug\Project Epsilon.pdb

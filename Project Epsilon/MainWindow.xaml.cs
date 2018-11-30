@@ -28,6 +28,8 @@ namespace Project_Epsilon
             Machines.MachineData.Add("ATLASVAC@192.168.1.248:21-HMI");
             Machines.MachineData.Add("ATLASVAC@192.168.0.4:21-local");
             Machines.MachineData.Add("ATLASVAC@localhost:21-local2");
+
+            //yeeee
         }
 
 
