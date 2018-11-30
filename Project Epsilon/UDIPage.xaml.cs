@@ -47,16 +47,16 @@ namespace Project_Epsilon
             txtUDIRecipe.Text = LoadedRecipe._UDIRecipe;
             
             //if loaded recipe has a value of 0
-            if (LoadedRecipe._recUDI1 == "0")
+            if (LoadedRecipe._recUDI1 == "1")
             {
                 //unchecks this checkbox
-                chkUseUDI.IsChecked = false;
+                chkUseUDI.IsChecked = true;
             }
             //else
             else
             {
                 //checks this checkbox
-                chkUseUDI.IsChecked = true;
+                chkUseUDI.IsChecked = false;
             }
             //displays value of these UDI loaded recipes into textboxes
             txtUDIEntireOrPartial.Text = LoadedRecipe._recUDI3;
