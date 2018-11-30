@@ -22,6 +22,7 @@ namespace Project_Epsilon
         public RecipePreview()
         {
             InitializeComponent();
+            preview_recipeName.Focus();
             preview_recipeName.Text = LoadedRecipe._recipeName;
             preview_recipeProduct.Text = LoadedRecipe._product;
             preview_recipeTempHigh.Text = Convert.ToString(LoadedRecipe._tempHigherAlarmValue);
@@ -40,7 +41,7 @@ namespace Project_Epsilon
             this.Close();
         }
 
-        private void CorrcetRecipe_Click(object sender, RoutedEventArgs e)
+        private void CorrectRecipe_Click(object sender, RoutedEventArgs e)
         {
             LoadedRecipe.confirmload = true;
             this.Close();

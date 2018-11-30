@@ -22,6 +22,7 @@ namespace Project_Epsilon
         public PasswordInput()
         {
             InitializeComponent();
+            passwordInputTxt.Focus();
         }
 
         private void applyPasswordBtn_Click(object sender, RoutedEventArgs e)
