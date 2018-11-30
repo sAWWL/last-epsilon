@@ -127,13 +127,7 @@ namespace Project_Epsilon
                         errorTxt.Content = "Below fields must be numeric input only";
                     }
 
-                    else if (recipeUDITxt.Text.Length != 40)
-                    {
-                        //error message is visible, save Recipe is disabled, error message is displayed
-                        errorTxt.Visibility = Visibility.Visible;
-                        saveRecipe.IsEnabled = false;
-                        errorTxt.Content = "Recipe UDI must be 40 characters";
-                    }
+                    
                     else
                     {
                         highTempAlarm = Convert.ToDouble(highTempTxt.Text);
@@ -286,13 +280,7 @@ namespace Project_Epsilon
                     saveRecipe.IsEnabled = false;
                     errorTxt.Content = "Below fields must be numeric input only";
                 }
-                else if (recipeUDITxt.Text.Length != 40)
-                {
-                    //pulls public variables, converts, and stores in textboxes
-                    errorTxt.Visibility = Visibility.Visible;
-                    saveRecipe.IsEnabled = false;
-                    errorTxt.Content = "Recipe UDI must be 40 characters";
-                }
+                
                 else
                 {
                     //pulls text frrom textboxes, converts to double, and stores in variables
@@ -559,13 +547,7 @@ namespace Project_Epsilon
                 saveRecipe.IsEnabled = false;
                 errorTxt.Content = "Below fields must be numeric input only";
             }
-            else if (recipeUDITxt.Text.Length != 40)
-            {
-                //error message is visible, save Recipe is disabled, error message is displayed
-                errorTxt.Visibility = Visibility.Visible;
-                saveRecipe.IsEnabled = false;
-                errorTxt.Content = "Recipe UDI must be 40 characters";
-            }
+            
             else
             {
                 highTempAlarm = Convert.ToDouble(highTempTxt.Text);
