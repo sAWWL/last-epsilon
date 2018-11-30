@@ -57,7 +57,6 @@ namespace Project_Epsilon
             {
                 FileBrowser winFileBrowser = new FileBrowser();
                 winFileBrowser.Show();
-                this.Close();
             }
             else
             {
