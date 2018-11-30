@@ -64,21 +64,26 @@ namespace Project_Epsilon
             }
         }
 
-
-        public ToolSetupWindow()
+public ToolSetupWindow()
         {
             InitializeComponent();
 
-            //puts variable from LoadedRecipe into textbox
+            //puts variable from LoadedRecipe into textbox and makes sure that the number 0 is not placed into the textbox
             ToolUDITextbox.Text = LoadedRecipe._UDIRecipe;
-            NumCavsTextbox.Text = Convert.ToString(LoadedRecipe.numCavUsed);
-            if(LoadedRecipe._recToolRequired == 1)
+            if (LoadedRecipe.numCavUsed == 0)
+            {
+            }
+            else
+            {
+                NumCavsTextbox.Text = Convert.ToString(LoadedRecipe.numCavUsed);
+            }
+
+            if (LoadedRecipe._recToolRequired == 1)
             {
                 ToolConfCheckBox.IsChecked = true;
             }
             RefreshToolSetup();
-
-        }
+       }
 
         //Back button click event
         private void BackButton(object sender, RoutedEventArgs e)
