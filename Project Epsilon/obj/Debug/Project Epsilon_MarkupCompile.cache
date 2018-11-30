@@ -4,12 +4,20 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\cvsch\Desktop\Demonstration\last-epsilon\Project Epsilon\obj\Debug\
+=======
+C:\Users\mar632\Source\Repos\last-epsilon\Project Epsilon\obj\Debug\
+>>>>>>> 817a10098af73cebd05c5d62eca8b3159cbc94d9
 Project_Epsilon
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\cvsch\Desktop\Demonstration\last-epsilon\Project Epsilon\App.xaml
+=======
+C:\Users\mar632\Source\Repos\last-epsilon\Project Epsilon\App.xaml
+>>>>>>> 817a10098af73cebd05c5d62eca8b3159cbc94d9
 121087608502
 
 18-703940253
