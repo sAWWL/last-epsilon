@@ -11,6 +11,7 @@
             <ColumnDefinition Width="41*"/>
             <ColumnDefinition Width="69*"/>
         </Grid.ColumnDefinitions>
+        <!--ListBox-->
         <ListView x:Name="machineList"  Height="108" Margin="20,57,24,0" VerticalAlignment="Top" Grid.ColumnSpan="2" >
             <ListView.View>
 
@@ -26,10 +27,12 @@
                 </Style>
             </ListViewItem>
         </ListView>
-        <Button x:Name="deleteMachine" Content="Delete Machine" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="60.779,185,0,0" Click="deleteMachine_Click" Grid.Column="1"/>
+        <!--Buttons-->
         <Button x:Name="addMachine" Content="Add Machine" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="20,185,0,0" Click="addMachine_Click"/>
-        <Button x:Name="backBtn" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="160.779,185,0,0" Click="backBtn_Click" Grid.Column="1"/>
         <Button x:Name="editMachine" Content="Edit Machine" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="125,185,0,0" Click="editMachine_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="deleteMachine" Content="Delete Machine" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="60.779,185,0,0" Click="deleteMachine_Click" Grid.Column="1"/>
+        <Button x:Name="backBtn" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="160.779,185,0,0" Click="backBtn_Click" Grid.Column="1"/>
+        
         <Label Content="Manage Machines" HorizontalAlignment="Left" Margin="20,26,0,0" VerticalAlignment="Top"/>
 
     </Grid>
