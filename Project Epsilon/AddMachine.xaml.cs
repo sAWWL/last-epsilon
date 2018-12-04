@@ -28,19 +28,21 @@ namespace Project_Epsilon
         public AddMachine()
         {
             InitializeComponent();
-            if(Machines.MachineIdx != -1)
+            if (Machines.MachineIdx != -1)
             {
-                string machinedata = Machines.MachineData[Machines.MachineIdx];
-                string machinename = machinedata.Split('-')[1];
-                string machineaddress = machinedata.Split('-')[0].Split('@')[1].Split(':')[0];
+                try {
+                    string machinedata = Machines.MachineData[Machines.MachineIdx];
+                    string machinename = machinedata.Split('-')[1];
+                    string machineaddress = machinedata.Split('-')[0].Split('@')[1].Split(':')[0];
 
-                oct1.Text = machineaddress.Split('.')[0].Split('.')[0];
-                oct2.Text = machineaddress.Split('.')[1].Split('.')[0];
-                oct3.Text = machineaddress.Split('.')[2];
-                oct4.Text = machineaddress.Split('.')[3];
-                machineName.Text = machinename;
-            }
+                    oct1.Text = machineaddress.Split('.')[0].Split('.')[0];
+                    oct2.Text = machineaddress.Split('.')[1].Split('.')[0];
+                    oct3.Text = machineaddress.Split('.')[2];
+                    oct4.Text = machineaddress.Split('.')[3];
+                    machineName.Text = machinename;
+                } catch {; }
             machineName.Focus();
+            }
         }
         public bool ValidateIP()
         {
