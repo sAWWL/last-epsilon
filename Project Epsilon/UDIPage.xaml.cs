@@ -47,7 +47,7 @@ namespace Project_Epsilon
             txtUDIRecipe.Text = LoadedRecipe._UDIRecipe;
             
             //if loaded recipe has a value of 0
-            if (LoadedRecipe._recUDI1 == "1")
+            if (LoadedRecipe._recUDI1 == 1)
             {
                 //unchecks this checkbox
                 chkUseUDI.IsChecked = true;
@@ -124,12 +124,12 @@ namespace Project_Epsilon
             if (chkUseUDI.IsChecked == true)
             {
 
-                LoadedRecipe._recUDI1 = "1";
+                LoadedRecipe._recUDI1 = 1;
             }
             //if unchecked, populate with a 0
             else
             {
-                LoadedRecipe._recUDI1 = "0";
+                LoadedRecipe._recUDI1 = 0;
             }
             //Store text from text boxes into these variable recipes
             LoadedRecipe._recUDI3 = txtUDIEntireOrPartial.Text;

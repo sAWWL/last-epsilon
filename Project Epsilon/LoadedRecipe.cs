@@ -24,10 +24,10 @@ namespace Project_Epsilon
 
         public static int _RFIDNumber, _recipeNumber, _lotNumber, _avTagRecipeLotSealed, _avTagRecipeLotToSeal,
                     _recToolRequired, _cavMethod2Required, _cavMethodOneSelected,
-                    _cavMethodTwoSelected, _cavMgtUsed, recipeID, numCavUsed;
+                    _cavMethodTwoSelected, _cavMgtUsed, recipeID, numCavUsed, _recUDI1;
 
 
-        public static string _tmpUDIRecipe, _recUDI2, _recUDI89, _recUDI1, _recUDI3, _recUDI4, _recUDI5,
+        public static string _tmpUDIRecipe, _recUDI2, _recUDI89, _recUDI3, _recUDI4, _recUDI5,
                         _recUDI6, _recUDI7, _recUDI8, _recUDI9, _recipeGeneratedOn, fileName, host, port, username, password, headerrow;
 
         public static void ClearData()
@@ -67,7 +67,7 @@ namespace Project_Epsilon
             LoadedRecipe._tmpUDIRecipe = "";
             LoadedRecipe._recUDI2 = "";
             LoadedRecipe._recUDI89 = "";
-            LoadedRecipe._recUDI1 = "";
+            LoadedRecipe._recUDI1 = 0;
             LoadedRecipe._recUDI3 = "";
             LoadedRecipe._recUDI4 = "";
             LoadedRecipe._recUDI5 = "";

@@ -66,7 +66,7 @@ namespace Project_Epsilon
                 if (tempMachineData[23].Length > 0) { LoadedRecipe._cavMethodOneSelected = Convert.ToInt32(tempMachineData[23]); }
                 if (tempMachineData[24].Length > 0) { LoadedRecipe._cavMethodTwoSelected = Convert.ToInt32(tempMachineData[24]); }
                 if (tempMachineData[25].Length > 0) { LoadedRecipe._cavMgtUsed = Convert.ToInt32(tempMachineData[25]); }
-                if (tempMachineData[26].Length > 0) { LoadedRecipe._recUDI1 = tempMachineData[26]; }
+                if (tempMachineData[26].Length > 0) { LoadedRecipe._recUDI1 = Convert.ToInt32(tempMachineData[26]); }
                 if (tempMachineData[27].Length > 0) { LoadedRecipe._recUDI3 = tempMachineData[27]; }
                 if (tempMachineData[28].Length > 0) { LoadedRecipe._recUDI4 = tempMachineData[28]; }
                 if (tempMachineData[29].Length > 0) { LoadedRecipe._recUDI5 = tempMachineData[29]; }
@@ -132,7 +132,7 @@ namespace Project_Epsilon
             LoadedRecipe._cavMethodOneSelected = 0;
             LoadedRecipe._cavMethodTwoSelected = 0;
             LoadedRecipe._cavMgtUsed = 0;
-            LoadedRecipe._recUDI1 = "";
+            LoadedRecipe._recUDI1 = 0;
             LoadedRecipe._recUDI3 = "e";
             LoadedRecipe._recUDI4 = "0";
             LoadedRecipe._recUDI5 = "0";
