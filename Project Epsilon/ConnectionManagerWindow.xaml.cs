@@ -19,13 +19,11 @@ namespace Project_Epsilon
         {
             if (machineList.SelectedIndex != -1)
             {
-                //displays messages and controls for user interaction
+                // Confirm with user that they wish to delete the machine
                 string sMessageBoxText = "Do you want to delete the selected Machine?";
                 string sCaption = "Delete Machine?";
-
                 MessageBoxButton btnMessageBox = MessageBoxButton.YesNoCancel;
                 MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
-
                 MessageBoxResult rsltMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
 
                 //removes machine information depending on user interaction with controls
@@ -45,7 +43,7 @@ namespace Project_Epsilon
 
         private void addMachine_Click(object sender, RoutedEventArgs e)
         {
-            //adds a vvalue to variable
+            //adds a value to variable
             Machines.MachineIdx = -1;
             //creates new instance of page AddMachine
             AddMachine addMachine = new AddMachine();
@@ -79,15 +77,13 @@ namespace Project_Epsilon
         {
             //clears any selected items
             machineList.Items.Clear();
+
+            // Updates the machineList items with new data
             foreach (string machine in Machines.MachineData)
             {
                 machineList.Items.Add(machine.Split('-')[1]);
             }
-        }
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            
-        }       
+        }            
     }
 
 }

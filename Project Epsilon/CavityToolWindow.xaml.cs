@@ -121,6 +121,7 @@ namespace Project_Epsilon
             }
         }
 
+        // Clear button is clicked
         private void ClrButton_Click(object sender, RoutedEventArgs e)
         {
             methodOneCheckbox.IsChecked = false;

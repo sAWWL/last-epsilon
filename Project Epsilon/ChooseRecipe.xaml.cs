@@ -35,11 +35,13 @@ namespace Project_Epsilon
 
         }
 
+        // Load Recipe button is clicked
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             
             if(selectRecipe.SelectedIndex != -1)
             {
+                // Sets each property of LoadedRecipe object from the CSV, as long as the field is not blank
                 string[] tempMachineData = LoadedRecipe.filerows[selectRecipe.SelectedIndex].Split(',');
                 if (tempMachineData[1].Length > 0) { LoadedRecipe._product = tempMachineData[1]; }
                 if (tempMachineData[2].Length > 0) { LoadedRecipe._lotNumber = Convert.ToInt32(tempMachineData[2]); }
@@ -75,8 +77,12 @@ namespace Project_Epsilon
                 if (tempMachineData[32].Length > 0) { LoadedRecipe._recUDI8 = tempMachineData[32]; }
                 if (tempMachineData[33].Length > 0) { LoadedRecipe._recUDI9 = tempMachineData[33]; }
                 LoadedRecipe.recipeID = selectRecipe.SelectedIndex;
+
+                // Creates RecipePreview object and sets the properties to be displayed in RecipePreview.xaml
                 RecipePreview recipePreview = new RecipePreview();
                 recipePreview.ShowDialog();
+
+                // If recipe has been loaded, load the Recipe Input screen and close the Choose Recipe window
                 if (LoadedRecipe.confirmload == true)
                 {
                     LoadedRecipe.recipeloaded = true;
@@ -103,9 +109,11 @@ namespace Project_Epsilon
                 }
             }   
         }
-        //enters values into variables
+        
+        // Add new recipe button is clicked
         private void newRecipeBtn_Click(object sender, RoutedEventArgs e)
         {
+            // Clear each of the LoadedRecipe object properties
             LoadedRecipe.recipeID = LoadedRecipe.filerows.Count();
             LoadedRecipe._product = "";
             LoadedRecipe._lotNumber = 0;
@@ -146,21 +154,21 @@ namespace Project_Epsilon
             this.Close();
         }
 
+        // Delete recipe button is clicked
         private void deleteRecipeBtn_Click(object sender, RoutedEventArgs e)
         {
 
             //deletes any selected recipe(s)
             if(selectRecipe.SelectedIndex != -1)
             {
+                // Have user confirm that they wish to delete a recipe (Messagebox confirmation)
                 string sMessageBoxText = "Do you want to delete the selected Recipe?";
                 string sCaption = "Delete Recipe?";
-
-                //displays message boxes and controls
                 MessageBoxButton btnMessageBox = MessageBoxButton.YesNoCancel;
                 MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
-
                 MessageBoxResult rsltMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
 
+                // If user confirms to delete recipe, clear the recipe items
                 switch (rsltMessageBox)
                 {
                     case MessageBoxResult.Yes:

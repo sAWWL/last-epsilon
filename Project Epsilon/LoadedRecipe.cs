@@ -8,6 +8,7 @@ namespace Project_Epsilon
 {
     public static class LoadedRecipe
     {
+        // Initialize each of the properties for a LoadedRecipe object
         public static string file;
         public static List<string> filerows = new List<string>();
         public static bool cavUsed, loginSuccess = false, recipeloaded = false, confirmload = false;
@@ -32,6 +33,7 @@ namespace Project_Epsilon
 
         public static void ClearData()
         {
+            // Clear/reset each property of LoadedRecipe object
             LoadedRecipe.recipeloaded = false;
 
             LoadedRecipe._product = "";

@@ -19,6 +19,7 @@ namespace Project_Epsilon
         }
         public void StoreTempData()
         {
+            // Take in data from the textboxes and set the respective properties of LoadedRecipe object
             LoadedRecipe._recipeName = recipeTxt.Text;
             LoadedRecipe._product = productTxt.Text;
             LoadedRecipe._lotNumber = Convert.ToInt32(lotTxt.Text);
@@ -37,8 +38,7 @@ namespace Project_Epsilon
         }
         public void CheckCompletion()
         {
-
-
+            // Make sure that none of the fields are blank
             if (String.IsNullOrWhiteSpace(recipeTxt.Text) || String.IsNullOrWhiteSpace(productTxt.Text) || String.IsNullOrWhiteSpace(lotTxt.Text) ||
                     String.IsNullOrWhiteSpace(recipeUDITxt.Text) || String.IsNullOrWhiteSpace(highTempTxt.Text) || String.IsNullOrWhiteSpace(tempSetTxt.Text) ||
                     String.IsNullOrWhiteSpace(lowTempTxt.Text) || String.IsNullOrWhiteSpace(sealTimeTxt.Text) || String.IsNullOrWhiteSpace(highPressTxt.Text) ||
@@ -51,6 +51,7 @@ namespace Project_Epsilon
             }
             else
             {
+
                 double highTempAlarm = Convert.ToDouble(highTempTxt.Text);
                 double tempSetPoint = Convert.ToDouble(tempSetTxt.Text);
                 double lowTemp = Convert.ToDouble(lowTempTxt.Text);
@@ -58,6 +59,8 @@ namespace Project_Epsilon
                 double highPress = Convert.ToDouble(highPressTxt.Text);
                 double pressSet = Convert.ToDouble(pressSetTxt.Text);
                 double lowPressure = Convert.ToDouble(lowPressureTxt.Text);
+                
+                // If any of the textfields are strings and not numbers
                 if (!Double.TryParse(highTempTxt.Text, out highTempAlarm) || !Double.TryParse(tempSetTxt.Text, out tempSetPoint) || !Double.TryParse(lowTempTxt.Text, out lowTemp)
                 || !Double.TryParse(sealTimeTxt.Text, out sealTime) || !Double.TryParse(highPressTxt.Text, out highPress)
                 || !Double.TryParse(pressSetTxt.Text, out pressSet) || !Double.TryParse(lowPressureTxt.Text, out lowPressure))
