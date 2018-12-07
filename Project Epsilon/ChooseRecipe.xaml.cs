@@ -150,7 +150,8 @@ namespace Project_Epsilon
             LoadedRecipe._recUDI9 = "0";
             LoadedRecipe.filerows.Add("");
             LoadedRecipe.recipeloaded = true;
-            LoadedRecipe.recipeloaded = true;
+            RecipeInput recipeInput = new RecipeInput();
+            recipeInput.Show();
             this.Close();
         }
 

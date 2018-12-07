@@ -54,63 +54,48 @@ namespace Project_Epsilon
             if (methodOneCheckbox.IsChecked == true)
             {
                 LoadedRecipe._cavMethodOneSelected = 1;
-            }
-            //else value assigned is 0
-            else
-            {
-                LoadedRecipe._cavMethodOneSelected = 0;
+                LoadedRecipe._cavMgtUsed = 1;
             }
             //Assigns method two checkbox a number when button is pressed.
             //If method two checkbox is checked, then value assigned is 1, otherwise it is 0.
-            if (methodTwoCheckbox.IsChecked == true)
+            else if (methodTwoCheckbox.IsChecked == true)
             {
                 LoadedRecipe._cavMethodTwoSelected = 1;
+                LoadedRecipe._cavMgtUsed = 1;
             }
+            //Neither is selected
             else
             {
-                LoadedRecipe._cavMethodTwoSelected = 0;
-            }
-            //Converts the input in textbox to a number.
-            //Stores it in variable numCavUsed to be used in the LoadedRecipes page
-            LoadedRecipe.numCavUsed = Convert.ToInt32(numCavitiesTxtBox.Text);
-
-            //if either checkboox is checked, then assigns "true" to loaded recipe cavUsed
-            if( methodOneCheckbox.IsChecked == true || methodTwoCheckbox.IsChecked == true)
-            {
                 LoadedRecipe.cavUsed = true;
+                LoadedRecipe._cavMgtUsed = 0;
+                LoadedRecipe._cavMethodOneSelected = 0;
+                LoadedRecipe._cavMethodTwoSelected = 0;
+
             }
-            //Closes the current window
             this.Close();          
         }
-
         //runs the IsValid method for limiting input from user
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !IsValid(((TextBox)sender).Text + e.Text);
         }
-
         //Method to limit the input from user
         public static bool IsValid(string str)
         {
-
             //variable/counter
             int i;
-
             //only input between integers 1 and 8 are accepted
             return int.TryParse(str, out i) && i >= 1 && i <= 8;
         }
-
         //Event for when one checkbox, it unchecks the other checkbox.
         private void MethodOneCheckbox_Checked(object sender, RoutedEventArgs e)
         {
-
             //If Method one checkbox is checked, method two checkbox is unchecked.
             if (methodOneCheckbox.IsChecked == true)
             {
                 methodTwoCheckbox.IsChecked = false;
             }
         }
-
         //Event for when one checkbox, it unchecks the other checkbox.
         private void MethodTwoCheckbox_Checked(object sender, RoutedEventArgs e)
         {

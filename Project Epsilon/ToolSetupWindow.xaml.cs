@@ -67,16 +67,10 @@ namespace Project_Epsilon
 public ToolSetupWindow()
         {
             InitializeComponent();
-
+            NumCavsTextbox.Text = Convert.ToString(LoadedRecipe.numCavUsed);
             //puts variable from LoadedRecipe into textbox and makes sure that the number 0 is not placed into the textbox
             ToolUDITextbox.Text = LoadedRecipe._UDIRecipe;
-            if (LoadedRecipe.numCavUsed == 0)
-            {
-            }
-            else
-            {
-                NumCavsTextbox.Text = Convert.ToString(LoadedRecipe.numCavUsed);
-            }
+           
 
             if (LoadedRecipe._recToolRequired == 1)
             {
