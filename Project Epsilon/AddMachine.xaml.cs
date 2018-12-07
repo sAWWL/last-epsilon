@@ -49,7 +49,6 @@ namespace Project_Epsilon
         public bool ValidateIP()
         {
             // Variable to keep track of whether IP is valid or not 
-            bool valid = true;
 
             try
             {
@@ -59,24 +58,28 @@ namespace Project_Epsilon
                 octets.Add(Convert.ToInt16(oct3.Text));
                 octets.Add(Convert.ToInt16(oct4.Text));
 
+
                 // For every octet, check if it is outside the bounds of 0-255. If so, display error message
                 foreach (int octet in octets)
                 {
+                    
                     if (octet > 255 || octet < 0)
                     {
                         IPAddressError.Visibility = Visibility.Visible;
                         IPAddressError.Text += Convert.ToString(octet);
-                        valid = false;
+                        MessageBox.Show("Octet out of range");
+                        return false;
                     }
 
                 }
 
                 // Check if first octet is a valid local 192 or 10
-                if (octets[0] != 192 || octets[0] != 10)
+                if (octets[0] != 192 && octets[0] != 10)
                 {
-                    valid = false;
+                    MessageBox.Show("Octet 0 is invalid!");
+                    return false;
                 }
-                return valid;
+                return true;
 
             }
             // If there was some error with the text entry
@@ -96,15 +99,7 @@ namespace Project_Epsilon
             {
                 // String for concatenating each octet into one IP address string
                 string ip = "";
-
-                // Combine each octet into a single IP address string
-                foreach (int octet in octets)
-                {
-                    ip += Convert.ToString(octet) + ".";
-                }
-                
-                // Removes anything left over of string concatenation 
-                ip.TrimEnd('.');
+                ip += Convert.ToInt16(oct1.Text) + "." + Convert.ToInt16(oct2.Text) + "." + Convert.ToInt16(oct3.Text) + "." + Convert.ToInt16(oct4.Text);
 
                 // Apply FTP address to machine
                 if (Machines.MachineIdx == -1)
@@ -116,7 +111,11 @@ namespace Project_Epsilon
                     Machines.MachineData[Machines.MachineIdx] = "ATLASVAC@" + ip + ":21-" + machineName.Text;
                 }
                 this.Close();
-            }           
+            }
+            else
+            {
+                MessageBox.Show("sdasds");
+            }
         }
 
         // Cancel button is clicked

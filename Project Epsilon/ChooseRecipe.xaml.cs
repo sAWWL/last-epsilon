@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,9 +28,9 @@ namespace Project_Epsilon
 
             //Clears current selected recipes
             selectRecipe.Items.Clear();
-            
+
             //adds in recipes for each value, separated by a comma
-            foreach(string recipe in LoadedRecipe.filerows)
+            foreach (string recipe in LoadedRecipe.filerows)
             {
                 selectRecipe.Items.Add(recipe.Split(',')[0]);
             }
@@ -38,8 +40,8 @@ namespace Project_Epsilon
         // Load Recipe button is clicked
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-            if(selectRecipe.SelectedIndex != -1)
+
+            if (selectRecipe.SelectedIndex != -1)
             {
                 // Sets each property of LoadedRecipe object from the CSV, as long as the field is not blank
                 string[] tempMachineData = LoadedRecipe.filerows[selectRecipe.SelectedIndex].Split(',');
@@ -98,7 +100,7 @@ namespace Project_Epsilon
                 LoadedRecipe.recipeID = -1;
                 RecipePreview recipePreview = new RecipePreview();
                 recipePreview.ShowDialog();
-                if(LoadedRecipe.confirmload == true)
+                if (LoadedRecipe.confirmload == true)
                 {
                     LoadedRecipe.recipeloaded = true;
                     LoadedRecipe.confirmload = false;
@@ -107,9 +109,9 @@ namespace Project_Epsilon
                     recipeInput.ShowDialog();
                     this.Close();
                 }
-            }   
+            }
         }
-        
+
         // Add new recipe button is clicked
         private void newRecipeBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -160,7 +162,7 @@ namespace Project_Epsilon
         {
 
             //deletes any selected recipe(s)
-            if(selectRecipe.SelectedIndex != -1)
+            if (selectRecipe.SelectedIndex != -1)
             {
                 // Have user confirm that they wish to delete a recipe (Messagebox confirmation)
                 string sMessageBoxText = "Do you want to delete the selected Recipe?";
@@ -179,13 +181,49 @@ namespace Project_Epsilon
                         {
                             selectRecipe.Items.Add(recipe.Split(',')[0]);
                         }
+
+                        try
+                        {
+                            FtpWebRequest deletereq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
+                            deletereq.Method = WebRequestMethods.Ftp.DeleteFile;
+                            deletereq.Credentials = new NetworkCredential(LoadedRecipe.username, LoadedRecipe.password);
+                            FtpWebResponse response = (FtpWebResponse)deletereq.GetResponse();
+                        }
+                        catch
+                        {
+
+                        }
+                        try
+                        {
+                            FtpWebRequest uploadreq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
+                            uploadreq.Credentials = new NetworkCredential(LoadedRecipe.username, LoadedRecipe.password);
+                            uploadreq.Method = WebRequestMethods.Ftp.UploadFile;
+                            string outputstring = LoadedRecipe.headerrow + "\n";
+                            foreach (string row in LoadedRecipe.filerows)
+
+                            {
+                                outputstring += row + "\n";
+                            }
+
+                            byte[] bytes = Encoding.UTF8.GetBytes(outputstring);
+                            Stream requestStream = uploadreq.GetRequestStream();
+                            requestStream.Write(bytes, 0, bytes.Length);
+                            requestStream.Close();
+                            LoadedRecipe.loginSuccess = true;
+                            LoadedRecipe.recipeloaded = false;
+                        }
+                        catch
+                        {
+                            MessageBox.Show("There was an error while uploading the recipe file. Please check your connection and password.");
+                        }
+
                         break;
                     case MessageBoxResult.No:
                         break;
                     case MessageBoxResult.Cancel:
                         break;
                 }
-                
+
             }
         }
     }
