@@ -40,7 +40,7 @@ namespace Project_Epsilon
             {
                 //Add each to the machineselector
                 machineSelector.Items.Add(machine.Split('-')[1]);
-                
+
             }
         }
 

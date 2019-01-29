@@ -115,14 +115,12 @@ public ToolSetupWindow()
             return int.TryParse(str, out i) && i >= 1 && i <= 8;
         }
 
-
         //checks for input in NumCavs Textbox
         private void NumCavsTextbox_TextChanged(object sender, TextChangedEventArgs e)
         {
             //if tool checkbo is checked
             if (ToolConfCheckBox.IsChecked == true)
             {
-
                 //tests textboxes is box is null or just empty with white spaces
                 if (String.IsNullOrWhiteSpace(ToolUDITextbox.Text) == true || String.IsNullOrWhiteSpace(NumCavsTextbox.Text) == true)
                 {
@@ -144,7 +142,6 @@ public ToolSetupWindow()
             //else
             else
             {
-
                 //error message is hidden
                 ErrorMessage.Visibility = Visibility.Hidden;
                 //back button is enabled
@@ -180,7 +177,6 @@ public ToolSetupWindow()
             //else
             else
             {
-
                 //error message is hidden
                 ErrorMessage.Visibility = Visibility.Hidden;
 

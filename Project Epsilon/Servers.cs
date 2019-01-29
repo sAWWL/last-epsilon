@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project_Epsilon
 {
+    //A public class for Machines
     public static class Machines
     {
         public static int MachineIdx;

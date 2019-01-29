@@ -113,9 +113,10 @@ namespace Project_Epsilon
                 }
                 this.Close();
             }
+            //Shows a warning message box if the if statement doesn't if right
             else
             {
-                MessageBox.Show("sdasds");
+                MessageBox.Show("Local IP addresses only.");
             }
         }
 
@@ -124,7 +125,7 @@ namespace Project_Epsilon
         {
             this.Close();
         }
-
+        //method that moves the cursor to the next text box once the length limit is reached
         private void oct1_TextChanged(object sender, EventArgs e)
         {
             if (oct1.Text.Length > 2)
@@ -132,7 +133,7 @@ namespace Project_Epsilon
                 Keyboard.Focus(oct2);              
             }          
         }
-
+        //method that moves the cursor to the next text box once the length limit is reached
         private void oct2_TextChanged(object sender, EventArgs e)
         {
             if (oct2.Text.Length > 2)
@@ -140,7 +141,7 @@ namespace Project_Epsilon
                 Keyboard.Focus(oct3);
             }
         }
-
+        //method that moves the cursor to the next text box once the length limit is reached
         private void oct3_TextChanged(object sender, EventArgs e)
         {
             if (oct3.Text.Length > 2)

@@ -34,13 +34,13 @@ namespace Project_Epsilon
             preview_recipeSealTime.Text = Convert.ToString(LoadedRecipe._sealTime);
 
         }
-
+        //When an incorrect recipe is clicked, the current load is canceled and page is closed
         private void WrongRecipe_Click(object sender, RoutedEventArgs e)
         {
             LoadedRecipe.confirmload = false;
             this.Close();
         }
-
+        ////When a correct recipe is clicked, the current load is canceled and page is closed
         private void CorrectRecipe_Click(object sender, RoutedEventArgs e)
         {
             LoadedRecipe.confirmload = true;

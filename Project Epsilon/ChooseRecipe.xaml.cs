@@ -24,6 +24,7 @@ namespace Project_Epsilon
         public ChooseRecipe()
         {
             InitializeComponent();
+            //focuses the cursor on the selectRecipe control
             selectRecipe.Focus();
 
             //Clears current selected recipes

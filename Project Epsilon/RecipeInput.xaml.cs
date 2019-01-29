@@ -317,7 +317,6 @@ namespace Project_Epsilon
                 highTempTxt.Text = "";
                 tempSetTxt.Text = "";
                 lowTempTxt.Text = "";
-                //#Cursed #HailSatan
                 sealTimeTxt.Text = "";
                 highPressTxt.Text = "";
                 pressSetTxt.Text = "";
@@ -340,8 +339,6 @@ namespace Project_Epsilon
         {
             System.Windows.Application.Current.Shutdown();
         }
-
-        
         // Allows only numeric input from user for RFID textbox
         private void TextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
@@ -353,12 +350,12 @@ namespace Project_Epsilon
             int i;
             return int.TryParse(str, out i);
         }
-
+        //Shuts down application when exit button is clicked
         private void exitBtn_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
-
+        //stores temporary data and closes this page
         private void homeBtn_Click(object sender, RoutedEventArgs e)
         {
                 StoreTempData();
