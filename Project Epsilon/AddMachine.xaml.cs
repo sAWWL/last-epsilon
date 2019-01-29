@@ -21,10 +21,11 @@ namespace Project_Epsilon
     {
         // List to index each octet of IP address 
         List<int> octets = new List<int>();
+        
 
         // Method for adding a new machine
         public AddMachine()
-        {
+        {      
             InitializeComponent();
             if (Machines.MachineIdx != -1)
             {
@@ -123,5 +124,29 @@ namespace Project_Epsilon
         {
             this.Close();
         }
+
+        private void oct1_TextChanged(object sender, EventArgs e)
+        {
+            if (oct1.Text.Length > 2)
+            {
+                Keyboard.Focus(oct2);              
+            }          
+        }
+
+        private void oct2_TextChanged(object sender, EventArgs e)
+        {
+            if (oct2.Text.Length > 2)
+            {
+                Keyboard.Focus(oct3);
+            }
+        }
+
+        private void oct3_TextChanged(object sender, EventArgs e)
+        {
+            if (oct3.Text.Length > 2)
+            {
+                Keyboard.Focus(oct4);
+            }
+        }       
     }
 }
