@@ -19,22 +19,26 @@ namespace Project_Epsilon
         }
         public void StoreTempData()
         {
-            // Take in data from the textboxes and set the respective properties of LoadedRecipe object
-            LoadedRecipe._recipeName = recipeTxt.Text;
-            LoadedRecipe._product = productTxt.Text;
-            LoadedRecipe._lotNumber = Convert.ToInt32(lotTxt.Text);
-            LoadedRecipe._RFIDNumber = Convert.ToInt32(rfidTxt.Text);
-            LoadedRecipe._UDIRecipe = recipeUDITxt.Text;
-            LoadedRecipe._tempHigherAlarmValue = Convert.ToInt32(highTempTxt.Text);
-            LoadedRecipe._tempSetpoint = Convert.ToInt32(tempSetTxt.Text);
-            LoadedRecipe._tempLowerAlarmValue = Convert.ToInt32(lowTempTxt.Text);
-            LoadedRecipe._sealTime = Convert.ToDouble(sealTimeTxt.Text);
-            LoadedRecipe._pressureUpperAlarmValue = Convert.ToInt32(highPressTxt.Text);
-            LoadedRecipe._pressureSetpointFromOIT = Convert.ToInt32(pressSetTxt.Text);
-            LoadedRecipe._pressureLowerAlarmValue = Convert.ToInt32(lowPressureTxt.Text);
-            LoadedRecipe._projectName = "Master_HMI_Cavity_Master";
-            LoadedRecipe._recipeGeneratedBy = "AES";
-            LoadedRecipe._recipeGeneratedOn = Convert.ToString(DateTime.Now);
+            // Some of these fields may be empty
+            try
+            { 
+                // Take in data from the textboxes and set the respective properties of LoadedRecipe object
+                LoadedRecipe._recipeName = recipeTxt.Text;
+                LoadedRecipe._product = productTxt.Text;
+                LoadedRecipe._lotNumber = Convert.ToInt32(lotTxt.Text);
+                LoadedRecipe._RFIDNumber = Convert.ToInt32(rfidTxt.Text);
+                LoadedRecipe._UDIRecipe = recipeUDITxt.Text;
+                LoadedRecipe._tempHigherAlarmValue = Convert.ToInt32(highTempTxt.Text);
+                LoadedRecipe._tempSetpoint = Convert.ToInt32(tempSetTxt.Text);
+                LoadedRecipe._tempLowerAlarmValue = Convert.ToInt32(lowTempTxt.Text);
+                LoadedRecipe._sealTime = Convert.ToDouble(sealTimeTxt.Text);
+                LoadedRecipe._pressureUpperAlarmValue = Convert.ToInt32(highPressTxt.Text);
+                LoadedRecipe._pressureSetpointFromOIT = Convert.ToInt32(pressSetTxt.Text);
+                LoadedRecipe._pressureLowerAlarmValue = Convert.ToInt32(lowPressureTxt.Text);
+                LoadedRecipe._projectName = "Master_HMI_Cavity_Master";
+                LoadedRecipe._recipeGeneratedBy = "AES";
+                LoadedRecipe._recipeGeneratedOn = Convert.ToString(DateTime.Now);
+            } catch {;}
         }
         public void CheckCompletion()
         {
@@ -358,8 +362,10 @@ namespace Project_Epsilon
         //stores temporary data and closes this page
         private void homeBtn_Click(object sender, RoutedEventArgs e)
         {
-                StoreTempData();
-                this.Close();
+            StoreTempData(); //Take in data from the textboxes and set the respective properties of LoadedRecipe object
+            MainWindow mainwindow = new MainWindow();
+            mainwindow.Show(); // Go to home screen
+            this.Close();
         }
     }
 }
