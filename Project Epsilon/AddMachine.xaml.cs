@@ -21,11 +21,11 @@ namespace Project_Epsilon
     {
         // List to index each octet of IP address 
         List<int> octets = new List<int>();
-        
+
 
         // Method for adding a new machine
         public AddMachine()
-        {      
+        {
             InitializeComponent();
             if (Machines.MachineIdx != -1)
             {
@@ -63,7 +63,7 @@ namespace Project_Epsilon
                 // For every octet, check if it is outside the bounds of 0-255. If so, display error message
                 foreach (int octet in octets)
                 {
-                    
+
                     if (octet > 255 || octet < 0)
                     {
                         IPAddressError.Visibility = Visibility.Visible;
@@ -116,7 +116,7 @@ namespace Project_Epsilon
             //Shows a warning message box if the if statement doesn't if right
             else
             {
-                MessageBox.Show("Local IP addresses only.");
+                MessageBox.Show("Invalid IP Address - Please Verify");
             }
         }
 
@@ -130,8 +130,8 @@ namespace Project_Epsilon
         {
             if (oct1.Text.Length > 2)
             {
-                Keyboard.Focus(oct2);              
-            }          
+                Keyboard.Focus(oct2);
+            }
         }
         //method that moves the cursor to the next text box once the length limit is reached
         private void oct2_TextChanged(object sender, EventArgs e)
@@ -148,6 +148,26 @@ namespace Project_Epsilon
             {
                 Keyboard.Focus(oct4);
             }
-        }       
+        }
+
+        private void oct1_LostFocus(object sender, EventArgs e)
+        {
+            int[] acceptableOct1 = new int[] { 192, 168, 10 };
+            int oct1Value;
+            try {
+                oct1Value = Convert.ToInt32(oct1.Text);
+                if (!acceptableOct1.Contains(oct1Value))
+                {
+                    IPAddressError.Visibility = Visibility.Visible;
+                    IPAddressError.Text = "Local IP Addresses Only (192, 127 or 10).";
+                }
+            }
+            catch {; }       
+        }
+
+        private void oct1_GotFocus(object sender, EventArgs e)
+        {
+            IPAddressError.Visibility = Visibility.Hidden;
+        }
     }
 }

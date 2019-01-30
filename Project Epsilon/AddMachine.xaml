@@ -16,18 +16,18 @@
                 <GradientStop Color="#FF89B9E4" Offset="0.801"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <TextBox x:Name="machineName" HorizontalAlignment="Left" Height="32" Margin="237,27,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="247"/>
+        <TextBox x:Name="machineName" HorizontalAlignment="Left" Height="32" Margin="237,27,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="247" FontSize="17"/>
 
         <Label Content="Machine Nickname" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,25,0,0" Height="37" Width="150" FontSize="16"/>
         <Label Content="Machine Address" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,85,0,0" Height="37" Width="136" FontSize="16"/>
 
-        <TextBlock Name="IPAddressError" HorizontalAlignment="Left" Margin="26,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340" Height="18" Background="#FFC93B3B" FontWeight="Bold" TextAlignment="Center"
-                   Text="" Foreground="White" Visibility="hidden"/>
+        <TextBlock Name="IPAddressError" HorizontalAlignment="Left" Margin="20,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="464" Height="27" Background="#FFC93B3B" FontWeight="Bold" TextAlignment="Center"
+                   Text="" Foreground="White" Visibility="Hidden"/>
         <Label Content="." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="285,87,0,0" Height="37" Width="17"/>
-        <TextBox x:Name="oct1" HorizontalAlignment="Left" Height="32" Margin="237,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="48" TextChanged="oct1_TextChanged" MaxLength="3"/>
-        <TextBox x:Name="oct2" HorizontalAlignment="Left" Height="32" Margin="305,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="47" TextChanged="oct2_TextChanged" MaxLength="3"/>
-        <TextBox x:Name="oct3" HorizontalAlignment="Left" Height="32" Margin="372,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="47" TextChanged="oct3_TextChanged" MaxLength="3"/>
-        <TextBox x:Name="oct4" HorizontalAlignment="Left" Height="32" Margin="437,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="47" MaxLength="3"/>
+        <TextBox x:Name="oct1" HorizontalAlignment="Left" Height="32" Margin="237,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="48" TextChanged="oct1_TextChanged" MaxLength="3" TextAlignment="Center" LostFocus="oct1_LostFocus" GotFocus="oct1_GotFocus" FontSize="17"/>
+        <TextBox x:Name="oct2" HorizontalAlignment="Left" Height="32" Margin="305,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="47" TextChanged="oct2_TextChanged" MaxLength="3" TextAlignment="Center" FontSize="17"/>
+        <TextBox x:Name="oct3" HorizontalAlignment="Left" Height="32" Margin="372,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="47" TextChanged="oct3_TextChanged" MaxLength="3" TextAlignment="Center" FontSize="17"/>
+        <TextBox x:Name="oct4" HorizontalAlignment="Left" Height="32" Margin="437,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="47" MaxLength="3" TextAlignment="Center" FontSize="17"/>
         <Label Content="." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="348,86,0,0" Height="36" Width="17"/>
         <Label Content="." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="419,86,0,0" Height="36" Width="18"/>
         <Button Name="CancelAddBtn" Content="Cancel" HorizontalAlignment="Left" Margin="237,193,0,0" VerticalAlignment="Top" Width="123" Click="CancelAddBtn_Click" Height="28" FontSize="17"/>
