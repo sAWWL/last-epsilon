@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_Epsilon"
         mc:Ignorable="d"
-        Title="Project Epsilon" Height="285" Width="450"  MaxHeight="285" MaxWidth="450" Background="#FF216299"
-        ResizeMode="NoResize">
+        Title="Project Epsilon" Height="285" Width="450" Background="#FF216299"
+        ResizeMode="CanResizeWithGrip">
 
     <Window.Resources>
         <Style TargetType="Window">
@@ -54,13 +54,13 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Image Source="logo.png" Margin="10,-10,150,34" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
+            <Image Source="logo.png" Margin="10,10,150,34" Grid.RowSpan="3" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Left" MaxHeight="200" MaxWidth="200"/>
 
-            <Button x:Name="RecipesBtn" Grid.Column="1" Grid.Row="2" Width="200" Height="50" Click="RecipesBtn_Click" Margin="0, 20, 0, 0">
+            <Button x:Name="RecipesBtn" Grid.Column="1" Grid.Row="2" Click="RecipesBtn_Click" Margin="0, 20, 0, 0" MaxHeight="100">
                 <TextBlock FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Center">Recipes</TextBlock>
             </Button>
 
-            <Button x:Name="SettingsBtn" Grid.Column="1" Grid.Row="3" Width="200" Height="50" Click="SettingsBtn_Click" Margin="0, 20, 0, 0">
+            <Button x:Name="SettingsBtn" Grid.Column="1" Grid.Row="3"  Click="SettingsBtn_Click" Margin="0, 20, 0, 0" MaxHeight="100">
                 <TextBlock TextAlignment="Center" FontSize="16" FontWeight="DemiBold">Settings</TextBlock>
             </Button>
         </Grid>
