@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Options Menu" Height="267" Width="400"
+        Title="Options Menu" Height="312" Width="472"
         ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
@@ -15,9 +15,9 @@
                 <GradientStop Color="#FF89B9E4" Offset="0.801"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button x:Name="ToolSetupButton" Content="Tool Setup" Margin="0,-25,0,130" Width="130" HorizontalAlignment="Center" Height="35" Click="ToolSetup_Click"/>
-        <Button Name ="CavMgmtBtn" Content="Cavity Management" HorizontalAlignment="Center" Margin="0,-25,0,30" Width="130" Height="35" Click="CavMgmtBtn_Click"/>
-        <Button x:Name="UDISetupBtn" Content="UDI Setup" HorizontalAlignment="Center" Margin="0,50,0,0" Width="130" Height="35" Click="UDISetupBtn_Click"/>
-        <Button x:Name="BackBtn" Content="&lt; Back" Margin="0,155,0,0" Width="130" Height="35" Click="BackBtn_Click"/>
+        <Button x:Name="ToolSetupButton" Content="Tool Setup" Margin="114,35,118,208" Width="234" HorizontalAlignment="Center" Click="ToolSetup_Click" FontWeight="Bold"/>
+        <Button Name ="CavMgmtBtn" Content="Cavity Management" HorizontalAlignment="Center" Margin="114,92,118,152" Width="234" Click="CavMgmtBtn_Click" FontWeight="Bold"/>
+        <Button x:Name="UDISetupBtn" Content="UDI Setup" HorizontalAlignment="Center" Margin="114,151,118,93" Width="234" Click="UDISetupBtn_Click" FontWeight="Bold"/>
+        <Button x:Name="BackBtn" Content="&lt; Back" Margin="114,211,118,33" Click="BackBtn_Click" FontWeight="Bold"/>
     </Grid>
 </Window>

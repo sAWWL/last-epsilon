@@ -5,14 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_Epsilon"
         mc:Ignorable="d"
-        Title="Connection Manager" Height="257.262" Width="446.678">
+        Title="Connection Manager" Height="318.262" Width="583.678">
+
+
+
     <Grid>
+
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FFBFCEDA" Offset="0.734"/>
+                <GradientStop Color="AliceBlue" Offset="0.228"/>
+                <GradientStop Color="#FF030C13" Offset="1"/>
+                <GradientStop Color="#FF4892C9" Offset="1"/>
+                <GradientStop Color="#FF2F73AD" Offset="0.99"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="41*"/>
             <ColumnDefinition Width="69*"/>
         </Grid.ColumnDefinitions>
         <!--ListBox-->
-        <ListView x:Name="machineList"  Height="108" Margin="20,57,24,0" VerticalAlignment="Top" Grid.ColumnSpan="2" >
+        <ListView x:Name="machineList"  Height="138" Margin="20,57,24,0" VerticalAlignment="Top" Grid.ColumnSpan="2" >
             <ListView.View>
 
                 <GridView>
@@ -28,12 +43,12 @@
             </ListViewItem>
         </ListView>
         <!--Buttons-->
-        <Button x:Name="addMachine" Content="Add Machine" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="20,185,0,0" Click="addMachine_Click"/>
-        <Button x:Name="editMachine" Content="Edit Machine" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="125,185,0,0" Click="editMachine_Click" Grid.ColumnSpan="2"/>
-        <Button x:Name="deleteMachine" Content="Delete Machine" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="60.779,185,0,0" Click="deleteMachine_Click" Grid.Column="1"/>
-        <Button x:Name="backBtn" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="160.779,185,0,0" Click="backBtn_Click" Grid.Column="1"/>
-        
-        <Label Content="Manage Machines" HorizontalAlignment="Left" Margin="20,26,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="addMachine" Content="Add Machine" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Margin="20,222,0,0" Click="addMachine_Click" Height="37" FontWeight="Bold"/>
+        <Button x:Name="editMachine" Content="Edit Machine" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="145,222,0,0" Click="editMachine_Click" Grid.ColumnSpan="2" Height="37" FontWeight="Bold"/>
+        <Button x:Name="deleteMachine" Content="Delete Machine" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="110,222,0,0" Click="deleteMachine_Click" Grid.Column="1" Height="37" FontWeight="Bold"/>
+        <Button x:Name="backBtn" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Margin="230,222,0,0" Click="backBtn_Click" Grid.Column="1" Height="37" FontWeight="Bold"/>
+
+        <Label Content="Manage Machines" HorizontalAlignment="Left" Margin="20,26,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 
     </Grid>
 </Window>

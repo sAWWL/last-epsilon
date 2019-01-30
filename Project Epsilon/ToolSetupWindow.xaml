@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Tool Setup"  Height="400" Width="650" MinHeight="400" MinWidth="650"
+        Title="Tool Setup"  Height="415" Width="675.5" MinHeight="400" MinWidth="650"
         ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
@@ -17,13 +17,22 @@
                 <GradientStop Color="#FF2F73AD" Offset="0.99"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <CheckBox x:Name="ToolConfCheckBox" Content="Tool Confirmation Required?"  Margin="0,120,0,90" VerticalAlignment="Top" HorizontalAlignment="Center" Click="ToolConfChecked" FontWeight="Bold" Foreground="Black"/>
-        <Label x:Name="ToolUDILabel" Content="Tool UDI:" Margin="150,175,0,0" Visibility="Hidden" FontWeight="Bold" Foreground="Black"/>
-        <TextBox x:Name="ToolUDITextbox" Visibility="Hidden" MaxLength="40" Margin="215,5,150,0" Height="20" Width="310" FontFamily="Consolas" TextChanged="ToolUDITextbox_TextChanged" />
-        <Label x:Name="NumCavsLabel" Content="Number of Cavities in the Tool?" Margin="150,200,0,0" Visibility="Hidden" FontWeight="Bold" Foreground="Black"/>
-        <TextBox x:Name="NumCavsTextbox" MaxLength="1" Visibility="Hidden" PreviewTextInput="TextBox_PreviewTextInput" TextChanged="NumCavsTextbox_TextChanged" Margin="175,55,115,0" Height="20" Width="20"/>
-        <Button x:Name="BackButton2" Content="&lt; Back" Margin="450,250,0,0" Width="75" Click="BackButton" Height="20" IsEnabled="True"/>
-        <Label x:Name="ErrorMessage" Content="Tool UDI and # of Cavities are Required when Tool Confirmation Required is Checked" HorizontalAlignment="Left" Margin="95,45,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="Red" Visibility="Hidden" Foreground="White"/>
+        <CheckBox x:Name="ToolConfCheckBox" Content="Tool Confirmation Required?"  Margin="0,120,0,90" VerticalAlignment="Top" HorizontalAlignment="Center" Click="ToolConfChecked" FontWeight="Bold" Foreground="Black" FontSize="16"/>
+        <Label x:Name="ToolUDILabel" Content="Tool UDI:" Margin="150,175,0,2" Visibility="Hidden" FontWeight="Bold" Foreground="Black" FontSize="16"/>
+        <TextBox x:Name="ToolUDITextbox" Visibility="Hidden" MaxLength="40" Margin="243,180,96,175" FontFamily="Consolas" TextChanged="ToolUDITextbox_TextChanged" />
+        <Label x:Name="NumCavsLabel" Content="Number of Cavities in the Tool?" Margin="150,216,0,-16" Visibility="Hidden" FontWeight="Bold" Foreground="Black" FontSize="16"/>
+        <TextBox x:Name="NumCavsTextbox" MaxLength="1" Visibility="Hidden" PreviewTextInput="TextBox_PreviewTextInput" TextChanged="NumCavsTextbox_TextChanged" Margin="402,218,232,136" RenderTransformOrigin="0.65,1.35"/>
+        <Button x:Name="BackButton2" Content="&lt; Back" Margin="494,303,33,39" Click="BackButton" IsEnabled="True" FontSize="16" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.488"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Label x:Name="ErrorMessage" Content="Tool UDI and # of Cavities are Required when Tool Confirmation Required is Checked" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="Red" Visibility="Visible" Foreground="White" FontSize="16"/>
 
     </Grid>
 </Window>

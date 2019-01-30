@@ -5,12 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_Epsilon"
         mc:Ignorable="d"
-        Title="CavityToolWindow" MinHeight="400" Height="400" Width="600" MinWidth="600" Foreground="Black"
+        Title="Cavity Tool Window" Height="352" Width="562.5" MinWidth="600" Foreground="Black"
         ResizeMode="NoResize">
     <Grid>
         <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="404*"/>
+                <ColumnDefinition Width="156*"/>
+                <ColumnDefinition Width="35*"/>
+            </Grid.ColumnDefinitions>
             <Grid.Background>
-                  <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="1"/>
                     <GradientStop Color="#FFBFCEDA" Offset="0.734"/>
                     <GradientStop Color="AliceBlue" Offset="0.228"/>
@@ -19,34 +24,34 @@
                     <GradientStop Color="#FF2F73AD" Offset="0.99"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <Grid>
+            <Grid Grid.ColumnSpan="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                </Grid>
-            <StackPanel Margin="100">
-                <RadioButton Name="methodOneCheckbox" Foreground="Black" FontWeight="Bold" Checked="MethodOneCheckbox_Checked">Method One (Count All Cavities used)</RadioButton>
-                <RadioButton Name="methodTwoCheckbox" Foreground="Black" FontWeight="Bold" Checked="MethodTwoCheckbox_Checked">Method Two (Count using Required Cavities)</RadioButton>
-                <TextBlock x:Name="numCavitiesLbl" Foreground="Black" FontWeight="Bold">Number of Cavities in the Tool?<InlineUIContainer>
-                        <TextBox Name="numCavitiesTxtBox" Width="15" Height="15" Margin="5,5,0,0" PreviewTextInput="TextBox_PreviewTextInput"/>
+            </Grid>
+            <StackPanel Margin="75,75,41,75" Grid.ColumnSpan="2">
+                <RadioButton Margin="0,0,0,10" x:Name="methodOneCheckbox" Foreground="Black" FontWeight="Bold" Checked="MethodOneCheckbox_Checked" FontSize="18" Content="Method One (Count All Cavities used)"/>
+                <RadioButton Margin="0,0,0,10" x:Name="methodTwoCheckbox" Foreground="Black" FontWeight="Bold" Checked="MethodTwoCheckbox_Checked" FontSize="18" Content="Method Two (Count using Required Cavities)"/>
+                <TextBlock Margin="0,-10,0,10" x:Name="numCavitiesLbl" Foreground="Black" FontWeight="Bold" FontSize="16"><Run Text="Number of Cavities in the Tool?"/><InlineUIContainer>
+                        <TextBox x:Name="numCavitiesTxtBox" Width="30" Height="30" Margin="5,10,0,-10" PreviewTextInput="TextBox_PreviewTextInput" VerticalAlignment="Center"/>
                     </InlineUIContainer></TextBlock>
                 <Separator/>
-                <TextBlock x:Name="useLbl">Cavity Management Used<InlineUIContainer>
-                        <TextBlock Name="responseTxtBlock" Margin="10,0,0,0">
+                <TextBlock x:Name="useLbl" Margin="0,0,-27,0" FontSize="18"><Run Text="Cavity Management Used"/><InlineUIContainer>
+                        <TextBlock x:Name="responseTxtBlock" Margin="10,0,0,0">
                             <TextBlock.Style>
-                                <Style TargetType="TextBlock">
+                                <Style TargetType="{x:Type TextBlock}">
                                     <Setter Property="Text" Value="No" />
                                     <Setter Property="Foreground" Value="Red"/>
                                     <Setter Property="FontWeight" Value="Bold"/>
                                     <Style.Triggers>
-                                        <DataTrigger Binding="{Binding ElementName=methodOneCheckbox, Path=IsChecked}" Value="True">
+                                        <DataTrigger Binding="{Binding IsChecked, ElementName=methodOneCheckbox}" Value="True">
                                             <Setter Property="Text" Value="Yes"/>
                                             <Setter Property="Foreground" Value="Green"/>
                                             <Setter Property="FontWeight" Value="Bold"/>
                                         </DataTrigger>
-                                        <DataTrigger Binding="{Binding ElementName=methodTwoCheckbox, Path=IsChecked}" Value="True">
+                                        <DataTrigger Binding="{Binding IsChecked, ElementName=methodTwoCheckbox}" Value="True">
                                             <Setter Property="Text" Value="Yes"/>
                                             <Setter Property="Foreground" Value="Green"/>
                                             <Setter Property="FontWeight" Value="Bold"/>
@@ -62,8 +67,8 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Name="ClrButton" Grid.Column="1" Margin="20,0,20,-20" Click="ClrButton_Click" >Clear</Button>
-                    <Button Name="backBtn" Grid.Column="2" Margin="0,0,20,-20" Click="backBtn_Click">Back</Button>
+                    <Button x:Name="ClrButton" Margin="124,27,21,-57" Click="ClrButton_Click" Grid.ColumnSpan="2" FontSize="16" Content="Clear"/>
+                    <Button x:Name="backBtn" Grid.Column="1" Margin="143,27,1,-57" Click="backBtn_Click" FontSize="16" Content="Back" Grid.ColumnSpan="2"/>
                 </Grid>
             </StackPanel>
         </Grid>

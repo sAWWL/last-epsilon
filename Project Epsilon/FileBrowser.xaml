@@ -4,18 +4,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="FileBrowser"  Height="218.128" Width="309.744">
+        Title="File Browser"  Height="293.128" Width="398.744">
     <Grid Margin="0,0,2.2,-1">
-        <Label Content="Select a Machine" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="93,0,0,0"/>
-        <ListView x:Name="machineSelector" HorizontalAlignment="Left" Height="98" VerticalAlignment="Top" Width="270" Margin="10,26,0,0" >
+
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FFBFCEDA" Offset="0.734"/>
+                <GradientStop Color="AliceBlue" Offset="0.228"/>
+                <GradientStop Color="#FF030C13" Offset="1"/>
+                <GradientStop Color="#FF4892C9" Offset="1"/>
+                <GradientStop Color="#FF2F73AD" Offset="0.99"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Label Content="Select a Machine" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="137,0,0,0" Height="36" Width="135" FontWeight="Bold"/>
+        <ListView x:Name="machineSelector" HorizontalAlignment="Left" Height="136" VerticalAlignment="Top" Width="368" Margin="10,36,0,0" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="connectButton" Content="Connect" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="35,150,0,0" Click="connectButton_Click" IsDefault="True"/>
-        <Button Name="CancelLoad" Content="Cancel" HorizontalAlignment="Left" Margin="167,150,0,0" VerticalAlignment="Top" Width="75" Click="CancelLoad_Click"/>
-        
+        <Button x:Name="connectButton" Content="Connect" HorizontalAlignment="Left" VerticalAlignment="Top" Width="102" Margin="44,208,0,0" Click="connectButton_Click" IsDefault="True" Height="28" FontWeight="Bold"/>
+        <Button Name="CancelLoad" Content="Cancel" HorizontalAlignment="Left" Margin="224,208,0,0" VerticalAlignment="Top" Width="102" Click="CancelLoad_Click" Height="28" FontWeight="Bold"/>
+
     </Grid>
 </Window>
