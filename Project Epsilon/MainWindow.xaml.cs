@@ -97,7 +97,7 @@ namespace Project_Epsilon
                 output += server.Split('/')[1] + "|";
             }
 
-            output = output.TrimEnd('|');
+            output.TrimEnd('|');
             System.IO.File.WriteAllText(System.IO.Path.Combine(Directory.GetCurrentDirectory(), CONFIG), output);
 
             MessageBox.Show(output);

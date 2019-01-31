@@ -35,7 +35,7 @@ namespace Project_Epsilon
             {
                 selectRecipe.Items.Add(recipe.Split(',')[0]);
             }
-
+            LoadFile.IsEnabled = false;
         }
 
         // Load Recipe button is clicked
