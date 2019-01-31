@@ -152,14 +152,14 @@ namespace Project_Epsilon
 
         private void oct1_LostFocus(object sender, EventArgs e)
         {
-            int[] acceptableOct1 = new int[] { 192, 168, 10 };
+            int[] acceptableOct1 = new int[] { 192, 172, 10 };
             int oct1Value;
             try {
                 oct1Value = Convert.ToInt32(oct1.Text);
                 if (!acceptableOct1.Contains(oct1Value))
                 {
                     IPAddressError.Visibility = Visibility.Visible;
-                    IPAddressError.Text = "Local IP Addresses Only (192, 127 or 10).";
+                    IPAddressError.Text = "Local IP Addresses Only (192, 172 or 10).";
                 }
             }
             catch {; }       
