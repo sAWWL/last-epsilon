@@ -21,25 +21,21 @@ namespace Project_Epsilon
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        static string CONFIG = "config.ini";
         public MainWindow()
         {
+            
             InitializeComponent();
             //Add Machines for Demo Purposes
 
             try
             {
-                var path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), "fileName.txt");
+                var path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), CONFIG);
                 string text = System.IO.File.ReadAllText(path);
-                MessageBox.Show(text);
 
                 foreach (string machine in text.Split('|')) {
-                    Machines.MachineData.Add("ATLASVAC@" + machine.Split('-')[0] + ":21-" + machine.Split('-')[1].Split('/')[0] + "/" + machine.Split('/')[1]);
-                }
-                foreach(string machine in Machines.MachineData)
-                {
-                    MessageBox.Show(machine);
-                }
+                    Machines.MachineData.Add("ATLASVAC@" + machine.Split('-')[0] + ":21-" + machine.Split('-')[1] + "/" + machine.Split('-')[2]);
+                }               
         }
             catch {; }
         }
@@ -92,7 +88,22 @@ namespace Project_Epsilon
         }
         protected override void OnClosing(CancelEventArgs e)
         {
+            string output = "";
+            //IP-PASSWORD/Name
+            foreach (string server in Machines.MachineData)
+            {
+                output += server.Split('@')[1].Split(':')[0] + "-";
+                output += server.Split('-')[1].Split('/')[0] + "-";
+                output += server.Split('/')[1] + "|";
+            }
+
+            output.TrimEnd('|');
+            System.IO.File.WriteAllText(System.IO.Path.Combine(Directory.GetCurrentDirectory(), CONFIG), output);
+
+            MessageBox.Show(output);
+
             Application.Current.Shutdown();
+           
         }       
     }
 }

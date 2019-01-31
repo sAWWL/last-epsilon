@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Project_Epsilon
 {
     class Authenticator
     {
-        public String Encrypt(string rawInput)
+        public String Encrypt(String rawInput)
         {
+            MessageBox.Show(rawInput);
             const int OFFSET = 25;
             byte[] asciiValues = Encoding.ASCII.GetBytes(rawInput);
             for (int i = 0; i < asciiValues.Length; i++)

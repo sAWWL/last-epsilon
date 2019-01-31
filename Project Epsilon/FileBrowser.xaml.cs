@@ -40,7 +40,7 @@ namespace Project_Epsilon
             foreach(String machine in Machines.MachineData)
             {
                 //Add each to the machineselector
-                machineSelector.Items.Add(machine.Split('-')[1]);
+                machineSelector.Items.Add(machine.Split('/')[1]);
 
             }
         }
@@ -57,11 +57,12 @@ namespace Project_Epsilon
                 LoadedRecipe.username = machinedata.Split('@')[0];
                 LoadedRecipe.host = machinedata.Split('@')[1].Split(':')[0];
                 LoadedRecipe.port = machinedata.Split(':')[1].Split('-')[0];
-
+                LoadedRecipe.password = machinedata.Split('-')[1].Split('/')[0];
+                MessageBox.Show(machinedata);
 
                 //creates a try catch block
-                try
-                {
+                //try
+                //{
                     FtpWebRequest downloadreq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
                     downloadreq.Method = WebRequestMethods.Ftp.DownloadFile;
                     downloadreq.Credentials = new NetworkCredential(LoadedRecipe.username, auth.Encrypt(LoadedRecipe.password));
@@ -94,11 +95,11 @@ namespace Project_Epsilon
                             this.Close();
                         }
                     }
-                }
-                catch
-                {
-                    MessageBox.Show("There was an error reading data from the machine.\n Please check your connection details and credentials and try again");
-                }
+                //}
+                //catch
+                //{
+                //    MessageBox.Show("There was an error reading data from the machine.\n Please check your connection details and credentials and try again");
+                //}
             }
         }
 
