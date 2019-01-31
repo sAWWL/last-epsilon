@@ -5,9 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_Epsilon"
         mc:Ignorable="d"
-        Title="Edit Machine" Height="288" Width="521"
+        Title="Edit Machine" Height="346" Width="602.333"
         ResizeMode="NoResize">
     <Grid Margin="0,0,4,2.2" RenderTransformOrigin="0.5,0.5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="139*"/>
+            <ColumnDefinition Width="270*"/>
+            <ColumnDefinition Width="137*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="17*"/>
+        </Grid.ColumnDefinitions>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="0"/>
@@ -16,24 +24,24 @@
                 <GradientStop Color="#FF89B9E4" Offset="0.801"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <TextBox x:Name="machineName" HorizontalAlignment="Left" Height="32" Margin="237,27,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="247" FontSize="17"/>
+        <TextBox x:Name="machineName" HorizontalAlignment="Left" Height="32" Margin="101,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="248" FontSize="17" Grid.ColumnSpan="2" Grid.Column="2"/>
 
-        <Label Content="Machine Nickname" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,25,0,0" Height="37" Width="150" FontSize="16"/>
-        <Label Content="Machine Address" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,85,0,0" Height="37" Width="136" FontSize="16"/>
+        <Label Content="Machine Nickname" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="58,100,0,0" Height="37" Width="150" FontSize="16" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Label Content="Machine Address" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="58,44,0,0" Height="37" Width="136" FontSize="16" Grid.ColumnSpan="2" Grid.Column="1"/>
 
-        <TextBlock Name="IPAddressError" HorizontalAlignment="Left" Margin="20,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="464" Height="27" Background="#FFC93B3B" FontWeight="Bold" TextAlignment="Center"
-                   Text="" Foreground="White" Visibility="Hidden"/>
-        <Label Content="." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="285,87,0,0" Height="37" Width="17"/>
-        <TextBox x:Name="oct1" HorizontalAlignment="Left" Height="32" Margin="237,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="48" TextChanged="oct1_TextChanged" MaxLength="3" TextAlignment="Center" LostFocus="oct1_LostFocus" GotFocus="oct1_GotFocus" FontSize="17"/>
-        <TextBox x:Name="oct2" HorizontalAlignment="Left" Height="32" Margin="305,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="47" TextChanged="oct2_TextChanged" MaxLength="3" TextAlignment="Center" FontSize="17"/>
-        <TextBox x:Name="oct3" HorizontalAlignment="Left" Height="32" Margin="372,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="47" TextChanged="oct3_TextChanged" MaxLength="3" TextAlignment="Center" FontSize="17"/>
-        <TextBox x:Name="oct4" HorizontalAlignment="Left" Height="32" Margin="437,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="47" MaxLength="3" TextAlignment="Center" FontSize="17"/>
-        <Label Content="." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="348,86,0,0" Height="36" Width="17"/>
-        <Label Content="." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="419,86,0,0" Height="36" Width="18"/>
-        <Button Name="CancelAddBtn" Content="Cancel" HorizontalAlignment="Left" Margin="237,193,0,0" VerticalAlignment="Top" Width="123" Click="CancelAddBtn_Click" Height="28" FontSize="17"/>
-        <Button Name="AddMachineBtn" Content="Save" HorizontalAlignment="Left" Margin="372,193,0,0" VerticalAlignment="Top" Width="112" Click="AddMachineBtn_Click" Height="28" FontSize="17"/>
-        <TextBox x:Name="machinePassword" HorizontalAlignment="Left" Height="32" Margin="237,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="247" FontSize="17"/>
-        <Label Content="Machine Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,132,0,0" Height="37" Width="150" FontSize="16"/>
+        <TextBlock Name="IPAddressError" HorizontalAlignment="Left" Margin="58,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="429" Height="28" Background="#FFC93B3B" FontWeight="Bold" TextAlignment="Center"
+                   Text="" Foreground="White" Visibility="Hidden" Grid.ColumnSpan="3" Grid.Column="1"/>
+        <Label Content="." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="154,55,0,0" Height="37" Width="18" Grid.Column="2"/>
+        <TextBox x:Name="oct1" HorizontalAlignment="Left" Height="32" Margin="101,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="48" TextChanged="oct1_TextChanged" MaxLength="3" TextAlignment="Center" LostFocus="oct1_LostFocus" GotFocus="oct1_GotFocus" FontSize="17" Grid.Column="2"/>
+        <TextBox x:Name="oct2" HorizontalAlignment="Left" Height="32" Margin="169,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="48" TextChanged="oct2_TextChanged" MaxLength="3" TextAlignment="Center" FontSize="17" Grid.Column="2"/>
+        <TextBox x:Name="oct3" HorizontalAlignment="Left" Height="32" Margin="237,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="46" TextChanged="oct3_TextChanged" MaxLength="3" TextAlignment="Center" FontSize="17" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="oct4" HorizontalAlignment="Left" Height="32" Margin="38,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="48" MaxLength="3" TextAlignment="Center" FontSize="17" Grid.Column="3"/>
+        <Label Content="." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="221,55,0,0" Height="36" Width="16" Grid.Column="2"/>
+        <Label Content="." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,55,0,0" Height="36" Width="18" Grid.Column="3"/>
+        <Button Name="CancelAddBtn" Content="Cancel" HorizontalAlignment="Left" Margin="0,258,0,0" VerticalAlignment="Top" Width="123" Click="CancelAddBtn_Click" Height="28" FontSize="17" Grid.Column="2"/>
+        <Button Name="AddMachineBtn" Content="Save" HorizontalAlignment="Left" Margin="149,258,0,0" VerticalAlignment="Top" Width="123" Click="AddMachineBtn_Click" Height="28" FontSize="17" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="machinePassword" HorizontalAlignment="Left" Height="32" Margin="101,155,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="248" FontSize="17" Grid.ColumnSpan="2" Grid.Column="2"/>
+        <Label Content="Machine Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="58,155,0,0" Height="37" Width="150" FontSize="16" Grid.ColumnSpan="2" Grid.Column="1"/>
 
     </Grid>
 </Window>
