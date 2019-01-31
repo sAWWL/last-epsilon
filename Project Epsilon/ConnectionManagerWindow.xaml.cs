@@ -81,7 +81,7 @@ namespace Project_Epsilon
             // Updates the machineList items with new data
             foreach (string machine in Machines.MachineData)
             {
-                machineList.Items.Add(machine.Split('-')[1]);
+                machineList.Items.Add(machine.Split('/')[1]);
             }
         }            
     }

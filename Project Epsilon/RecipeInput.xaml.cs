@@ -11,6 +11,7 @@ namespace Project_Epsilon
 {
     public partial class RecipeInput
     {
+        Authenticator auth = new Authenticator();
         public RecipeInput()
         {
             InitializeComponent();
@@ -255,24 +256,19 @@ namespace Project_Epsilon
             LoadedRecipe.filerows[LoadedRecipe.recipeID] = LoadedRecipe._recipeName + "," + LoadedRecipe._product + "," + LoadedRecipe._lotNumber + "," + LoadedRecipe._recipeNumber + "," + LoadedRecipe._pressureUpperAlarmValue + "," + LoadedRecipe._pressureLowerAlarmValue + "," + LoadedRecipe._pressureSetpointFromOIT + "," + LoadedRecipe._tempHigherAlarmValue + "," + LoadedRecipe._tempLowerAlarmValue + "," + LoadedRecipe._tempSetpoint + "," + LoadedRecipe._sealTime + "," + "0" + "," + LoadedRecipe._projectName + "," + LoadedRecipe._RFIDNumber + "," + LoadedRecipe._UDIRecipe + "," + LoadedRecipe._avTagRecipeLotSealed + "," + LoadedRecipe._avTagRecipeLotToSeal + "," + LoadedRecipe._recipeName + "," + LoadedRecipe._recipeGeneratedBy + "," + LoadedRecipe._recipeGeneratedOn + "," + LoadedRecipe._recToolRequired + "," + LoadedRecipe._cavMethod2Required + "," + LoadedRecipe._UDIRecipeTool + "," + LoadedRecipe._cavMethodOneSelected + "," + LoadedRecipe._cavMethodTwoSelected + "," + LoadedRecipe._cavMgtUsed + "," + LoadedRecipe._recUDI1 + "," + LoadedRecipe._recUDI3 + "," + LoadedRecipe._recUDI4 + "," + LoadedRecipe._recUDI5 + "," + LoadedRecipe._recUDI6 + "," + LoadedRecipe._recUDI7 + "," + LoadedRecipe._recUDI8 + "," + LoadedRecipe._recUDI9;
 
             //if login is unseccessful
-            if (LoadedRecipe.loginSuccess == false)
-            {
-                //create new instance of password input and prompt for it
-                PasswordInput passwordInput = new PasswordInput();
-                passwordInput.ShowDialog();
-            }
+           
 
-            //creates a try catch block
+            
             try
             {
                 FtpWebRequest deletereq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
                 deletereq.Method = WebRequestMethods.Ftp.DeleteFile;
-                deletereq.Credentials = new NetworkCredential(LoadedRecipe.username, LoadedRecipe.password);
+                deletereq.Credentials = new NetworkCredential(LoadedRecipe.username, auth.Encrypt(LoadedRecipe.password));
                 FtpWebResponse response = (FtpWebResponse)deletereq.GetResponse();
             }
             catch
             {
-
+                MessageBox.Show("There was an error reading data from the machine.\n Please check your connection details and credentials and try again");
             }
             try
             {
@@ -296,7 +292,7 @@ namespace Project_Epsilon
             }
             catch
             {
-                MessageBox.Show("There was an error while uploading the recipe file. Please check your connection and password.");
+                MessageBox.Show("There was an error uploading data to the machine.\n Please check your connection details and credentials and try again");
             }
 
         }

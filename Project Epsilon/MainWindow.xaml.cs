@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Project_Epsilon
 {
@@ -26,6 +27,21 @@ namespace Project_Epsilon
             InitializeComponent();
             //Add Machines for Demo Purposes
 
+            try
+            {
+                var path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), "fileName.txt");
+                string text = System.IO.File.ReadAllText(path);
+                MessageBox.Show(text);
+
+                foreach (string machine in text.Split('|')) {
+                    Machines.MachineData.Add("ATLASVAC@" + machine.Split('-')[0] + ":21-" + machine.Split('-')[1].Split('/')[0] + "/" + machine.Split('/')[1]);
+                }
+                foreach(string machine in Machines.MachineData)
+                {
+                    MessageBox.Show(machine);
+                }
+        }
+            catch {; }
         }
 
 

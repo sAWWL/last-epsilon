@@ -60,6 +60,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Authenticator.cs" />
     <Compile Include="CavityToolWindow.xaml.cs">
       <DependentUpon>CavityToolWindow.xaml</DependentUpon>
     </Compile>
@@ -73,9 +74,6 @@
     <Compile Include="LoadedRecipe.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PasswordInput.xaml.cs">
-      <DependentUpon>PasswordInput.xaml</DependentUpon>
     </Compile>
     <Compile Include="RecipeInput.xaml.cs">
       <DependentUpon>RecipeInput.xaml</DependentUpon>
@@ -140,10 +138,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OptionsMenu.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="PasswordInput.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

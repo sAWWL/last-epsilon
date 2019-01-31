@@ -32,7 +32,7 @@ namespace Project_Epsilon
                 try
                 {
                     string machinedata = Machines.MachineData[Machines.MachineIdx];
-                    string machinename = machinedata.Split('-')[1];
+                    string machinename = machinedata.Split('/')[1];
                     string machineaddress = machinedata.Split('-')[0].Split('@')[1].Split(':')[0];
 
                     oct1.Text = machineaddress.Split('.')[0].Split('.')[0];
@@ -105,11 +105,11 @@ namespace Project_Epsilon
                 // Apply FTP address to machine
                 if (Machines.MachineIdx == -1)
                 {
-                    Machines.MachineData.Add("ATLASVAC@" + ip + ":21-" + machineName.Text);
+                    Machines.MachineData.Add("ATLASVAC@" + ip + ":21-" + machinePassword.Text + "/" + machineName.Text);
                 }
                 else
                 {
-                    Machines.MachineData[Machines.MachineIdx] = "ATLASVAC@" + ip + ":21-" + machineName.Text;
+                    Machines.MachineData[Machines.MachineIdx] = "ATLASVAC@" + ip + ":21-" + machinePassword.Text + "/" + machineName.Text;
                 }
                 this.Close();
             }

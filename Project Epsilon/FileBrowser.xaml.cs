@@ -23,6 +23,7 @@ namespace Project_Epsilon
     /// </summary>
     public partial class FileBrowser : Window
     {
+        Authenticator auth = new Authenticator();
         //variables
         string recipedata;
         string[] reciperows;
@@ -52,25 +53,18 @@ namespace Project_Epsilon
             {
                 //Acquire Machinedata from global store
                 string machinedata = Machines.MachineData[machineSelector.SelectedIndex];
-                string machinename = machinedata.Split('-')[1];
-                LoadedRecipe.username = machinedata.Split('-')[0].Split('@')[0];
-                LoadedRecipe.host = machinedata.Split('-')[0].Split('@')[1].Split(':')[0];
-                LoadedRecipe.port = machinedata.Split('-')[0].Split('@')[1].Split(':')[1].Split('-')[0];
+                string machinename = machinedata.Split('/')[1];
+                LoadedRecipe.username = machinedata.Split('@')[0];
+                LoadedRecipe.host = machinedata.Split('@')[1].Split(':')[0];
+                LoadedRecipe.port = machinedata.Split(':')[1].Split('-')[0];
 
-
-                if (LoadedRecipe.loginSuccess == false)
-                {
-                    //create new instance of password input and prompt for it
-                    PasswordInput passwordInput = new PasswordInput();
-                    passwordInput.ShowDialog();
-                }
 
                 //creates a try catch block
                 try
                 {
                     FtpWebRequest downloadreq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
                     downloadreq.Method = WebRequestMethods.Ftp.DownloadFile;
-                    downloadreq.Credentials = new NetworkCredential(LoadedRecipe.username, LoadedRecipe.password);
+                    downloadreq.Credentials = new NetworkCredential(LoadedRecipe.username, auth.Encrypt(LoadedRecipe.password));
 
 
                     using (Stream stream = downloadreq.GetResponse().GetResponseStream())
@@ -103,7 +97,7 @@ namespace Project_Epsilon
                 }
                 catch
                 {
-                    MessageBox.Show("There was an error reading data from the machine.");
+                    MessageBox.Show("There was an error reading data from the machine.\n Please check your connection details and credentials and try again");
                 }
             }
         }
