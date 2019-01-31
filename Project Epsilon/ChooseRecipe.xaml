@@ -27,7 +27,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="LoadFile" IsEnabled="True" HorizontalAlignment="Left" Margin="264,103,0,0" VerticalAlignment="Top" Width="115" Click="Button_Click" Height="25" FontWeight="Bold">Load Recipe</Button>
+        <Button x:Name="LoadFile" IsEnabled="{Binding ElementName=selectRecipe, Path=SelectedItems.Count}" HorizontalAlignment="Left" Margin="264,103,0,0" VerticalAlignment="Top" Width="115" Click="Button_Click" Height="25" FontWeight="Bold">Load Recipe</Button>
         <Button Name="newRecipeBtn" Content="Add New Recipe" HorizontalAlignment="Left" Margin="10,233,0,0" VerticalAlignment="Top" Width="116" Click="newRecipeBtn_Click" Height="25" FontWeight="Bold"/>
         <Button x:Name="deleteRecipeBtn" Content="Delete Recipe" HorizontalAlignment="Left" Margin="131,233,0,0" VerticalAlignment="Top" Click="deleteRecipeBtn_Click" Height="25" Width="116" FontWeight="Bold"/>
 
