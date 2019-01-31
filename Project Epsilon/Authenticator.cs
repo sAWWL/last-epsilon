@@ -10,8 +10,17 @@ namespace Project_Epsilon
     {
         public String Encrypt(string rawInput)
         {
-            
-            return "";
+            const int OFFSET = 25;
+            byte[] asciiValues = Encoding.ASCII.GetBytes(rawInput);
+            for (int i = 0; i < asciiValues.Length; i++)
+            {
+                asciiValues[i] += (byte)OFFSET;
+                while (asciiValues[i] > 122)
+                {
+                    asciiValues[i] -= 90;
+                }
+            }
+            return Encoding.ASCII.GetString(asciiValues);
         }
     }
 }
