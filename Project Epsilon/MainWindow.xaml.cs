@@ -32,15 +32,10 @@ namespace Project_Epsilon
             {
                 var path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), CONFIG);
                 string text = System.IO.File.ReadAllText(path);
-                MessageBox.Show(text);
 
                 foreach (string machine in text.Split('|')) {
                     Machines.MachineData.Add("ATLASVAC@" + machine.Split('-')[0] + ":21-" + machine.Split('-')[1] + "/" + machine.Split('-')[2]);
-                }
-                foreach(string machine in Machines.MachineData)
-                {
-                    MessageBox.Show(machine);
-                }
+                }               
         }
             catch {; }
         }
