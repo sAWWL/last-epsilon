@@ -92,7 +92,7 @@ namespace Project_Epsilon
         }
         protected override void OnClosing(CancelEventArgs e)
         {
-            SaveConfig.Save();
+            //SaveConfig.Save();
             Application.Current.Shutdown();         
         }       
     }
