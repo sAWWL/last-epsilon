@@ -51,48 +51,47 @@ namespace Project_Epsilon
         // Ensuring the IP entered is a valid local IP
         public bool ValidateIP()
         {
-            return true;
-            //// Variable to keep track of whether IP is valid or not 
+            // Variable to keep track of whether IP is valid or not 
 
-            //try
-            //{
-            //    // Add each of the entered octets in each textbox to octets list
-            //    octets.Add(Convert.ToInt16(oct1.Text));
-            //    octets.Add(Convert.ToInt16(oct2.Text));
-            //    octets.Add(Convert.ToInt16(oct3.Text));
-            //    octets.Add(Convert.ToInt16(oct4.Text));
+            try
+            {
+                // Add each of the entered octets in each textbox to octets list
+                octets.Add(Convert.ToInt16(oct1.Text));
+                octets.Add(Convert.ToInt16(oct2.Text));
+                octets.Add(Convert.ToInt16(oct3.Text));
+                octets.Add(Convert.ToInt16(oct4.Text));
 
 
-            //    // For every octet, check if it is outside the bounds of 0-255. If so, display error message
-            //    foreach (int octet in octets)
-            //    {
+                // For every octet, check if it is outside the bounds of 0-255. If so, display error message
+                foreach (int octet in octets)
+                {
 
-            //        if (octet > 255 || octet < 0)
-            //        {
-            //            IPAddressError.Visibility = Visibility.Visible;
-            //            IPAddressError.Text += Convert.ToString(octet);
-            //            MessageBox.Show("Octet out of range");
-            //            return false;
-            //        }
+                    if (octet > 255 || octet < 0)
+                    {
+                        IPAddressError.Visibility = Visibility.Visible;
+                        IPAddressError.Text += Convert.ToString(octet);
+                        MessageBox.Show("Octet out of range");
+                        return false;
+                    }
 
-            //    }
+                }
 
-            //    // Check if first octet is a valid local 192 or 10
-            //    if (octets[0] != 192 && octets[0] != 10)
-            //    {
-            //        MessageBox.Show("Octet 0 is invalid!");
-            //        return false;
-            //    }
-            //    return true;
+                // Check if first octet is a valid local 192 or 10
+                if (octets[0] != 192 && octets[0] != 10)
+                {
+                    MessageBox.Show("Octet 0 is invalid!");
+                    return false;
+                }
+                return true;
 
-            //}
-            //// If there was some error with the text entry
-            //catch
-            //{
-            //    IPAddressError.Visibility = Visibility.Visible;
-            //    IPAddressError.Text = "Not all fields have the correct format";
-            //    return false;
-            //}
+            }
+            // If there was some error with the text entry
+            catch
+            {
+                IPAddressError.Visibility = Visibility.Visible;
+                IPAddressError.Text = "Not all fields have the correct format";
+                return false;
+            }
         }
 
         // Save button was clicked
