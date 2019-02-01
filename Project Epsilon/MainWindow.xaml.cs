@@ -25,9 +25,7 @@ namespace Project_Epsilon
         public MainWindow()
         {
             
-            InitializeComponent();
-            ChooseRecipe chooseRecipe = new ChooseRecipe();
-            chooseRecipe.Show();
+            InitializeComponent();         
             //Add Machines for Demo Purposes
 
             try
