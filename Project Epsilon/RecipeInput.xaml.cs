@@ -54,7 +54,7 @@ namespace Project_Epsilon
                 errorTxt.Visibility = Visibility.Visible;
                 saveRecipe.IsEnabled = false;
                 saveRecipe.Visibility = Visibility.Hidden;
-                errorTxt.Content = "All Fields (except RFID) are Required";
+                errorTxt.Content = "All Fields (except RFID) are required";
             }
             else
             {
