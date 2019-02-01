@@ -63,6 +63,8 @@ namespace Project_Epsilon
 
         private void RecipesBtn_Click(object sender, RoutedEventArgs e)
         {
+
+            
             //creates new instance of connection manager page and displays it
             if (LoadedRecipe.recipeloaded == false)
             {
@@ -85,6 +87,7 @@ namespace Project_Epsilon
                     
                 }
             }
+            this.Hide();
         }
         protected override void OnClosing(CancelEventArgs e)
         {
