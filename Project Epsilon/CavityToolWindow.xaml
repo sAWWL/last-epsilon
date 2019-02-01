@@ -63,14 +63,16 @@
                 </InlineUIContainer></TextBlock>
                 <Grid Margin="0,25">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="148*"/>
+                        <ColumnDefinition Width="147*"/>
+                        <ColumnDefinition Width="18*"/>
+                        <ColumnDefinition Width="130*"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="ClrButton" Margin="124,27,21,-57" Click="ClrButton_Click" Grid.ColumnSpan="2" FontSize="16" Content="Clear"/>
-                    <Button x:Name="backBtn" Grid.Column="1" Margin="143,27,1,-57" Click="backBtn_Click" FontSize="16" Content="Back" Grid.ColumnSpan="2"/>
+                    <Button x:Name="ClrButton" Margin="124,27,21.2,-57" Click="ClrButton_Click" Grid.ColumnSpan="2" FontSize="16" Content="Clear"/>
+
                 </Grid>
             </StackPanel>
         </Grid>
+        <Button x:Name="backBtn" Click="backBtn_Click" FontSize="16" Content="Back" Margin="410,249,72.6,35.4"/>
     </Grid>
 </Window>

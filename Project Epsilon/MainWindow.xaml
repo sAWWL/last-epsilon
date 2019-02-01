@@ -14,10 +14,10 @@
         </Style>
     </Window.Resources>
 
-    <Grid>
+    <Grid Margin="0,-20,0,0">
         
 
-        <Grid Margin="0,19,0,-19">
+        <Grid Margin="0,20,0,0">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
