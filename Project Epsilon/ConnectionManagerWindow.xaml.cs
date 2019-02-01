@@ -58,9 +58,7 @@ namespace Project_Epsilon
         //closes the page
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
-            SaveConfig.Save();
-            MainWindow winMainWindow = new MainWindow();
-            winMainWindow.Show();
+            SaveConfig.Save();          
             this.Hide();
 
         }
