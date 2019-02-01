@@ -22,6 +22,7 @@ namespace Project_Epsilon
         // List to index each octet of IP address 
         List<int> octets = new List<int>();
 
+        bool octetsCorrect = true;     
 
         // Method for adding a new machine
         public AddMachine()
@@ -134,6 +135,8 @@ namespace Project_Epsilon
             {
                 Keyboard.Focus(oct2);
             }
+
+            
         }
         //method that moves the cursor to the next text box once the length limit is reached
         private void oct2_TextChanged(object sender, EventArgs e)
@@ -162,9 +165,9 @@ namespace Project_Epsilon
                 {
                     IPAddressError.Visibility = Visibility.Visible;
                     IPAddressError.Text = "Local Machine Addresses Only (192, 172 or 10).";
-                }            
+                }
             }
-            catch {; }       
+            catch {; }
         }
 
         private void oct1_GotFocus(object sender, EventArgs e)
@@ -174,9 +177,22 @@ namespace Project_Epsilon
 
         private void oct2_GotFocus(object sender, RoutedEventArgs e)
         {
-            oct2.Text = "";
-            IPAddressError.Text = "";
-            IPAddressError.Visibility = Visibility.Hidden;
+            int[] acceptableOct1 = new int[] { 192, 172, 10 };
+            int oct1Value;
+            try
+            {
+                oct1Value = Convert.ToInt32(oct1.Text);
+                if(!acceptableOct1.Contains(oct1Value))
+                {
+                    IPAddressError.Visibility = Visibility.Visible;
+                    IPAddressError.Text = "Local Machine Addresses Only (192, 172 or 10).";
+                } else
+                {
+                    IPAddressError.Text = "";
+                    IPAddressError.Visibility = Visibility.Hidden;
+                }
+
+            } catch {; }
         }
 
         private void oct2_LostFocus(object sender, RoutedEventArgs e)
@@ -194,7 +210,73 @@ namespace Project_Epsilon
                         IPAddressError.Text = "Machine Address Must Be Within 172.16.0.0 - 172.31.255.255";
                     }
                 }
+
+                if (oct2Value > 255)
+                {
+                    IPAddressError.Visibility = Visibility.Visible;
+                    IPAddressError.Text = "Octet must be within 1-255";
+                    octetsCorrect = false;
+                } else
+                {
+                    octetsCorrect = true;
+                }
             } catch {; }
+        }
+
+        private void oct3_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int oct3Value = Convert.ToInt32(oct3.Text);
+
+                if (oct3Value > 255)
+                {
+                    IPAddressError.Visibility = Visibility.Visible;
+                    IPAddressError.Text = "Octet must be within 1-255";
+                    octetsCorrect = false;
+                } else
+                {
+                    octetsCorrect = true;
+                }
+            } catch {; }
+        }
+
+        private void oct3_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (octetsCorrect)
+            {
+                IPAddressError.Visibility = Visibility.Hidden;
+                IPAddressError.Text = "";
+            }
+        }
+
+
+        private void oct4_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int oct4Value = Convert.ToInt32(oct4.Text);
+
+                if (oct4Value > 255)
+                {
+                    IPAddressError.Visibility = Visibility.Visible;
+                    IPAddressError.Text = "Octet must be within 1-255";
+                    octetsCorrect = false;
+                } else
+                {
+                    octetsCorrect = true;
+                }
+            }
+            catch {; }
+        }
+
+        private void oct4_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (octetsCorrect)
+            {
+                IPAddressError.Visibility = Visibility.Hidden;
+                IPAddressError.Text = "";
+            }           
         }
     }
 }
