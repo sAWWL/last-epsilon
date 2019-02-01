@@ -55,7 +55,7 @@
                     <TextBlock Text="Recipe Name" Grid.Column="0" Margin="0,0,45,0" FontSize="13" FontWeight="DemiBold"/>
                     <TextBox Name="recipeTxt" MaxWidth="75" MaxHeight="20" Margin="74,0,45,75" Grid.Column="0"/>
                     <TextBlock Text="Product" Grid.Column="0" Margin="0,25,45,0" FontSize="13" FontWeight="DemiBold"/>
-                    <TextBox Name="productTxt" MaxWidth="75" MaxHeight="20" Margin="74,25,45,50" Grid.Column="0"/>
+                    <TextBox Name="productTxt" MaxWidth="75" MaxHeight="20" Margin="74,25,45,50" Grid.Column="0" LostFocus="productTxt_LostFocus"/>
                     <TextBlock Text="Lot" Grid.Column="0" Margin="0,50,45,0" FontSize="13" FontWeight="DemiBold"/>
                     <TextBox Name="lotTxt" MaxWidth="75" MaxHeight="20" Margin="74,50,45,25" Grid.Column="0"/>
 

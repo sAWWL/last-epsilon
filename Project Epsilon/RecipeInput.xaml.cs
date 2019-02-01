@@ -6,11 +6,13 @@ using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Project_Epsilon
 {
     public partial class RecipeInput
     {
+
         Authenticator auth = new Authenticator();
         public RecipeInput()
         {
@@ -410,5 +412,15 @@ namespace Project_Epsilon
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
         }
+
+        private void productTxt_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Regex r = new Regex("^[a-zA-Z0-9]*$");
+            if (!r.IsMatch(productTxt.Text))
+            {
+                MessageBox.Show("Product name must be alphanumeric (A-Z, 1-9)");
+                productTxt.Text = "";
+            }
+        }       
     }
 }

@@ -13,7 +13,7 @@ namespace Project_Epsilon
         {
             InitializeComponent();
             updateMachineList();
-
+            editMachine.IsEnabled = false;
         }
         //event triggers when delete machine button pressed
         private void deleteMachine_Click(object sender, RoutedEventArgs e)
@@ -87,6 +87,17 @@ namespace Project_Epsilon
             foreach (string machine in Machines.MachineData)
             {
                 machineList.Items.Add(machine.Split('/')[1]);
+            }
+        }
+
+        private void machineList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (machineList.SelectedIndex > -1)
+            {
+                editMachine.IsEnabled = true;
+            } else
+            {
+                editMachine.IsEnabled = false;
             }
         }
     }

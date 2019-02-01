@@ -27,7 +27,7 @@
             <ColumnDefinition Width="69*"/>
         </Grid.ColumnDefinitions>
         <!--ListBox-->
-        <ListView x:Name="machineList"  Height="138" Margin="20,57,24,0" VerticalAlignment="Top" Grid.ColumnSpan="2" >
+        <ListView x:Name="machineList"  Height="138" Margin="20,57,24,0" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionChanged="machineList_SelectionChanged">
             <ListView.View>
 
                 <GridView>
