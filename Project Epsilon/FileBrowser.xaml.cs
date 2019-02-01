@@ -73,7 +73,7 @@ namespace Project_Epsilon
                                 LoadedRecipe.filerows.Add(filedata.Split('\n')[x]);
                             }
                         }
-
+                        MessageBox.Show("Connection Successful");
                         ChooseRecipe chooseRecipe = new ChooseRecipe();
                         if (chooseRecipe.ShowDialog() != true)
                         {
