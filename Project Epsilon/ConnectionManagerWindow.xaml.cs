@@ -58,6 +58,8 @@ namespace Project_Epsilon
         private void backBtn_Click(object sender, RoutedEventArgs e)
         { 
             this.Close();
+            MainWindow winMainWindow = new MainWindow();
+            winMainWindow.Show();
         }
         //event triggered when button pressed
         private void editMachine_Click(object sender, RoutedEventArgs e)
