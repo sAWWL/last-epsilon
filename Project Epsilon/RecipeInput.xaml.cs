@@ -407,6 +407,8 @@ namespace Project_Epsilon
         {
             StoreTempData(); //Take in data from the textboxes and set the respective properties of LoadedRecipe object
             this.Close();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
         }
     }
 }
