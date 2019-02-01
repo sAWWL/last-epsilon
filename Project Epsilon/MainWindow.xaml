@@ -15,17 +15,7 @@
     </Window.Resources>
 
     <Grid>
-        <Menu DockPanel.Dock="Top" Grid.Row="0" Height="50" VerticalAlignment="Top" >
-
-            <MenuItem>
-                <MenuItem.Header>
-                    <TextBlock Width="25" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20">File</TextBlock>
-                </MenuItem.Header>
-
-                <MenuItem Header="_Exit" Click="Exit"/>
-            </MenuItem>
-            <MenuItem/>
-        </Menu>
+        
 
         <Grid Margin="0,19,0,-19">
             <Grid.Background>

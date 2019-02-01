@@ -1,20 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.IO;
 using System.Net;
-using Microsoft.Win32;
-using System.Windows.Controls.Primitives;
 
 namespace Project_Epsilon
 {
@@ -24,9 +13,6 @@ namespace Project_Epsilon
     public partial class FileBrowser : Window
     {
         Authenticator auth = new Authenticator();
-        //variables
-        string recipedata;
-        string[] reciperows;
         public string filedata;
 
         public void addnewmachine(string newmachine)
@@ -58,11 +44,10 @@ namespace Project_Epsilon
                 LoadedRecipe.host = machinedata.Split('@')[1].Split(':')[0];
                 LoadedRecipe.port = machinedata.Split(':')[1].Split('-')[0];
                 LoadedRecipe.password = machinedata.Split('-')[1].Split('/')[0];
-                MessageBox.Show(machinedata);
 
                 //creates a try catch block
-                //try
-                //{
+                try
+                {
                     FtpWebRequest downloadreq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
                     downloadreq.Method = WebRequestMethods.Ftp.DownloadFile;
                     downloadreq.Credentials = new NetworkCredential(LoadedRecipe.username, auth.Encrypt(LoadedRecipe.password));
@@ -95,11 +80,11 @@ namespace Project_Epsilon
                             this.Close();
                         }
                     }
-                //}
-                //catch
-                //{
-                //    MessageBox.Show("There was an error reading data from the machine.\n Please check your connection details and credentials and try again");
-                //}
+                }
+                catch
+                {
+                    MessageBox.Show("There was an error reading data from the machine.\n Please check your connection details and credentials and try again");
+                }
             }
         }
 

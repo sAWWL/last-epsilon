@@ -21,6 +21,7 @@ namespace Project_Epsilon
     /// </summary>
     public partial class ChooseRecipe : Window
     {
+        Authenticator auth = new Authenticator();
         public ChooseRecipe()
         {
             InitializeComponent();
@@ -35,7 +36,7 @@ namespace Project_Epsilon
             {
                 selectRecipe.Items.Add(recipe.Split(',')[0]);
             }
-            LoadFile.IsEnabled = false;
+            
         }
 
         // Load Recipe button is clicked
@@ -176,6 +177,7 @@ namespace Project_Epsilon
                 switch (rsltMessageBox)
                 {
                     case MessageBoxResult.Yes:
+
                         LoadedRecipe.filerows.RemoveAt(selectRecipe.SelectedIndex);
                         selectRecipe.Items.Clear();
                         foreach (string recipe in LoadedRecipe.filerows)
@@ -187,17 +189,17 @@ namespace Project_Epsilon
                         {
                             FtpWebRequest deletereq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
                             deletereq.Method = WebRequestMethods.Ftp.DeleteFile;
-                            deletereq.Credentials = new NetworkCredential(LoadedRecipe.username, LoadedRecipe.password);
+                            deletereq.Credentials = new NetworkCredential(LoadedRecipe.username, auth.Encrypt(LoadedRecipe.password));
                             FtpWebResponse response = (FtpWebResponse)deletereq.GetResponse();
                         }
                         catch
                         {
-
+                            MessageBox.Show("There was an error while deleting the recipe file. Please check your connection and password.");
                         }
                         try
                         {
                             FtpWebRequest uploadreq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
-                            uploadreq.Credentials = new NetworkCredential(LoadedRecipe.username, LoadedRecipe.password);
+                            uploadreq.Credentials = new NetworkCredential(LoadedRecipe.username, auth.Encrypt(LoadedRecipe.password));
                             uploadreq.Method = WebRequestMethods.Ftp.UploadFile;
                             string outputstring = LoadedRecipe.headerrow + "\n";
                             foreach (string row in LoadedRecipe.filerows)

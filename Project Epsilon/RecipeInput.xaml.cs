@@ -56,14 +56,28 @@ namespace Project_Epsilon
             }
             else
             {
-
-                double highTempAlarm = Convert.ToDouble(highTempTxt.Text);
-                double tempSetPoint = Convert.ToDouble(tempSetTxt.Text);
-                double lowTemp = Convert.ToDouble(lowTempTxt.Text);
-                double sealTime = Convert.ToDouble(sealTimeTxt.Text);
-                double highPress = Convert.ToDouble(highPressTxt.Text);
-                double pressSet = Convert.ToDouble(pressSetTxt.Text);
-                double lowPressure = Convert.ToDouble(lowPressureTxt.Text);
+                double highTempAlarm = 0;
+                double tempSetPoint = 0;
+                double lowTemp = 0;
+                double sealTime = 0;
+                double highPress = 0;
+                double pressSet = 0;
+                double lowPressure = 0;
+                try
+                {
+                    highTempAlarm = Convert.ToDouble(highTempTxt.Text);
+                    tempSetPoint = Convert.ToDouble(tempSetTxt.Text);
+                    lowTemp = Convert.ToDouble(lowTempTxt.Text);
+                    sealTime = Convert.ToDouble(sealTimeTxt.Text);
+                    highPress = Convert.ToDouble(highPressTxt.Text);
+                    pressSet = Convert.ToDouble(pressSetTxt.Text);
+                    lowPressure = Convert.ToDouble(lowPressureTxt.Text);
+                }
+                catch
+                {
+                    
+                }
+                
                 
                 // If any of the textfields are strings and not numbers
                 if (!Double.TryParse(highTempTxt.Text, out highTempAlarm) || !Double.TryParse(tempSetTxt.Text, out tempSetPoint) || !Double.TryParse(lowTempTxt.Text, out lowTemp)
@@ -255,10 +269,6 @@ namespace Project_Epsilon
             //categorizes information from csv file into public variables
             LoadedRecipe.filerows[LoadedRecipe.recipeID] = LoadedRecipe._recipeName + "," + LoadedRecipe._product + "," + LoadedRecipe._lotNumber + "," + LoadedRecipe._recipeNumber + "," + LoadedRecipe._pressureUpperAlarmValue + "," + LoadedRecipe._pressureLowerAlarmValue + "," + LoadedRecipe._pressureSetpointFromOIT + "," + LoadedRecipe._tempHigherAlarmValue + "," + LoadedRecipe._tempLowerAlarmValue + "," + LoadedRecipe._tempSetpoint + "," + LoadedRecipe._sealTime + "," + "0" + "," + LoadedRecipe._projectName + "," + LoadedRecipe._RFIDNumber + "," + LoadedRecipe._UDIRecipe + "," + LoadedRecipe._avTagRecipeLotSealed + "," + LoadedRecipe._avTagRecipeLotToSeal + "," + LoadedRecipe._recipeName + "," + LoadedRecipe._recipeGeneratedBy + "," + LoadedRecipe._recipeGeneratedOn + "," + LoadedRecipe._recToolRequired + "," + LoadedRecipe._cavMethod2Required + "," + LoadedRecipe._UDIRecipeTool + "," + LoadedRecipe._cavMethodOneSelected + "," + LoadedRecipe._cavMethodTwoSelected + "," + LoadedRecipe._cavMgtUsed + "," + LoadedRecipe._recUDI1 + "," + LoadedRecipe._recUDI3 + "," + LoadedRecipe._recUDI4 + "," + LoadedRecipe._recUDI5 + "," + LoadedRecipe._recUDI6 + "," + LoadedRecipe._recUDI7 + "," + LoadedRecipe._recUDI8 + "," + LoadedRecipe._recUDI9;
 
-            //if login is unseccessful
-           
-
-            
             try
             {
                 FtpWebRequest deletereq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
@@ -273,7 +283,7 @@ namespace Project_Epsilon
             try
             {
                 FtpWebRequest uploadreq = (FtpWebRequest)WebRequest.Create("ftp://" + LoadedRecipe.host + ":" + LoadedRecipe.port + "/Recipe1.csv");
-                uploadreq.Credentials = new NetworkCredential(LoadedRecipe.username, LoadedRecipe.password);
+                uploadreq.Credentials = new NetworkCredential(LoadedRecipe.username, auth.Encrypt(LoadedRecipe.password));
                 uploadreq.Method = WebRequestMethods.Ftp.UploadFile;
                 string outputstring = LoadedRecipe.headerrow + "\n";
                 foreach (string row in LoadedRecipe.filerows)
@@ -359,8 +369,6 @@ namespace Project_Epsilon
         private void homeBtn_Click(object sender, RoutedEventArgs e)
         {
             StoreTempData(); //Take in data from the textboxes and set the respective properties of LoadedRecipe object
-            MainWindow mainwindow = new MainWindow();
-            mainwindow.Show(); // Go to home screen
             this.Close();
         }
     }

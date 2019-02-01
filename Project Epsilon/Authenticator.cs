@@ -12,7 +12,6 @@ namespace Project_Epsilon
         public String Encrypt(String rawInput)
         {
             //offsets the cesar-cipher by 25
-            MessageBox.Show(rawInput);
             const int OFFSET = 25;
             byte[] asciiValues = Encoding.ASCII.GetBytes(rawInput);
             //creates a counter for the lengh of asciivalues
