@@ -220,13 +220,34 @@ namespace Project_Epsilon
                 }
                 rfidTxt.Text = Convert.ToString(LoadedRecipe._RFIDNumber);
                 recipeUDITxt.Text = Convert.ToString(LoadedRecipe._UDIRecipe);
-                highTempTxt.Text = Convert.ToString(LoadedRecipe._tempHigherAlarmValue);
-                tempSetTxt.Text = Convert.ToString(LoadedRecipe._tempSetpoint);
-                lowTempTxt.Text = Convert.ToString(LoadedRecipe._tempLowerAlarmValue);
-                sealTimeTxt.Text = Convert.ToString(LoadedRecipe._sealTime);
-                pressSetTxt.Text = Convert.ToString(LoadedRecipe._pressureSetpointFromOIT);
-                highPressTxt.Text = Convert.ToString(LoadedRecipe._pressureUpperAlarmValue);
-                lowPressureTxt.Text = Convert.ToString(LoadedRecipe._pressureLowerAlarmValue);
+                if (LoadedRecipe._tempHigherAlarmValue != 0.0)
+                {
+                    highTempTxt.Text = Convert.ToString(LoadedRecipe._tempHigherAlarmValue);
+                }
+                if (LoadedRecipe._tempSetpoint != 0.0)
+                {
+                    tempSetTxt.Text = Convert.ToString(LoadedRecipe._tempSetpoint);
+                }
+                if (LoadedRecipe._tempLowerAlarmValue != 0.0)
+                {
+                    lowTempTxt.Text = Convert.ToString(LoadedRecipe._tempLowerAlarmValue);
+                }
+                if (LoadedRecipe._sealTime != 0.0)
+                {
+                    sealTimeTxt.Text = Convert.ToString(LoadedRecipe._sealTime);
+                }
+                if (LoadedRecipe._pressureSetpointFromOIT != 0.0)
+                {
+                    pressSetTxt.Text = Convert.ToString(LoadedRecipe._pressureSetpointFromOIT);
+                }
+                if (LoadedRecipe._pressureUpperAlarmValue != 0.0)
+                {
+                    highPressTxt.Text = Convert.ToString(LoadedRecipe._pressureUpperAlarmValue);
+                }
+                if (LoadedRecipe._pressureLowerAlarmValue != 0.0)
+                {
+                    lowPressureTxt.Text = Convert.ToString(LoadedRecipe._pressureLowerAlarmValue);
+                }
                 CheckCompletion();
             }
         }
