@@ -25,14 +25,7 @@ namespace Project_Epsilon
         public ChooseRecipe()
         {
             InitializeComponent();
-            if (selectRecipe.Items.Count == 0)
-            {
-                NoRecipe.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                NoRecipe.Visibility = Visibility.Hidden;
-            }
+            
             //focuses the cursor on the selectRecipe control
             selectRecipe.Focus();
 
@@ -44,7 +37,14 @@ namespace Project_Epsilon
             {
                 selectRecipe.Items.Add(recipe.Split(',')[0]);
             }
-            
+            if (selectRecipe.Items.Count == 0)
+            {
+                NoRecipe.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                NoRecipe.Visibility = Visibility.Hidden;
+            }
         }
 
         // Load Recipe button is clicked
