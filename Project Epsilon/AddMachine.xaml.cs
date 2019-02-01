@@ -159,8 +159,8 @@ namespace Project_Epsilon
                 if (!acceptableOct1.Contains(oct1Value))
                 {
                     IPAddressError.Visibility = Visibility.Visible;
-                    IPAddressError.Text = "Local IP Addresses Only (192, 172 or 10).";
-                }
+                    IPAddressError.Text = "Local Machine Addresses Only (192, 172 or 10).";
+                }            
             }
             catch {; }       
         }
@@ -168,6 +168,31 @@ namespace Project_Epsilon
         private void oct1_GotFocus(object sender, EventArgs e)
         {
             IPAddressError.Visibility = Visibility.Hidden;
+        }
+
+        private void oct2_GotFocus(object sender, RoutedEventArgs e)
+        {
+            oct2.Text = "";
+            IPAddressError.Text = "";
+            IPAddressError.Visibility = Visibility.Hidden;
+        }
+
+        private void oct2_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int oct1Value = Convert.ToInt32(oct1.Text);
+                int oct2Value = Convert.ToInt32(oct2.Text);
+
+                if (oct1Value == 172)
+                {
+                    if (oct2Value < 16 || oct2Value > 31)
+                    {
+                        IPAddressError.Visibility = Visibility.Visible;
+                        IPAddressError.Text = "Machine Address Must Be Within 172.16.0.0 - 172.31.255.255";
+                    }
+                }
+            } catch {; }
         }
     }
 }
