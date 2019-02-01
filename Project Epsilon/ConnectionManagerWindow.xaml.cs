@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.ComponentModel;
+using System.IO;
 
 namespace Project_Epsilon
 {
@@ -56,7 +57,7 @@ namespace Project_Epsilon
 
         //closes the page
         private void backBtn_Click(object sender, RoutedEventArgs e)
-        { 
+        {
             this.Close();
             MainWindow winMainWindow = new MainWindow();
             winMainWindow.Show();
@@ -85,7 +86,12 @@ namespace Project_Epsilon
             {
                 machineList.Items.Add(machine.Split('/')[1]);
             }
-        }            
-    }
+        }
 
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            SaveConfig.Save();
+            Application.Current.Shutdown();
+        }
+    }
 }

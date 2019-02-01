@@ -92,20 +92,8 @@ namespace Project_Epsilon
         }
         protected override void OnClosing(CancelEventArgs e)
         {
-            string output = "";
-            //IP-PASSWORD/Name
-            foreach (string server in Machines.MachineData)
-            {
-                output += server.Split('@')[1].Split(':')[0] + "-";
-                output += server.Split('-')[1].Split('/')[0] + "-";
-                output += server.Split('/')[1] + "|";
-            }
-
-            output = output.TrimEnd('|');
-            System.IO.File.WriteAllText(System.IO.Path.Combine(Directory.GetCurrentDirectory(), CONFIG), output);
-
-            Application.Current.Shutdown();
-           
+            SaveConfig.Save();
+            Application.Current.Shutdown();         
         }       
     }
 }
