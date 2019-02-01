@@ -96,9 +96,7 @@ namespace Project_Epsilon
 
         //closes the page
         private void CancelLoad_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow winMainWindow = new MainWindow();
-            winMainWindow.Show();
+        {          
             this.Close();
         }
     }

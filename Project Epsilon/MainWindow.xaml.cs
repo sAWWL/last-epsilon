@@ -49,11 +49,9 @@ namespace Project_Epsilon
         }
 
         private void SettingsBtn_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
+        {            
             ConnectionManagerWindow connectionManagerWindow = new ConnectionManagerWindow();
-            connectionManagerWindow.Show();
-            
+            connectionManagerWindow.Show();        
         }
 
         private void Exit(object sender, RoutedEventArgs e)
@@ -87,8 +85,7 @@ namespace Project_Epsilon
                     winFileBrowser.Show();
                     
                 }
-            }
-            this.Hide();
+            }         
         }
         protected override void OnClosing(CancelEventArgs e)
         {
