@@ -50,6 +50,7 @@ namespace Project_Epsilon
 
         private void SettingsBtn_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             ConnectionManagerWindow connectionManagerWindow = new ConnectionManagerWindow();
             connectionManagerWindow.Show();
             
