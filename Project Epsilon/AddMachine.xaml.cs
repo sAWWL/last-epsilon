@@ -22,7 +22,12 @@ namespace Project_Epsilon
         // List to index each octet of IP address 
         List<int> octets = new List<int>();
 
-        bool octetsCorrect = true;     
+        bool octetsCorrect = true;
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Keyboard.Focus(oct1);
+        }
 
         // Method for adding a new machine
         public AddMachine()

@@ -22,7 +22,7 @@ namespace Project_Epsilon
         {
             // Some of these fields may be empty
             try
-            { 
+            {
                 // Take in data from the textboxes and set the respective properties of LoadedRecipe object
                 LoadedRecipe._recipeName = recipeTxt.Text;
                 LoadedRecipe._product = productTxt.Text;
@@ -39,7 +39,8 @@ namespace Project_Epsilon
                 LoadedRecipe._projectName = "Master_HMI_Cavity_Master";
                 LoadedRecipe._recipeGeneratedBy = "AES";
                 LoadedRecipe._recipeGeneratedOn = Convert.ToString(DateTime.Now);
-            } catch {;}
+            }
+            catch {; }
         }
         public void CheckCompletion()
         {
@@ -52,7 +53,8 @@ namespace Project_Epsilon
             {
                 errorTxt.Visibility = Visibility.Visible;
                 saveRecipe.IsEnabled = false;
-                errorTxt.Content = "All Fields (except RFID) are Required";
+                saveRecipe.Visibility = Visibility.Hidden;
+                errorTxt.Content = "All Fields (except RFID) are required";
             }
             else
             {
@@ -75,10 +77,10 @@ namespace Project_Epsilon
                 }
                 catch
                 {
-                    
+
                 }
-                
-                
+
+
                 // If any of the textfields are strings and not numbers
                 if (!Double.TryParse(highTempTxt.Text, out highTempAlarm) || !Double.TryParse(tempSetTxt.Text, out tempSetPoint) || !Double.TryParse(lowTempTxt.Text, out lowTemp)
                 || !Double.TryParse(sealTimeTxt.Text, out sealTime) || !Double.TryParse(highPressTxt.Text, out highPress)
@@ -86,6 +88,7 @@ namespace Project_Epsilon
                 {
                     errorTxt.Visibility = Visibility.Visible;
                     saveRecipe.IsEnabled = false;
+                    saveRecipe.Visibility = Visibility.Hidden;
                     errorTxt.Content = "Below fields must be numeric input only";
                 }
                 else
@@ -95,6 +98,7 @@ namespace Project_Epsilon
                         //error message is visible, save Recipe is disabled, error message is displayed
                         errorTxt.Visibility = Visibility.Visible;
                         saveRecipe.IsEnabled = false;
+                        saveRecipe.Visibility = Visibility.Hidden;
                         errorTxt.Content = "Fix High Temperature. It is Lower than Temp Setpoint";
                     }
                     else if (highTempAlarm >= 250)
@@ -102,6 +106,7 @@ namespace Project_Epsilon
                         //error message is visible, save Recipe is disabled, error message is displayed
                         errorTxt.Visibility = Visibility.Visible;
                         saveRecipe.IsEnabled = false;
+                        saveRecipe.Visibility = Visibility.Hidden;
                         errorTxt.Content = "High Temp Alarm must be less than 250 degrees";
                     }
                     else if (lowTemp >= tempSetPoint)
@@ -109,6 +114,7 @@ namespace Project_Epsilon
                         //error message is visible, save Recipe is disabled, error message is displayed
                         errorTxt.Visibility = Visibility.Visible;
                         saveRecipe.IsEnabled = false;
+                        saveRecipe.Visibility = Visibility.Hidden;
                         errorTxt.Content = "Fix Low Temperature. It is Greater than Temp Setpoint";
                     }
                     else if (lowTemp <= 50)
@@ -116,6 +122,7 @@ namespace Project_Epsilon
                         //error message is visible, save Recipe is disabled, error message is displayed
                         errorTxt.Visibility = Visibility.Visible;
                         saveRecipe.IsEnabled = false;
+                        saveRecipe.Visibility = Visibility.Hidden;
                         errorTxt.Content = "Low Temp Alarm must be greater than 50 degrees";
                     }
                     else if (sealTime <= 0)
@@ -123,6 +130,7 @@ namespace Project_Epsilon
                         //error message is visible, save Recipe is disabled, error message is displayed
                         errorTxt.Visibility = Visibility.Visible;
                         saveRecipe.IsEnabled = false;
+                        saveRecipe.Visibility = Visibility.Hidden;
                         errorTxt.Content = "Fix Seal Time. Seal Time must be greater than 0 seconds";
                     }
                     else if (sealTime >= 10)
@@ -130,6 +138,7 @@ namespace Project_Epsilon
                         //error message is visible, save Recipe is disabled, error message is displayed
                         errorTxt.Visibility = Visibility.Visible;
                         saveRecipe.IsEnabled = false;
+                        saveRecipe.Visibility = Visibility.Hidden;
                         errorTxt.Content = "Fix Seal Time. Seal Time must be less than 10 seconds";
                     }
                     else if (highPress <= pressSet)
@@ -137,6 +146,7 @@ namespace Project_Epsilon
                         //error message is visible, save Recipe is disabled, error message is displayed
                         errorTxt.Visibility = Visibility.Visible;
                         saveRecipe.IsEnabled = false;
+                        saveRecipe.Visibility = Visibility.Hidden;
                         errorTxt.Content = "Fix High Pressure. It is Lower than Pressure Setpoint";
                     }
                     else if (highPress >= 125)
@@ -144,6 +154,7 @@ namespace Project_Epsilon
                         //error message is visible, save Recipe is disabled, error message is displayed
                         errorTxt.Visibility = Visibility.Visible;
                         saveRecipe.IsEnabled = false;
+                        saveRecipe.Visibility = Visibility.Hidden;
                         errorTxt.Content = "High Pressure Alarm must be less than 125 PSI";
                     }
                     else if (lowPressure >= pressSet)
@@ -151,6 +162,7 @@ namespace Project_Epsilon
                         //error message is visible, save Recipe is disabled, error message is displayed
                         errorTxt.Visibility = Visibility.Visible;
                         saveRecipe.IsEnabled = false;
+                        saveRecipe.Visibility = Visibility.Hidden;
                         errorTxt.Content = "Fix Low Pressure. It is Greater than Pressure Setpoint";
                     }
                     else if (lowPressure <= 0)
@@ -158,6 +170,7 @@ namespace Project_Epsilon
                         //error message is visible, save Recipe is disabled, error message is displayed
                         errorTxt.Visibility = Visibility.Visible;
                         saveRecipe.IsEnabled = false;
+                        saveRecipe.Visibility = Visibility.Hidden;
                         errorTxt.Content = "Low Pressure Alarm must be greater than 0 PSI";
                     }
                     else
@@ -165,13 +178,14 @@ namespace Project_Epsilon
                         //error is invisible, saveRecipe is enabled
                         errorTxt.Visibility = Visibility.Hidden;
                         saveRecipe.IsEnabled = true;
+                        saveRecipe.Visibility = Visibility.Visible;
                     }
                 }
             }
         }
         public void RefreshPage()
         {
-            if(LoadedRecipe.recipeloaded == true)
+            if (LoadedRecipe.recipeloaded == true)
             {
                 createdByTxt.Text = LoadedRecipe._recipeGeneratedBy;
                 createdOnTxt.Text = LoadedRecipe._recipeGeneratedOn;
@@ -183,7 +197,8 @@ namespace Project_Epsilon
                 {
                     //display yes
                     toolConfirmTxt.Text = "Yes";
-                }else
+                }
+                else
                 {
                     toolConfirmTxt.Text = "No";
                 }
@@ -198,7 +213,8 @@ namespace Project_Epsilon
                 if (LoadedRecipe._recUDI1 == 1)
                 {
                     usingUDITxt.Text = "Yes";
-                }else
+                }
+                else
                 {
                     usingUDITxt.Text = "No";
                 }
@@ -219,9 +235,9 @@ namespace Project_Epsilon
             StoreTempData();
             //ccreats new instance of OptionsMenu page and displays it as primary window
             OptionsMenu winOptionsMenu = new OptionsMenu();
-            if(winOptionsMenu.ShowDialog() == false)
+            if (winOptionsMenu.ShowDialog() == false)
             {
-                RefreshPage(); 
+                RefreshPage();
             }
         }
         private void Exit()
@@ -310,10 +326,10 @@ namespace Project_Epsilon
         //Validation
         private void UDI_Validation(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-        //tests controls is box is null or just empty with white spaces
-         CheckCompletion();
-            
-               
+            //tests controls is box is null or just empty with white spaces
+            CheckCompletion();
+
+
         }
 
         //clear button is pressed
