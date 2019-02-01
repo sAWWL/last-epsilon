@@ -25,6 +25,14 @@ namespace Project_Epsilon
         public ChooseRecipe()
         {
             InitializeComponent();
+            if (selectRecipe.Items.Count == 0)
+            {
+                NoRecipe.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                NoRecipe.Visibility = Visibility.Hidden;
+            }
             //focuses the cursor on the selectRecipe control
             selectRecipe.Focus();
 

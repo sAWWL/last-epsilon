@@ -19,7 +19,6 @@
                 <GradientStop Color="#FF2F73AD" Offset="0.99"/>
             </LinearGradientBrush>
         </Grid.Background>
-
         <ListView IsEnabled="True" x:Name="selectRecipe" HorizontalAlignment="Left" Height="217" Margin="10,10,0,0" VerticalAlignment="Top" Width="237">
             <ListView.View>
                 <GridView>
@@ -30,6 +29,6 @@
         <Button x:Name="LoadFile" HorizontalAlignment="Left" Margin="264,103,0,0" VerticalAlignment="Top" Width="115" Click="Button_Click" Height="25" FontWeight="Bold" IsEnabled="{Binding ElementName=selectRecipe, Path=SelectedItems.Count}">Load Recipe</Button>
         <Button Name="newRecipeBtn" Content="Add New Recipe" HorizontalAlignment="Left" Margin="10,233,0,0" VerticalAlignment="Top" Width="116" Click="newRecipeBtn_Click" Height="25" FontWeight="Bold"/>
         <Button x:Name="deleteRecipeBtn" Content="Delete Recipe" HorizontalAlignment="Left" Margin="131,233,0,0" VerticalAlignment="Top" Click="deleteRecipeBtn_Click" Height="25" Width="116" FontWeight="Bold"/>
-
+        <Label Name="NoRecipe" Content="No Recipe on HMI" HorizontalAlignment="Center" Margin="264,133,21,0" VerticalAlignment="Top" Width="115" Foreground="Red" Visibility="Hidden"/>
     </Grid>
 </Window>

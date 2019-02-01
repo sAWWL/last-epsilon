@@ -89,11 +89,5 @@ namespace Project_Epsilon
                 machineList.Items.Add(machine.Split('/')[1]);
             }
         }
-
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            SaveConfig.Save();
-            Application.Current.Shutdown();
-        }
     }
 }

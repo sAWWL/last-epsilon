@@ -26,6 +26,8 @@ namespace Project_Epsilon
         {
             
             InitializeComponent();
+            ChooseRecipe chooseRecipe = new ChooseRecipe();
+            chooseRecipe.Show();
             //Add Machines for Demo Purposes
 
             try
