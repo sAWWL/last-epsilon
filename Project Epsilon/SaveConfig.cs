@@ -17,8 +17,6 @@ namespace Project_Epsilon
             output = output.TrimEnd('|');
             System.IO.File.WriteAllText(System.IO.Path.Combine(Directory.GetCurrentDirectory(), CONFIG), output);
 
-        }
-
-
+        }   
     }
 }
