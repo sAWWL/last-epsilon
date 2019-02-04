@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace Project_Epsilon
 {
@@ -30,7 +31,6 @@ namespace Project_Epsilon
             txtUDIFirstPosition.Visibility = Visibility.Hidden;
             lblUDIEndingPosition.Visibility = Visibility.Hidden;
             txtUDIEndingPosition.Visibility = Visibility.Hidden;
-            txtUDIPartialCompare.Visibility = Visibility.Hidden;
             lblCavityManagement.Visibility = Visibility.Hidden;
             chkCompareUDI.Visibility = Visibility.Hidden;
             lblCavUDIEntireOrPartial.Visibility = Visibility.Hidden;
@@ -43,80 +43,105 @@ namespace Project_Epsilon
             txtCavUDIEndingPosition.Visibility = Visibility.Hidden;
             txtCavUDIPartialCompare.Visibility = Visibility.Hidden;
 
-            //variable
+            //udi from loaded recipe is put into the udi textbox of udipage
             txtUDIRecipe.Text = LoadedRecipe._UDIRecipe;
-
-            //if loaded recipe has a value of 1
-            if (LoadedRecipe._recUDI1 == 1)
-            {
-                //checks this checkbox
-                chkUseUDI.IsChecked = true;
-            }
-            //else
-            else
-            {
-                //unchecks this checkbox
-                chkUseUDI.IsChecked = false;
-            }
-            //displays value of these UDI loaded recipes into textboxes
-            txtUDIEntireOrPartial.Text = LoadedRecipe._recUDI3;
-            txtUDIFirstPosition.Text = LoadedRecipe._recUDI4;
-            txtUDIEndingPosition.Text = LoadedRecipe._recUDI5;
-
-            //if loaded recipe has a value of 1
-            if (LoadedRecipe._recUDI6 == "1")
-            {
-                //checks this checkbox
-                chkCompareUDI.IsChecked = true;
-
-            }
-            else
-            {
-                //unchecks this checkbox
-                chkCompareUDI.IsChecked = false;
-            }
-            //displays value of these UDI loaded recipes into textboxes
+            txtUDILength.Text = txtUDIRecipe.Text.Length.ToString();
             txtCavUDIEntireOrPartial.Text = LoadedRecipe._recUDI7;
             txtCavUDIFirstPosition.Text = LoadedRecipe._recUDI8;
             txtCavUDIEndingPosition.Text = LoadedRecipe._recUDI9;
+            txtUDIEntireOrPartial.Text = LoadedRecipe._recUDI3;
+            txtUDIFirstPosition.Text = LoadedRecipe._recUDI4;
+            txtUDIEndingPosition.Text = LoadedRecipe._recUDI5;
+            txtUDIPartialCompare.Visibility = Visibility.Hidden;
 
-            //if loaded recipe in cavUsed control is true
-            if (LoadedRecipe.cavUsed == true)
+
+            //if there is a value from the recipe load it in 
+            if (!string.IsNullOrWhiteSpace(LoadedRecipe._recUDI3))
             {
-                //Makes these controls visible
+                lblUDIEntireOrPartial.Visibility = Visibility.Visible;
+                txtUDIEntireOrPartial.Visibility = Visibility.Visible;
+            }
+
+            //if there is a first position value from the recipe and p was the value of _recUDI3 then load it in 
+            if (!string.IsNullOrWhiteSpace(LoadedRecipe._recUDI4) && txtUDIEntireOrPartial.Text == "p")
+            {
+                lblUDIFirstPosition.Visibility = Visibility.Visible;
+                txtUDIFirstPosition.Visibility = Visibility.Visible;
+                txtUDIFirstPosition.IsEnabled = txtUDIEndingPosition.IsEnabled = true;
+                txtUDIPartialCompare.Visibility = Visibility.Visible;
+            }
+
+            //if there is an end position value from the recipe load it in p was the value of _recUDI3 then load it in 
+            if (!string.IsNullOrWhiteSpace(LoadedRecipe._recUDI5) && txtUDIEntireOrPartial.Text == "p")
+            {
+                lblUDIEndingPosition.Visibility = Visibility.Visible;
+                txtUDIEndingPosition.Visibility = Visibility.Visible;
+            }
+
+            //if there is true or false value from the recipe load it in 
+            if (!string.IsNullOrWhiteSpace(LoadedRecipe._recUDI6) || (LoadedRecipe._cavMgtUsed == 1))
+            {
                 lblCavityManagement.Visibility = Visibility.Visible;
                 chkCompareUDI.Visibility = Visibility.Visible;
-                txtUDIPartialCompare.Visibility = Visibility.Visible;
+            }
+
+            //if there is a value from the recipe load it in
+            if (!string.IsNullOrWhiteSpace(LoadedRecipe._recUDI7))
+            {
+                lblCavUDIEntireOrPartial.Visibility = Visibility.Visible;
+                txtCavUDIEntireOrPartial.Visibility = Visibility.Visible;
+            }
+
+            //if there is a value for the postion and p was the value of _recUDI8 then load it in 
+            if (!string.IsNullOrWhiteSpace(LoadedRecipe._recUDI8) && txtCavUDIEntireOrPartial.Text == "p")
+            {
+                lblCavUDIFirstPosition.Visibility = Visibility.Visible;
+                txtCavUDIFirstPosition.Visibility = Visibility.Visible;
+                txtCavUDIPartialCompare.Visibility = Visibility.Visible;
+                txtUDIFirstPosition.IsEnabled = txtUDIEndingPosition.IsEnabled = true;
+            }
+
+            //if there  is a value for the end position and p was the value of recUDI3 then load it in
+            if (!string.IsNullOrWhiteSpace(LoadedRecipe._recUDI9) && txtCavUDIEntireOrPartial.Text == "p")
+            {
+                lblCavUDIEndingPosition.Visibility = Visibility.Visible;
+                txtCavUDIEndingPosition.Visibility = Visibility.Visible;
             }
 
         }
         //if udi checkbox is checked then display the next section of the page 
         private void chkUseUDI_Checked(object sender, RoutedEventArgs e)
         {
+            lblUDIEntireOrPartial.Visibility = Visibility.Visible;
+            txtUDIEntireOrPartial.Visibility = Visibility.Visible;
             //if checked
-            if (chkUseUDI.IsChecked == true)
-            {
-                //Converts to a string with a certain length
-                //Stores into txtUDILength textbox
-                txtUDILength.Text = txtUDIRecipe.Text.Length.ToString();
+            if (chkUseUDI.IsChecked.Value)
 
-                //Makes these controls visible
-                lblCavityManagement.Visibility = Visibility.Hidden;
-                chkCompareUDI.Visibility = Visibility.Hidden;
-                txtUDILength.Visibility = Visibility.Visible;
-                txtUDIRecipe.Visibility = Visibility.Visible;
-                lblUDIEntireOrPartial.Visibility = Visibility.Visible;
-                txtUDIEntireOrPartial.Visibility = Visibility.Visible;
+            {
+                ////Converts to a string with a certain length
+                //if (!string.IsNullOrWhiteSpace(txtUDIEntireOrPartial.Text))
+                //{
+
+                //}
+
+                if (!string.IsNullOrWhiteSpace(txtUDIFirstPosition.Text) && txtUDIEntireOrPartial.Text == "p")
+                {
+                    lblUDIFirstPosition.Visibility = Visibility.Visible;
+                    txtUDIFirstPosition.Visibility = Visibility.Visible;
+                    txtUDIFirstPosition.IsEnabled = txtUDIEndingPosition.IsEnabled = true;
+                    txtUDIPartialCompare.Visibility = Visibility.Visible;
+                }
+
+                if (!string.IsNullOrWhiteSpace(txtUDIEndingPosition.Text) && txtUDIEntireOrPartial.Text == "p")
+                {
+                    lblUDIEndingPosition.Visibility = Visibility.Visible;
+                    txtUDIEndingPosition.Visibility = Visibility.Visible;
+                }
             }
             //if unchecked
             else
             {
-                /*
-                //empties the string in this textbox.
-                txtUDIRecipe.Text = string.Empty;
-                */
-                txtUDILength.Visibility = Visibility.Hidden;
-                txtUDIRecipe.Visibility = Visibility.Hidden;
+                //hidden from screen
                 lblUDIEntireOrPartial.Visibility = Visibility.Hidden;
                 txtUDIEntireOrPartial.Visibility = Visibility.Hidden;
                 lblUDIFirstPosition.Visibility = Visibility.Hidden;
@@ -124,8 +149,6 @@ namespace Project_Epsilon
                 lblUDIEndingPosition.Visibility = Visibility.Hidden;
                 txtUDIEndingPosition.Visibility = Visibility.Hidden;
                 txtUDIPartialCompare.Visibility = Visibility.Hidden;
-                lblCavityManagement.Visibility = Visibility.Hidden;
-                chkCompareUDI.Visibility = Visibility.Hidden;
                 chkCompareUDI.IsChecked = false;
             }
         }
@@ -171,56 +194,28 @@ namespace Project_Epsilon
 
         private void txtUDIEntireOrPartial_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //Variable
-            var input = txtUDIEntireOrPartial.Text.ToString();
+            Regex regex = new Regex(@"[ep]");
+            MatchCollection matches = regex.Matches(txtUDIEntireOrPartial.Text);
 
-            //if the variable input = "e"
-            if (input == "e")
+            var input = txtUDIEntireOrPartial.Text.ToString();
+            if (input == "p")
             {
-                //Do entire
-                //Make these controls invisible
-                lblCavityManagement.Visibility = Visibility.Hidden;
-                chkCompareUDI.Visibility = Visibility.Hidden;
-                lblCavUDIEntireOrPartial.Visibility = Visibility.Hidden;
-                txtCavUDIEntireOrPartial.Visibility = Visibility.Hidden;
-                lblCavUDIFirstPosition.Visibility = Visibility.Hidden;
-                txtCavUDIFirstPosition.Visibility = Visibility.Hidden;
-                lblCavUDIEndingPosition.Visibility = Visibility.Hidden;
-                txtCavUDIEndingPosition.Visibility = Visibility.Hidden;
-                txtCavUDIPartialCompare.Visibility = Visibility.Hidden;
-                txtUDIFirstPosition.IsEnabled = txtUDIEndingPosition.IsEnabled = false;
-            }
-            //if the variable input = "p"
-            else if (input == "p")
-            {
-                //Top section controls when p is entered in upper portion
                 lblUDIFirstPosition.Visibility = Visibility.Visible;
                 txtUDIFirstPosition.Visibility = Visibility.Visible;
                 lblUDIEndingPosition.Visibility = Visibility.Visible;
                 txtUDIEndingPosition.Visibility = Visibility.Visible;
-                txtUDIPartialCompare.Visibility = Visibility.Visible;
-
-                //These are the bottom section controls when p is entered in upper portion
-                lblCavityManagement.Visibility = Visibility.Visible;
-                chkCompareUDI.Visibility = Visibility.Visible;
-                lblCavUDIEntireOrPartial.Visibility = Visibility.Hidden;
-                txtCavUDIEntireOrPartial.Visibility = Visibility.Hidden;
-                lblCavUDIFirstPosition.Visibility = Visibility.Hidden;
-                txtCavUDIFirstPosition.Visibility = Visibility.Hidden;
-                lblCavUDIEndingPosition.Visibility = Visibility.Hidden;
-                txtCavUDIEndingPosition.Visibility = Visibility.Hidden;
-                txtCavUDIPartialCompare.Visibility = Visibility.Hidden;
-                lblCavityManagement.Visibility = Visibility.Hidden;
                 txtUDIFirstPosition.IsEnabled = txtUDIEndingPosition.IsEnabled = true;
+                txtUDIPartialCompare.Visibility = Visibility.Visible;
             }
-            //else
-            else
+            else if (input == "e")
             {
+                lblUDIFirstPosition.Visibility = Visibility.Hidden;
+                txtUDIFirstPosition.Visibility = Visibility.Hidden;
+                lblUDIEndingPosition.Visibility = Visibility.Hidden;
+                txtUDIEndingPosition.Visibility = Visibility.Hidden;
                 txtUDIFirstPosition.IsEnabled = txtUDIEndingPosition.IsEnabled = false;
-                //invalid input, clear textfield.
+                txtUDIPartialCompare.Visibility = Visibility.Hidden;
             }
-
-
         }
         //partial compare for UDI string. 
         private void PartialCompare(string udiFirstP, string udiSecondP = "")
@@ -300,65 +295,70 @@ namespace Project_Epsilon
 
         private void chkCompareUDI_Checked(object sender, RoutedEventArgs e)
         {
+
             //if yes to cavity being used on cavity screen 
-            if (chkCompareUDI.IsChecked == true)
+            if (chkCompareUDI.IsChecked.Value)
             {
-                //Makes two controls visible
-                lblCavityManagement.Visibility = Visibility.Visible;
                 lblCavUDIEntireOrPartial.Visibility = Visibility.Visible;
                 txtCavUDIEntireOrPartial.Visibility = Visibility.Visible;
+
+                if (!string.IsNullOrWhiteSpace(txtCavUDIFirstPosition.Text) && txtCavUDIEntireOrPartial.Text == "p")
+                {
+                    lblCavUDIFirstPosition.Visibility = Visibility.Visible;
+                    txtCavUDIFirstPosition.Visibility = Visibility.Visible;
+                    txtCavUDIFirstPosition.IsEnabled = txtCavUDIEndingPosition.IsEnabled = true;
+                    txtCavUDIPartialCompare.Visibility = Visibility.Visible;
+                }
+
+                if (!string.IsNullOrWhiteSpace(txtCavUDIEndingPosition.Text) && txtCavUDIEntireOrPartial.Text == "p")
+                {
+                    lblCavUDIEndingPosition.Visibility = Visibility.Visible;
+                    txtCavUDIEndingPosition.Visibility = Visibility.Visible;
+                }
             }
-            //If no to cavity being used on cavity screen
-            else if (chkCompareUDI.IsChecked == false)
+
+            else
             {
-                //These controls become hidden
-                lblCavUDIEntireOrPartial.Visibility = Visibility.Hidden;
-                txtCavUDIEntireOrPartial.Visibility = Visibility.Hidden;
                 lblCavUDIFirstPosition.Visibility = Visibility.Hidden;
                 txtCavUDIFirstPosition.Visibility = Visibility.Hidden;
+                txtCavUDIFirstPosition.IsEnabled = txtCavUDIEndingPosition.IsEnabled = false;
+                txtCavUDIPartialCompare.Visibility = Visibility.Hidden;
                 lblCavUDIEndingPosition.Visibility = Visibility.Hidden;
                 txtCavUDIEndingPosition.Visibility = Visibility.Hidden;
-                txtCavUDIPartialCompare.Visibility = Visibility.Hidden;
             }
 
         }
 
         private void txtCavUDIEntireOrPartial_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //variable
-            //var input = txtCavUDIEntireOrPartial.Text.ToString();
 
-            //if input is assigned "p"
-            if (txtCavUDIEntireOrPartial.Text == "p")
+
+            var cavInput = txtCavUDIEntireOrPartial.Text.ToString();
+            if (cavInput == "p")
             {
-                //Make these controls visible
                 lblCavUDIFirstPosition.Visibility = Visibility.Visible;
                 txtCavUDIFirstPosition.Visibility = Visibility.Visible;
                 lblCavUDIEndingPosition.Visibility = Visibility.Visible;
                 txtCavUDIEndingPosition.Visibility = Visibility.Visible;
-                txtCavUDIPartialCompare.Visibility = Visibility.Visible;
-                //enables first and ending position textboxes
                 txtCavUDIFirstPosition.IsEnabled = txtCavUDIEndingPosition.IsEnabled = true;
+                txtCavUDIPartialCompare.Visibility = Visibility.Visible;
             }
-            //if input is assigned "e"
-            else if (txtCavUDIEntireOrPartial.Text == "e")
+            else if (cavInput == "e")
             {
-                //Make these controls invisible/hidden
                 lblCavUDIFirstPosition.Visibility = Visibility.Hidden;
                 txtCavUDIFirstPosition.Visibility = Visibility.Hidden;
                 lblCavUDIEndingPosition.Visibility = Visibility.Hidden;
                 txtCavUDIEndingPosition.Visibility = Visibility.Hidden;
                 txtCavUDIPartialCompare.Visibility = Visibility.Hidden;
-
-                //disables first and ending position textboxes
                 txtCavUDIFirstPosition.IsEnabled = txtCavUDIEndingPosition.IsEnabled = false;
+
             }
-            //if input is neither "e" or "p"
             else
             {
-                //invalid input, clear textfield.
-                txtCavUDIFirstPosition.IsEnabled = txtCavUDIEndingPosition.IsEnabled = false;
+
             }
+
+
         }
         //partial compare for CavUDI string. 
         private void CavPartialCompare(string udiCavFirstP, string udiCavSecondP = "")
