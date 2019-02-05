@@ -397,5 +397,47 @@ namespace Project_Epsilon
         {
             CavPartialCompare(txtCavUDIFirstPosition.Text, txtCavUDIEndingPosition.Text);
         }
+
+        private void txtUDIEorP_LostFocus(object sender, EventArgs e)
+        {
+            //txtCavUDIEntireOrPartial
+            //txtUDIEntireOrPartial
+
+            try
+            {
+                string txt1 = txtUDIEntireOrPartial.Text;
+
+                if (txt1 != "e" && txt1 != "p")
+                {
+                    if (txt1 != "")
+                    {
+                        MessageBox.Show("Error - entry must be an 'e' or 'p'. ");
+                        txtUDIEntireOrPartial.Text = "";
+                    }
+                }
+            }
+            catch {; }
+        }
+
+        private void txtCavUDIEorP_LostFocus(object sender, EventArgs e)
+        {
+            string txt1 = txtCavUDIEntireOrPartial.Text;
+
+            try
+            {
+                if (txt1 != "e" && txt1 != "p")
+                {
+                    if (txt1 != "")
+                    {
+                        MessageBox.Show("Error - entry must be 'e' or 'p'!");
+                        txtCavUDIEntireOrPartial.Text = "";
+                    }
+                }
+            }
+            catch {; }
+
+        }
     }
+
+
 }
