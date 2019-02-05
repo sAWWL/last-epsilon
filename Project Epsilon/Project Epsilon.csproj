@@ -81,7 +81,9 @@
     <Compile Include="RecipePreview.xaml.cs">
       <DependentUpon>RecipePreview.xaml</DependentUpon>
     </Compile>
-    <Content Include="SaveConfig.cs" />
+    <Content Include="SaveConfig.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Compile Include="Servers.cs" />
     <Compile Include="ToolSetupWindow.xaml.cs" />
     <Compile Include="UDIPage.xaml.cs" />
