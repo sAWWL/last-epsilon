@@ -45,6 +45,7 @@ namespace Project_Epsilon
         {
             LoadedRecipe.confirmload = true;
             this.Close();
+            
         }
     }
 }

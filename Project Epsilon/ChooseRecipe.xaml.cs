@@ -25,6 +25,8 @@ namespace Project_Epsilon
         public ChooseRecipe()
         {
             InitializeComponent();
+
+            
             
             //focuses the cursor on the selectRecipe control
             selectRecipe.Focus();
@@ -99,9 +101,10 @@ namespace Project_Epsilon
                 {
                     LoadedRecipe.recipeloaded = true;
                     LoadedRecipe.confirmload = false;
+                    this.Close();
                     RecipeInput recipeInput = new RecipeInput();
                     recipeInput.ShowDialog();
-                    this.Close();
+                    
                 }
             }
             //load the variable, close the page
@@ -116,8 +119,10 @@ namespace Project_Epsilon
                     LoadedRecipe.confirmload = false;
                     LoadedRecipe.loginSuccess = true;
                     RecipeInput recipeInput = new RecipeInput();
-                    recipeInput.ShowDialog();
-                    this.Close();
+                    if (recipeInput.ShowDialog() == false)
+                    {
+                        this.Close();
+                    }
                 }
             }
         }
@@ -153,13 +158,13 @@ namespace Project_Epsilon
             LoadedRecipe._cavMethodTwoSelected = 0;
             LoadedRecipe._cavMgtUsed = 0;
             LoadedRecipe._recUDI1 = 0;
-            LoadedRecipe._recUDI3 = "e";
-            LoadedRecipe._recUDI4 = "0";
-            LoadedRecipe._recUDI5 = "0";
+            LoadedRecipe._recUDI3 = "";
+            LoadedRecipe._recUDI4 = "";
+            LoadedRecipe._recUDI5 = "";
             LoadedRecipe._recUDI6 = "";
-            LoadedRecipe._recUDI7 = "e";
-            LoadedRecipe._recUDI8 = "0";
-            LoadedRecipe._recUDI9 = "0";
+            LoadedRecipe._recUDI7 = "";
+            LoadedRecipe._recUDI8 = "";
+            LoadedRecipe._recUDI9 = "";
             LoadedRecipe.filerows.Add("");
             LoadedRecipe.recipeloaded = true;
             RecipeInput recipeInput = new RecipeInput();

@@ -74,11 +74,11 @@ namespace Project_Epsilon
                             }
                         }
                         MessageBox.Show("Connection Successful");
+                        this.Close();
                         ChooseRecipe chooseRecipe = new ChooseRecipe();
-                        if (chooseRecipe.ShowDialog() != true)
-                        {
-                            this.Close();
-                        }
+                        chooseRecipe.ShowDialog();
+                        
+                        
                     }
                 }
                 catch
