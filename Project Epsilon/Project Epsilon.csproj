@@ -81,9 +81,6 @@
     <Compile Include="RecipePreview.xaml.cs">
       <DependentUpon>RecipePreview.xaml</DependentUpon>
     </Compile>
-    <Content Include="SaveConfig.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Compile Include="Servers.cs" />
     <Compile Include="ToolSetupWindow.xaml.cs" />
     <Compile Include="UDIPage.xaml.cs" />
@@ -163,6 +160,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SaveConfig.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
