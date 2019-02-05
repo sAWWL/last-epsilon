@@ -30,9 +30,8 @@ namespace Project_Epsilon
 
             try
             {
-                var path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), CONFIG);
+                var path = System.IO.Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents", CONFIG);
                 string text = File.ReadAllText(path);
-
                 foreach (string machine in text.Split('|')) {
                     Machines.MachineData.Add("ATLASVAC@" + machine.Split('-')[0] + ":21-" + machine.Split('-')[1] + "/" + machine.Split('-')[2]);
                 }               

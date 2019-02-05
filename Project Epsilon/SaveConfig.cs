@@ -1,4 +1,7 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Windows;
+
 namespace Project_Epsilon
 {
     public static class SaveConfig
@@ -15,8 +18,7 @@ namespace Project_Epsilon
             }
 
             output = output.TrimEnd('|');
-            System.IO.File.WriteAllText(System.IO.Path.Combine(Directory.GetCurrentDirectory(), CONFIG), output);
-
+            File.WriteAllText(Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents", CONFIG), output);
         }   
     }
 }
